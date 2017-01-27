@@ -1,9 +1,13 @@
-﻿namespace SportSquare.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
+
+namespace SportSquare.Models
 {
     public class Venue
     {
-        //[Key]
-        public int Id { get; set; }
+        [Key]
+        public Guid Id { get; set; }
 
         public bool IsDeleted { get; set; }
 
@@ -23,6 +27,7 @@
 
         public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress, string[] venueType)
         {
+            this.Id = Guid.NewGuid();
             this.Latitude = latitude;
             this.Longitude = longitude;
             this.Image = image;
