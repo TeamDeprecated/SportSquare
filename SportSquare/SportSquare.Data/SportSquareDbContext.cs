@@ -9,7 +9,7 @@ namespace SportSquare.Data
     {
      
         public SportSquareDbContext()
-            : base("name=SportSquareDbContext")
+            : base("SportSquareDbContext")
         {
         }
 

@@ -51,9 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IRepository.cs" />
+    <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\ISportSquareDbContext.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="Migrations\201702051359231_firstMigration.cs" />
+    <Compile Include="Migrations\201702051359231_firstMigration.Designer.cs">
+      <DependentUpon>201702051359231_firstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GenericRepository.cs" />
     <Compile Include="SportSquareDbContext.cs" />
@@ -70,6 +75,15 @@
       <Project>{4f36305a-0abb-40df-845a-a5a3170545ec}</Project>
       <Name>SportSquare.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SportSquare.VenueImporter\SportSquare.VenueImporter.csproj">
+      <Project>{ebf92a33-5cb4-4671-a339-8c64ed1ad3e3}</Project>
+      <Name>SportSquare.VenueImporter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201702051359231_firstMigration.resx">
+      <DependentUpon>201702051359231_firstMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
