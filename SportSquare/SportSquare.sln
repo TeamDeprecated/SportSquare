@@ -7,13 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.Data", "SportSq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.Models", "SportSquare.Models\SportSquare.Models.csproj", "{4F36305A-0ABB-40DF-845A-A5A3170545EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.MVP", "SportSquare.MVP\SportSquare.MVP.csproj", "{5807861B-A52A-4FF5-9A97-0EFDB7F50E08}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.WebFormsClient", "SportSquare.WebFormsClient\SportSquare.WebFormsClient.csproj", "{63898077-3418-4027-833F-DF913142B0EE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.VenueImporter", "SportSquare.VenueImporter\SportSquare.VenueImporter.csproj", "{EBF92A33-5CB4-4671-A339-8C64ED1AD3E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopmentTestProject", "DevelopmentTestProject\DevelopmentTestProject.csproj", "{C04615E6-8AFA-4B9E-A83B-54291BDC392B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.MVP", "SportSquare.MVP\SportSquare.MVP.csproj", "{06486713-7F9B-4C15-8F71-1EE68D819AF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +27,6 @@ Global
 		{4F36305A-0ABB-40DF-845A-A5A3170545EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F36305A-0ABB-40DF-845A-A5A3170545EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F36305A-0ABB-40DF-845A-A5A3170545EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5807861B-A52A-4FF5-9A97-0EFDB7F50E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5807861B-A52A-4FF5-9A97-0EFDB7F50E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5807861B-A52A-4FF5-9A97-0EFDB7F50E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5807861B-A52A-4FF5-9A97-0EFDB7F50E08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63898077-3418-4027-833F-DF913142B0EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63898077-3418-4027-833F-DF913142B0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63898077-3418-4027-833F-DF913142B0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63898077-3418-4027-833F-DF913142B0EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBF92A33-5CB4-4671-A339-8C64ED1AD3E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EBF92A33-5CB4-4671-A339-8C64ED1AD3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBF92A33-5CB4-4671-A339-8C64ED1AD3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +35,10 @@ Global
 		{C04615E6-8AFA-4B9E-A83B-54291BDC392B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C04615E6-8AFA-4B9E-A83B-54291BDC392B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C04615E6-8AFA-4B9E-A83B-54291BDC392B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06486713-7F9B-4C15-8F71-1EE68D819AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06486713-7F9B-4C15-8F71-1EE68D819AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06486713-7F9B-4C15-8F71-1EE68D819AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06486713-7F9B-4C15-8F71-1EE68D819AF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

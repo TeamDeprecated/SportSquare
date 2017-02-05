@@ -7,7 +7,7 @@ namespace SportSquare.Models
     public class Venue
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid  Id { get; set; }
 
         public bool IsDeleted { get; set; }
 

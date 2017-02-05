@@ -15,6 +15,7 @@ namespace SportSquare.Data
 
         public virtual IDbSet<Venue> Venues { get; set; }
 
+
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();
