@@ -8,5 +8,6 @@ namespace SportSquare.MVP.Models
 
     public class HomeViewModel
     {
+       public  string City { get; set; }
     }
 }

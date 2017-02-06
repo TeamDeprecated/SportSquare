@@ -15,9 +15,14 @@ namespace SportSquare.MVP
     [PresenterBinding(typeof(HomePresenter))]
     public partial class Home : MvpPage<HomeViewModel>, IHomeView
     {
+        public event EventHandler<HomeEventArgs> IpDetails;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var ip = this.Request.UserHostAddress;
+            IpDetails?.Invoke(sender, new HomeEventArgs(ip));
+            //thi.Value = this.Request.UserHostAddress.ToString();
+            this.location.Value = this.Model.City;
         }
     }
 }
