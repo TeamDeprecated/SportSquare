@@ -8,8 +8,8 @@
         По твой критерии.
         </p>
         <asp:Localize runat="server"></asp:Localize>
-        <input id="query" runat="server" class="form-control" style="display:inline-block"/>
+        <input id="filter" runat="server" class="form-control" style="display:inline-block"/>
         <input id="location" runat="server" class="form-control" style="display:inline-block" />
-        <asp:Button ID="search" Text="Намери" runat="server" class="btn btn-success"/>
+        <asp:Button ID="search" Text="Намери" runat="server" class="btn btn-success" OnClick="search_Click"/>
     </div>
 </asp:Content>

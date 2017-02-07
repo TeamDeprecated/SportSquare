@@ -21,8 +21,14 @@ namespace SportSquare.MVP
         {
             var ip = this.Request.UserHostAddress;
             IpDetails?.Invoke(sender, new HomeEventArgs(ip));
-            //thi.Value = this.Request.UserHostAddress.ToString();
             this.location.Value = this.Model.City;
+        }
+
+        protected void search_Click(object sender, EventArgs e)
+        {
+            var filter = this.filter.Value;
+            var locationFilter = this.location.Value;
+            this.Response.Redirect(string.Format("~/search?q={0}&location={1}", filter, locationFilter));
         }
     }
 }

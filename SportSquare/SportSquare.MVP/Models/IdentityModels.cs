@@ -4,9 +4,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using SportSquare.MVP.Models;
+
 
 namespace SportSquare.MVP.Models
 {
@@ -30,7 +28,7 @@ namespace SportSquare.MVP.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SportSquareDbContext", throwIfV1Schema: false)
         {
         }
 

@@ -24,6 +24,8 @@ namespace SportSquare.VenueImporter
                 double longitude = 0.0;
                 string image = "";
                 string name = "";
+                string city = "";
+                string address = "";
                 string phone = "";
                 string webAddress = "";
                 string[] venueType = new string[1];
@@ -55,11 +57,16 @@ namespace SportSquare.VenueImporter
                         reader.Read();
                         name = reader.Value;
                     }
-
-                    //////////////
-                    // get CIty //
-                    //////////////
-
+                    if (isInsideInfo && reader.Name == "p" && reader.NodeType == XmlNodeType.Element && reader.GetAttribute(0) == "city")
+                    {
+                        reader.Read();
+                        city = reader.Value;
+                    }
+                    if (isInsideInfo && reader.Name == "p" && reader.NodeType == XmlNodeType.Element && reader.GetAttribute(0) == "address")
+                    {
+                        reader.Read();
+                        address = reader.Value;
+                    }
 
                     if (isInsideInfo && reader.AttributeCount > 0 && reader.GetAttribute(0) == "phone")
                     {
@@ -91,7 +98,7 @@ namespace SportSquare.VenueImporter
                     }
                     if (reader.AttributeCount > 0 && reader.GetAttribute(0) == "benefits")
                     {
-                        var venue = new Venue(latitude, longitude, image, name, phone, webAddress, venueType);
+                        var venue = new Venue(latitude, longitude, image, name, phone, webAddress, venueType,address,city);
                         this.Venues.Add(venue);
                     }
 

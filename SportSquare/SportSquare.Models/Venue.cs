@@ -21,11 +21,14 @@ namespace SportSquare.Models
 
         public string Phone { get; set; }
 
+        public string City { get; set; }
+        public string Address { get; set; }
+
         public string[] VenueType { get; set; }
 
         public string WebAddress { get; set; }
 
-        public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress, string[] venueType)
+        public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress, string[] venueType, string address, string city)
         {
             this.Id = Guid.NewGuid();
             this.Latitude = latitude;
@@ -35,6 +38,8 @@ namespace SportSquare.Models
             this.Phone = phone;
             this.WebAddress = webAddress;
             this.VenueType = venueType;
+            this.Address = address;
+            this.City = city;
         }
     }
 }

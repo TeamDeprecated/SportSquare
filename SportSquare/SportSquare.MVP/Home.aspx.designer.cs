@@ -13,13 +13,13 @@ namespace SportSquare.MVP {
     public partial class Home {
         
         /// <summary>
-        /// query control.
+        /// filter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText query;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText filter;
         
         /// <summary>
         /// location control.

@@ -19,12 +19,12 @@ namespace SportSquare.Data.Migrations
 
         protected override void Seed(SportSquareDbContext context)
         {
-            if (System.Diagnostics.Debugger.IsAttached == false)
-            {
+            //if (System.Diagnostics.Debugger.IsAttached == false)
+            //{
 
-                System.Diagnostics.Debugger.Launch();
+            //    System.Diagnostics.Debugger.Launch();
 
-            }
+            //}
 
             var importer = new VenueImporter();
             var venues = importer.ParseVenues();
