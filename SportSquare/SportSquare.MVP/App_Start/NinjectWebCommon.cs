@@ -12,20 +12,24 @@ namespace SportSqure.MVP.App_Start
     using Ninject.Web.Common;
     using WebFormsMvp.Binder;
     using App_Start;
-    public static class NinjectWebCommon 
+    using System.Reflection;
+    using SportSquare.MVP;
+    using System.Linq;
+    using Ninject.Modules;
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -33,7 +37,7 @@ namespace SportSqure.MVP.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -62,9 +66,15 @@ namespace SportSqure.MVP.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Load(new MVPNinjectModule());
+            //kernel.Load(new MVPNinjectModule());
+            Assembly.GetAssembly(typeof(Global))
+                .GetTypes()
+                .Where(type => (typeof(NinjectModule)).IsAssignableFrom(type) && type.Name.Contains("Module"))
+                .Select(type => (INinjectModule)Activator.CreateInstance(type))
+                .ToList()
+                .ForEach(instance => kernel.Load(instance));
 
             PresenterBinder.Factory = kernel.Get<IPresenterFactory>();
-        }        
+        }
     }
 }

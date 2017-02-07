@@ -46,9 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IipInfoGatherer.cs" />
+    <Compile Include="Contracts\ISearchService.cs" />
     <Compile Include="Contracts\ISportSquareGenericSerivce.cs" />
     <Compile Include="IpInfoGatherer.cs" />
     <Compile Include="IpInfoGathererModel.cs" />
+    <Compile Include="SearchService.cs" />
     <Compile Include="SportSquareGenericService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,6 +58,10 @@
     <ProjectReference Include="..\SportSquare.Data\SportSquare.Data.csproj">
       <Project>{C10646D7-BD7A-43F8-9102-219050207A54}</Project>
       <Name>SportSquare.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportSquare.Models\SportSquare.Models.csproj">
+      <Project>{4F36305A-0ABB-40DF-845A-A5A3170545EC}</Project>
+      <Name>SportSquare.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
