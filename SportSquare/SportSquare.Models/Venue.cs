@@ -1,15 +1,26 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
+﻿using System.Collections.Generic;
 
-namespace SportSquare.Models
+namespace EF.Model
 {
     public class Venue
     {
-        [Key]
-        public Guid  Id { get; set; }
+        // TODO: Must be added validations!
 
-        public bool IsDeleted { get; set; }
+        private ICollection<Rating> ratings;
+        private ICollection<Comment> comments;
+
+        public Venue()
+        {
+            this.ratings = new HashSet<Rating>();
+            this.comments = new HashSet<Comment>();
+        }
+
+        // Guid cheched to Int.....temporarily
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public string Description { get; set; }
 
         public string Image { get; set; }
 
@@ -22,24 +33,25 @@ namespace SportSquare.Models
         public string Phone { get; set; }
 
         public string City { get; set; }
+
         public string Address { get; set; }
 
         public string[] VenueType { get; set; }
 
         public string WebAddress { get; set; }
 
-        public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress, string[] venueType, string address, string city)
+        public virtual ICollection<Rating> Ratings
         {
-            this.Id = Guid.NewGuid();
-            this.Latitude = latitude;
-            this.Longitude = longitude;
-            this.Image = image;
-            this.Name = name;
-            this.Phone = phone;
-            this.WebAddress = webAddress;
-            this.VenueType = venueType;
-            this.Address = address;
-            this.City = city;
+            get { return this.ratings; }
+            set { this.ratings = value; }
         }
+
+        public virtual ICollection<Comment> Comments
+        {
+            get { return this.comments; }
+            set { this.comments = value; }
+        }
+
+        public bool IsDeleted { get; set; }
     }
 }
