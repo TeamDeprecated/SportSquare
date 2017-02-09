@@ -1,5 +1,5 @@
-﻿using SportSquare.Data.Contracts;
-using SportSquare.Models;
+﻿using EF.Model;
+using SportSquare.Data.Contracts;
 using SportSquare.Services.Contracts;
 using System;
 using System.Collections.Generic;

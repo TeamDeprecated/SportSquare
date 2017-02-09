@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
-using SportSquare.Models;
+using EF.Model;
 
 namespace SportSquare.VenueImporter
 {

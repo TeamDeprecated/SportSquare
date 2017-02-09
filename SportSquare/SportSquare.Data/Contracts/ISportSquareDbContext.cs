@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
-using SportSquare.Models;
 using System.Data.Entity.Infrastructure;
+using EF.Model;
 
 namespace SportSquare.Data.Contracts
 {

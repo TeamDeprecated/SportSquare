@@ -1,10 +1,9 @@
 namespace SportSquare.Data
 {
     using System.Data.Entity;
-    using SportSquare.Models;
     using Contracts;
     using System;
-
+    using EF.Model;
     public class SportSquareDbContext : DbContext, ISportSquareDbContext
     {
      

@@ -9,8 +9,19 @@ namespace EF.Model
         private ICollection<Rating> ratings;
         private ICollection<Comment> comments;
 
-        public Venue()
+        public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress, string [] venueType, string address, string city)
         {
+
+            this.Latitude = latitude;
+            this.Longitude =longitude;
+            this.Image = image;
+            this.Name = name;
+            this.Phone = phone;
+            this.WebAddress = webAddress;
+            this.VenueType = venueType;
+            this.Address = address;
+            this.City = city;
+
             this.ratings = new HashSet<Rating>();
             this.comments = new HashSet<Comment>();
         }

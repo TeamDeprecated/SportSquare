@@ -399,8 +399,8 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\NinjectModules\HomeNinjectModule.cs" />
-    <Compile Include="App_Start\NinjectModules\SearchNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectModules\DataNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectModules\ServicesNinjectModule.cs" />
     <Compile Include="Factories\ICustomPresenterFactory.cs" />
     <Compile Include="App_Start\NinjectModules\MVPNinjectModule.cs" />
     <Compile Include="Factories\SportSquareMvpPresenterFactory.cs" />
