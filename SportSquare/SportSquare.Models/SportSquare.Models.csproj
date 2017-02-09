@@ -49,6 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comment.cs" />
+    <Compile Include="Constants\Validation.cs" />
+    <Compile Include="Enums\GenderType.cs" />
+    <Compile Include="Rating.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserFavoriteVenue.cs" />
+    <Compile Include="UserWishVanue.cs" />
     <Compile Include="Venue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
