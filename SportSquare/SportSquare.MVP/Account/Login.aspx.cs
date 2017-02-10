@@ -5,11 +5,20 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using SportSquare.MVP.Models;
+using SportSquare.MVP.Models.AccountModels;
+using WebFormsMvp.Web;
+using SportSquare.MVP.Views.AccountViews;
+using SportSquare.MVP.Presenters.Account;
+using WebFormsMvp;
 
 namespace SportSquare.MVP.Account
 {
-    public partial class Login : Page
+    [PresenterBinding(typeof(LoginPresenter))]
+
+    public partial class Login : MvpPage<LoginViewModel>, ILoginView
     {
+        public event EventHandler<LoginEventArgs> LoginDetails;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
@@ -27,15 +36,16 @@ namespace SportSquare.MVP.Account
         {
             if (IsValid)
             {
-                // Validate the user password
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
+                //// Validate the user password
+                //var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                //var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
+                //// This doen't count login failures towards account lockout
+                //// To enable password failures to trigger lockout, change to shouldLockout: true
+                //var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: true);
+                this.LoginDetails?.Invoke(sender, new LoginEventArgs( this.Context, this.Email.Text, this.Password.Text, this.RememberMe.Checked));
 
-                switch (result)
+                switch (Model.result)
                 {
                     case SignInStatus.Success:
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);

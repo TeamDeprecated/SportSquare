@@ -432,11 +432,17 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModels\Login\LoginEventArgs.cs" />
+    <Compile Include="Models\AccountModels\Login\LoginViewModel.cs" />
+    <Compile Include="Models\AccountModels\Register\RegisterEventArgs.cs" />
+    <Compile Include="Models\AccountModels\Register\RegisterViewModel.cs" />
     <Compile Include="Models\Home\HomeEventArgs.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Search\SearchEventArgs.cs" />
     <Compile Include="Models\Search\SearchViewModel.cs" />
+    <Compile Include="Presenters\Account\LoginPresenter.cs" />
+    <Compile Include="Presenters\Account\RegisterPresenter.cs" />
     <Compile Include="Presenters\HomePresenter.cs" />
     <Compile Include="Presenters\SearchPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -469,6 +475,8 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\AccountViews\ILoginView.cs" />
+    <Compile Include="Views\AccountViews\IRegisterView.cs" />
     <Compile Include="Views\IHomeView.cs" />
     <Compile Include="Views\ISearchView.cs" />
   </ItemGroup>

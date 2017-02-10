@@ -19,6 +19,8 @@ namespace SportSquare.MVP.Models
             return userIdentity;
         }
 
+        
+
         public Task<ClaimsIdentity> GenerateUserIdentityAsync(ApplicationUserManager manager)
         {
             return Task.FromResult(GenerateUserIdentity(manager));

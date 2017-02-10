@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Xml;
 using EF.Model;
+using System.Reflection;
+using System.IO;
 
 namespace SportSquare.VenueImporter
 {
@@ -16,7 +18,8 @@ namespace SportSquare.VenueImporter
 
         public IList<Venue> ParseVenues()
         {
-            var directory = Environment.CurrentDirectory;
+            var directory = Directory.GetCurrentDirectory();
+                //Environment.CurrentDirectory;
 
             using (var reader = XmlReader.Create(directory+FILE_PATH))
             {

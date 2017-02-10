@@ -54,9 +54,9 @@
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\ISportSquareDbContext.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
-    <Compile Include="Migrations\201702051359231_firstMigration.cs" />
-    <Compile Include="Migrations\201702051359231_firstMigration.Designer.cs">
-      <DependentUpon>201702051359231_firstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201702090921256_compleateDB.cs" />
+    <Compile Include="Migrations\201702090921256_compleateDB.Designer.cs">
+      <DependentUpon>201702090921256_compleateDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,8 +81,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702051359231_firstMigration.resx">
-      <DependentUpon>201702051359231_firstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702090921256_compleateDB.resx">
+      <DependentUpon>201702090921256_compleateDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
