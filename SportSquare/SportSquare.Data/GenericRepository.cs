@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace SportSquare.Data
 {
-    class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         public GenericRepository(ISportSquareDbContext context)
         {

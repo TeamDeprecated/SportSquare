@@ -24,7 +24,7 @@ namespace SportSquare.Services
             {
                 this.CollectIpInfo(ip);
                 RegionInfo country = new RegionInfo(this.ipModel.Country);
-                ipModel.Country = country.EnglishName;
+                ipModel.Country = country.DisplayName;
             }
             catch (Exception)
             {
@@ -52,6 +52,8 @@ namespace SportSquare.Services
         {
             string info = new WebClient().DownloadString("http://ipinfo.io/" + ip);
             this.ipModel = JsonConvert.DeserializeObject<IpInfoGathererModel>(info);
+            //var cityCirilic = new WebClient().DownloadString("http://maps.googleapis.com/maps/api/geocode/json?language=bg&address=" + this.ipModel.City);
+            //var test = JsonConvert.DeserializeObject<GoogleLocationModel>(cityCirilic);
         }
     }
 }

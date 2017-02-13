@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportSquare.Services.Contracts
+namespace SportSquareDTOs
 {
-    public interface ISearchService
+    public class VenueTypeDTO
     {
-
+        public string Name { get; set; }
     }
 }

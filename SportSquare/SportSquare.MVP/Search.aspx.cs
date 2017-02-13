@@ -19,10 +19,23 @@ namespace SportSquare.MVP
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TODO validate querystringRequest!!!!
-            var filter = this.Request.QueryString.GetValues(0)[0];
-            var locationFilter = this.Request.QueryString.GetValues(1)[0];
+            string filter = string.Empty;
+            string locationFilter = string.Empty;
+            if (this.Request.QueryString.Count < 1 )
+            {
+                this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
+                return;
+            }
+             filter = this.Request.QueryString.GetValues("q")[0];
+            locationFilter = this.Request.QueryString.GetValues("location")[0];
             this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
+            this.FilteredVenues.DataSource = Model.FilteredVenues;
+            this.FilteredVenues.DataBind();
+             this.VenueType
+        }
+        protected void SaveButton_Click( object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SportSquare.MVP.App_Start.NinjectModules
         public override void Load()
         {
             this.Bind<SearchPresenter>().ToSelf();
-            this.Bind<ISearchService>().To<SearchService>();
+            this.Bind<IVenueService>().To<VenueService>();
             this.Bind<IipInfoGatherer>().To<IpInfoGatherer>();
 
         }

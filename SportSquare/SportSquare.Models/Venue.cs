@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SportSquare.Models;
+using System.Collections.Generic;
 
 namespace EF.Model
 {
@@ -8,8 +9,13 @@ namespace EF.Model
 
         private ICollection<Rating> ratings;
         private ICollection<Comment> comments;
+        private ICollection<VenueType> venueTypes;
+        public Venue()
+        {
 
-        public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress, string [] venueType, string address, string city)
+        }
+
+        public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress,  string address, string city)
         {
 
             this.Latitude = latitude;
@@ -18,16 +24,16 @@ namespace EF.Model
             this.Name = name;
             this.Phone = phone;
             this.WebAddress = webAddress;
-            this.VenueType = venueType;
             this.Address = address;
             this.City = city;
 
             this.ratings = new HashSet<Rating>();
             this.comments = new HashSet<Comment>();
+            this.venueTypes = new HashSet<VenueType>();
         }
 
         // Guid cheched to Int.....temporarily
-        public int Id { get; set; }
+        public int VenueId { get; set; }
 
         public string Title { get; set; }
 
@@ -47,7 +53,17 @@ namespace EF.Model
 
         public string Address { get; set; }
 
-        public string[] VenueType { get; set; }
+        public virtual ICollection<VenueType> VenueTypes
+        {
+            get
+            {
+                return this.venueTypes;
+            }
+            set
+            {
+                this.venueTypes = value;
+            }
+        }
 
         public string WebAddress { get; set; }
 

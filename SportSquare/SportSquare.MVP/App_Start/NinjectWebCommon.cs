@@ -16,6 +16,7 @@ namespace SportSqure.MVP.App_Start
     using SportSquare.MVP;
     using System.Linq;
     using Ninject.Modules;
+    using AutoMapper;
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -27,6 +28,8 @@ namespace SportSqure.MVP.App_Start
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
+            var mapper = new AutoMapper();
+            mapper.Initialize();
             bootstrapper.Initialize(CreateKernel);
         }
 
@@ -49,8 +52,10 @@ namespace SportSqure.MVP.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-
                 RegisterServices(kernel);
+
+                
+
                 return kernel;
             }
             catch

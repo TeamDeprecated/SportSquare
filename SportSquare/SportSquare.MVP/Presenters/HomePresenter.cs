@@ -1,6 +1,7 @@
 ﻿using SportSquare.MVP.Models;
 using SportSquare.MVP.Views;
 using SportSquare.Services;
+using SportSquare.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace SportSquare.MVP.Presenters
 {
     public class HomePresenter : Presenter<IHomeView>
     {
-        private readonly IpInfoGatherer gatherer;
+        private readonly IipInfoGatherer gatherer;
 
-        public HomePresenter(IHomeView view, IpInfoGatherer gatherer) : base(view)
+        public HomePresenter(IHomeView view, IipInfoGatherer gatherer) : base(view)
         {
             this.gatherer = gatherer;
             this.View.IpDetails += this.IpDetails;
