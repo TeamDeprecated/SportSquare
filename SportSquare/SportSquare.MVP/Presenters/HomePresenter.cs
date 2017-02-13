@@ -16,11 +16,15 @@ namespace SportSquare.MVP.Presenters
 
         public HomePresenter(IHomeView view, IipInfoGatherer gatherer) : base(view)
         {
+            if (gatherer == null)
+            {
+                throw new ArgumentNullException(nameof(gatherer));
+            }
             this.gatherer = gatherer;
             this.View.IpDetails += this.IpDetails;
         }
 
-        private void IpDetails(object sender, HomeEventArgs e)
+        protected void IpDetails(object sender, HomeEventArgs e)
         {
             //TODO comment hardcoded Ip address and use the one comming from the event!\
             //var city = gatherer.GetUserCityByIp(e.Ip);

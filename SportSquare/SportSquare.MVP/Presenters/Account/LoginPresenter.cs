@@ -20,8 +20,6 @@ namespace SportSquare.MVP.Presenters.Account
             var manager = e.Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signinManager = e.Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
-            //// This doen't count login failures towards account lockout
-            //// To enable password failures to trigger lockout, change to shouldLockout: true
             var result = signinManager.PasswordSignIn(e.Email, e.PasswordHash, e.RememberMeChecked, shouldLockout: true);
             this.View.Model.result = result;
         }

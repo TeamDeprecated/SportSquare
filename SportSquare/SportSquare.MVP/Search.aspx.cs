@@ -31,7 +31,6 @@ namespace SportSquare.MVP
             this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
             this.FilteredVenues.DataSource = Model.FilteredVenues;
             this.FilteredVenues.DataBind();
-             this.VenueType
         }
         protected void SaveButton_Click( object sender, EventArgs e)
         {

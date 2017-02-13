@@ -6,7 +6,6 @@
             <LayoutTemplate>
                 <span runat="server" id="itemPlaceholder" />
                 <div class="pagerLine">
-                    |
                     <asp:DataPager ID="DataPagerCustomers" runat="server" PageSize="6">
                         <Fields>
                             <asp:NextPreviousPagerField ShowFirstPageButton="True"
@@ -54,8 +53,9 @@
                                 </div>
                                 <div class="resultFooter">
                                     <div class="buttons">
-                                        <asp:Button Text="Save" Class="btn" ID="SaveButton" OnClick="SaveButton_Click" runat="server" />
+                                        <%--TODO Check if loged in, if not hide--%>
                                         <%--TODO make above with AJAXS--%>
+                                        <asp:Button Text="Save" class="btn" ID="SaveButton" OnClick="SaveButton_Click" runat="server" />
                                     </div>
                                 </div>
                             </div>
