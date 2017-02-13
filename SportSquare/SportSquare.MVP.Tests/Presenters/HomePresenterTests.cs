@@ -71,7 +71,7 @@ namespace SportSquare.MVP.Tests.Presenters
 
       
 
-        mockedIipGathererService.Verify(x => x.GetUserCityByIp(It.Is<string>(arg => arg ==constIPaddress  )));
+        //mockedIipGathererService.Verify(x => x.GetUserCityByIp(It.Is<string>(arg => arg ==constIPaddress  )));
         }
     }
 }
