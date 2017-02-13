@@ -13,15 +13,21 @@ namespace SportSquare.MVP.Models.Search
         {
             if (string.IsNullOrEmpty(filter))
             {
-                this.Filter = string.Empty; 
+                this.Filter = string.Empty;
             }
-
-            this.Filter = filter;
+            else
+            {
+                this.Filter = filter;
+            }
             if (string.IsNullOrEmpty(locationFilter))
             {
                 this.LocationFilter = string.Empty;
             }
-            this.LocationFilter = locationFilter;
+            else
+            {
+                this.LocationFilter = locationFilter;
+
+            }
         }
     }
 }

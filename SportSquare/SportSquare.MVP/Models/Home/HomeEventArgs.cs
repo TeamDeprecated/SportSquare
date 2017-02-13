@@ -7,10 +7,16 @@ namespace SportSquare.MVP.Models
 {
     public class HomeEventArgs : EventArgs
     {
-        public string Ip { get; private set; }
         public HomeEventArgs(string ip)
         {
+            if (ip == null)
+            {
+                throw new ArgumentNullException(nameof(ip));
+            }
             this.Ip = ip;
         }
+
+        public string Ip { get; private set; }
+
     }
 }

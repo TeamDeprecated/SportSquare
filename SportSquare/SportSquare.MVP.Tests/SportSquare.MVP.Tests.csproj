@@ -73,13 +73,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Models\HomeEventArgsTests.cs" />
+    <Compile Include="Models\SearchEventArgsTests.cs" />
     <Compile Include="Presenters\Account\LoginPresenterTest.cs" />
     <Compile Include="Presenters\HomePresenterTests.cs" />
     <Compile Include="Presenters\SearchPresenterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="Models\AccountModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
