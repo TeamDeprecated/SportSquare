@@ -14,7 +14,7 @@ build:
   
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: dRXTXvw0qELGLav2jG7AOS2pNUylDtpBx
+    secure: TdLhGJw0dLbWKQ3+j8OaDcOWbnQ1fZEIw271PA0RbhlGCl0P722wvvxH7o5PfW/K
 
 after_test: 
        - SportSquare\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[SportSquare*]* -[SportSquare.MVP.Tests*]*" -target:"SportSquare\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single SportSquare\SportSquare.MVP.Tests\bin\Debug\SportSquare.MVP.Tests.dll" -output:cover.xml
