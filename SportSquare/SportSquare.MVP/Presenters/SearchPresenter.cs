@@ -11,22 +11,22 @@ namespace SportSquare.MVP.Presenters
 {
     public class SearchPresenter : Presenter<ISearchView>
     {
-        private IVenueService servcice;
+        private IVenueService service;
         public SearchPresenter(ISearchView view, IVenueService service) : base(view)
         {
             this.View.QueryEvent += View_QueryEvent;
             if (service == null)
             {
-                throw new ArgumentNullException(nameof(servcice));
+                throw new ArgumentNullException(nameof(service));
             }
-            this.servcice = service;
+            this.service = service;
         }
 
         private void View_QueryEvent(object sender, SearchEventArgs e)
         {
             var filter = e.Filter;
             var locationFilter = e.LocationFilter;
-            var venues=this.servcice.FilterVenues(filter, locationFilter);
+            var venues=this.service.FilterVenues(filter, locationFilter);
             this.View.Model.FilteredVenues = venues;
         }
     }

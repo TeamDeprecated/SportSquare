@@ -4,6 +4,7 @@ using Moq;
 using SportSquare.MVP.Views;
 using SportSquare.MVP.Presenters;
 using SportSquare.Services.Contracts;
+using SportSquare.MVP.Models;
 
 namespace SportSquare.MVP.Tests.Presenters
 {
@@ -11,6 +12,8 @@ namespace SportSquare.MVP.Tests.Presenters
     public class HomePresenterTests
     {
         const string GathererExceptionMessage = "Value cannot be null.\r\nParameter name: gatherer";
+        const string constIPaddress = "0.0.0.0";
+
         [Test]
         public void HomePresenterInitializedWithNullGatherer()
         {
@@ -37,8 +40,38 @@ namespace SportSquare.MVP.Tests.Presenters
         }
 
         [Test]
-        public void WhenHomePresenterIsInitialized_IIpy_ShouldCall_GetLoginServiceExactlyOnce()
+        public void IpDetailsShouldCallGathererSeriveceGetUserCityByIpMethodOnce()
         {
+            var mockedHomeView = new Mock<IHomeView>();
+            var mockedIipGathererService = new Mock<IipInfoGatherer>();
+            var mockedModel = new Mock<HomeViewModel>();
+
+            mockedHomeView.Setup(x => x.Model).Returns(mockedModel.Object);
+            mockedIipGathererService.Setup(x => x.GetUserCityByIp("")).Returns("");
+
+            var homePresenter = new HomePresenter(mockedHomeView.Object, mockedIipGathererService.Object);
+            mockedHomeView.Raise(x => x.IpDetails += null, null, new HomeEventArgs(constIPaddress));
+
+            mockedIipGathererService.Verify(x=>x.GetUserCityByIp(It.IsAny<string>()), Times.Exactly(1));
+        }
+
+        [Test]
+        public void IpDetailsShouldCallGathererSeriveceGetUserCityByIpWithCorrectIp()
+        {
+            //TODO fix this test
+            var mockedHomeView = new Mock<IHomeView>();
+            var mockedIipGathererService = new Mock<IipInfoGatherer>();
+            var mockedModel = new Mock<HomeViewModel>();
+
+            mockedHomeView.Setup(x => x.Model).Returns(mockedModel.Object);
+            mockedIipGathererService.Setup(x => x.GetUserCityByIp("")).Returns("");
+
+            var homePresenter = new HomePresenter(mockedHomeView.Object, mockedIipGathererService.Object);
+            mockedHomeView.Raise(x => x.IpDetails += null, null, new HomeEventArgs(constIPaddress));
+
+      
+
+        mockedIipGathererService.Verify(x => x.GetUserCityByIp(It.Is<string>(arg => arg ==constIPaddress  )));
         }
     }
 }

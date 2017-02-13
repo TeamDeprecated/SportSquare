@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Presenters\Account\LoginPresenterTest.cs" />
     <Compile Include="Presenters\HomePresenterTests.cs" />
+    <Compile Include="Presenters\SearchPresenterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +92,10 @@
     <ProjectReference Include="..\SportSquare.Services\SportSquare.Services.csproj">
       <Project>{672d5e94-457f-4e06-9304-2bf266737f5c}</Project>
       <Name>SportSquare.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportSquareDTOs\SportSquareDTOs.csproj">
+      <Project>{4C3F4DE4-FD6E-40DB-8CE9-66099C40A87C}</Project>
+      <Name>SportSquareDTOs</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
