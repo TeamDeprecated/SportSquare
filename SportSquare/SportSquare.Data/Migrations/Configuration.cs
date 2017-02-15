@@ -1,6 +1,7 @@
 namespace SportSquare.Data.Migrations
 {
     using EF.Model;
+    using SportSquare.Models;
     using System;
     using System.Collections;
     using System.Collections.Generic;
