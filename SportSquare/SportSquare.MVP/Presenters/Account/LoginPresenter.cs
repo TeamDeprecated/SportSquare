@@ -3,6 +3,7 @@ using System.Web;
 using WebFormsMvp;
 using SportSquare.MVP.Models.AccountModels;
 using Microsoft.AspNet.Identity.Owin;
+using SportSquare.Auth;
 
 namespace SportSquare.MVP.Presenters.Account
 {

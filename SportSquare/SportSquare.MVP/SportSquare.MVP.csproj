@@ -419,7 +419,6 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectModules\DataNinjectModule.cs" />
     <Compile Include="App_Start\NinjectModules\ServicesNinjectModule.cs" />
     <Compile Include="AutoMapper.cs" />
@@ -460,7 +459,6 @@
     <Compile Include="Models\AccountModels\Register\RegisterViewModel.cs" />
     <Compile Include="Models\Home\HomeEventArgs.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Search\SearchEventArgs.cs" />
     <Compile Include="Models\Search\SearchViewModel.cs" />
     <Compile Include="Presenters\Account\LoginPresenter.cs" />
@@ -506,6 +504,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SportSquare.Auth\SportSquare.Auth.csproj">
+      <Project>{770edeb7-24e9-41ef-acf6-49fcd2b690a6}</Project>
+      <Name>SportSquare.Auth</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SportSquare.Data\SportSquare.Data.csproj">
       <Project>{C10646D7-BD7A-43F8-9102-219050207A54}</Project>
       <Name>SportSquare.Data</Name>
