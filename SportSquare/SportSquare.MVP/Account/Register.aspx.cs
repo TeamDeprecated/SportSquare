@@ -11,6 +11,7 @@ using WebFormsMvp;
 using WebFormsMvp.Web;
 using SportSquare.MVP.Models.AccountModels.Register;
 using SportSquare.MVP.Views.AccountViews;
+using SportSquare.Auth;
 
 namespace SportSquare.MVP.Account
 {

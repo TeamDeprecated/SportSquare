@@ -10,6 +10,7 @@ using WebFormsMvp.Web;
 using SportSquare.MVP.Views.AccountViews;
 using SportSquare.MVP.Presenters.Account;
 using WebFormsMvp;
+using SportSquare.Auth;
 
 namespace SportSquare.MVP.Account
 {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using SportSquare.Auth;
 using SportSquare.MVP.Models;
 using SportSquare.MVP.Models.AccountModels.Register;
 using SportSquare.MVP.Views.AccountViews;

@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using SportSquare.MVP.Models;
+using SportSquare.Auth;
 
 namespace SportSquare.MVP.Account
 {
