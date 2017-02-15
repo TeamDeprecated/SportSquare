@@ -82,7 +82,7 @@
     <Compile Include="IpInfoGatherer.cs" />
     <Compile Include="IpInfoGathererModel.cs" />
     <Compile Include="VenueService.cs" />
-    <Compile Include="SportSquareGenericService.cs" />
+    <Compile Include="Abstracts\SportSquareGenericService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
