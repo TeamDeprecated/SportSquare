@@ -18,8 +18,7 @@ namespace SportSquare.Data.Repositories
             return base.DbContext.Venues
                 .Where(x=>x.City==location)
                 .Where(v => v.VenueTypes
-                .Where(vt => vt.Name.Contains(filter))
-                    .Any())
+                .Any(vt => vt.Name.Contains(filter)))
                 .ToList();
                
 
@@ -28,15 +27,13 @@ namespace SportSquare.Data.Repositories
         {
             return base.DbContext.Venues
               .Where(v => v.VenueTypes
-              .Where(vt => vt.Name.Contains(filter))
-              .Any()
-              ).ToList();
+              .Any(vt => vt.Name.Contains(filter)))
+              .ToList();
 
         }
         public IEnumerable<Venue> GetVenuesByLocation(string city)
         {
             return base.DbContext.Venues.Where(x => x.City.ToString().ToLower() == city).Where(y => y.VenueTypes.Any()).ToList();
-
         }
     }
 }
