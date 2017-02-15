@@ -1,9 +1,10 @@
-﻿using SportSquare.Data.Contracts;
-using System;
+﻿using System;
 
-namespace SportSquare.Data
+using SportSquare.Data.Contracts;
+
+namespace SportSquare.Data.UnitOfWork
 {
-    public class UnitOfWork:IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly ISportSquareDbContext dbContext;
 
@@ -16,6 +17,7 @@ namespace SportSquare.Data
         {
             this.dbContext.SaveChanges();
         }
+
         public void Dispose()
         {
         }

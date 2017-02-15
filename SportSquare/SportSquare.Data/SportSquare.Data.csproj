@@ -60,12 +60,16 @@
     <Compile Include="Migrations\201702122109131_VenueId_changed.Designer.cs">
       <DependentUpon>201702122109131_VenueId_changed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702151753404_Added sets.cs" />
+    <Compile Include="Migrations\201702151753404_Added sets.Designer.cs">
+      <DependentUpon>201702151753404_Added sets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GenericRepository.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\VenueRepository.cs" />
     <Compile Include="SportSquareDbContext.cs" />
-    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -86,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702122109131_VenueId_changed.resx">
       <DependentUpon>201702122109131_VenueId_changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702151753404_Added sets.resx">
+      <DependentUpon>201702151753404_Added sets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

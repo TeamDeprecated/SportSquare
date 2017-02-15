@@ -1,8 +1,7 @@
-﻿using EF.Model.Enums;
-
+﻿using SportSquare.Enums;
 using System.Collections.Generic;
 
-namespace EF.Model
+namespace SportSquare.Models
 {
     public class User
     {
@@ -11,14 +10,14 @@ namespace EF.Model
         private ICollection<Rating> ratings;
         private ICollection<Comment> comments;
         private ICollection<UserFavoriteVenue> favoriteVenues;
-        private ICollection<UserWishVanue> wishVenues;
+        private ICollection<UserWishVenue> wishVenues;
 
         public User()
         {
             this.ratings = new HashSet<Rating>();
             this.comments = new HashSet<Comment>();
             this.favoriteVenues = new HashSet<UserFavoriteVenue>();
-            this.wishVenues = new HashSet<UserWishVanue>();
+            this.wishVenues = new HashSet<UserWishVenue>();
         }
 
         public int Id { get; set; }
@@ -53,7 +52,7 @@ namespace EF.Model
             set { this.favoriteVenues = value; }
         }
 
-        public virtual ICollection<UserWishVanue> WishVenues
+        public virtual ICollection<UserWishVenue> WishVenues
         {
             get { return this.wishVenues; }
             set { this.wishVenues = value; }

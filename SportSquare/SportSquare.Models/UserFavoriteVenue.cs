@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace EF.Model
+namespace SportSquare.Models
 {
     public class UserFavoriteVenue
     {

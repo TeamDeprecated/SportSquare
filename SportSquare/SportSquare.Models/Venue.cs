@@ -1,7 +1,6 @@
-﻿using SportSquare.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace EF.Model
+namespace SportSquare.Models
 {
     public class Venue
     {
@@ -10,6 +9,7 @@ namespace EF.Model
         private ICollection<Rating> ratings;
         private ICollection<Comment> comments;
         private ICollection<VenueType> venueTypes;
+
         public Venue()
         {
 

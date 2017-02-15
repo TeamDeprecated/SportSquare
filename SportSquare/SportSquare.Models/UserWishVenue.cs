@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace EF.Model
+namespace SportSquare.Models
 {
-    public class UserWishVanue
+    public class UserWishVenue
     {
         // TODO: Must be added validations!
 
         private ICollection<User> users;
 
-        public UserWishVanue()
+        public UserWishVenue()
         {
             this.users = new HashSet<User>();
         }
