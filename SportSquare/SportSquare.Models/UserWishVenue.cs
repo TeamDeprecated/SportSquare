@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+
+using SportSquare.Models.Contracts;
 
 namespace SportSquare.Models
 {
-    public class UserWishVenue
+    public class UserWishVenue : IDbModel
     {
         // TODO: Must be added validations!
 
@@ -22,5 +25,7 @@ namespace SportSquare.Models
             get { return this.users; }
             set { this.users = value; }
         }
+
+        public bool IsDeleted { get; set; }
     }
 }

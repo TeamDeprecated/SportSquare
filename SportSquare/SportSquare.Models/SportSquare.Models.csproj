@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="Constants\Validation.cs" />
+    <Compile Include="Contracts\IDbModel.cs" />
     <Compile Include="Enums\GenderType.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="User.cs" />
