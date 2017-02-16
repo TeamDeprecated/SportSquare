@@ -8,7 +8,7 @@ namespace SportSquare.Data.Repositories
 {
     public class VenueRepository : GenericRepository<Venue>,IVenueRepository, IGenericRepository<Venue>
     {
-        public VenueRepository(ISportSquareDbContext context) : base(context)
+        public VenueRepository(ISportSquareDbContext dbContext) : base(dbContext)
         {
 
         }
@@ -20,17 +20,16 @@ namespace SportSquare.Data.Repositories
                 .Where(v => v.VenueTypes
                 .Any(vt => vt.Name.Contains(filter)))
                 .ToList();
-               
-
         }
+
         public IEnumerable<Venue> FilterVenues(string filter)
         {
             return base.DbContext.Venues
               .Where(v => v.VenueTypes
               .Any(vt => vt.Name.Contains(filter)))
               .ToList();
-
         }
+
         public IEnumerable<Venue> GetVenuesByLocation(string city)
         {
             return base.DbContext.Venues.Where(x => x.City.ToString().ToLower() == city).Where(y => y.VenueTypes.Any()).ToList();
