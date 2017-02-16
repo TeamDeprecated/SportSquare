@@ -35,7 +35,7 @@ namespace SportSquare.Services
             var venues = this.venueRepository.FilterVenues(filter,"софия");
             return Mapper.Map<IEnumerable<Venue>, IEnumerable<VenueDTO>>(venues);
 
-             
+
         }
     }
 }
