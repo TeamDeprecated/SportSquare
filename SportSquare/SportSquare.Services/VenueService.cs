@@ -11,16 +11,11 @@ namespace SportSquare.Services
 {
     public class VenueService: IVenueService
     {
-        private readonly IGenericRepository<Venue> repository;
         private readonly IVenueRepository venueRepository;
+        private readonly IMapper mapper;
 
-        public VenueService(IGenericRepository<Venue> repository, IVenueRepository venueRepository)
+        public VenueService(IVenueRepository venueRepository)
         {
-            if (repository == null)
-            {
-                throw new ArgumentNullException(nameof(repository));
-            }
-            this.repository = repository;
             if (venueRepository == null)
             {
                 throw new ArgumentNullException(nameof(venueRepository));
@@ -31,7 +26,7 @@ namespace SportSquare.Services
         public IEnumerable<VenueDTO> FilterVenues(string filter, string location)
         {
             //TODO fix this shit IpInfoGatherer should return City in Cyrilic!
-            var venues = this.venueRepository.FilterVenues(filter,"софия");
+            var venues = this.venueRepository.FilterVenues(filter, location);
             return Mapper.Map<IEnumerable<Venue>, IEnumerable<VenueDTO>>(venues);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportSquareDTOs.GoogleApiModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -92,9 +93,14 @@ namespace SportSquare.MVP
 
             if (!IsPostBack)
             {
-                Session["GOOGLE_MAP_OBJECT"] = GoogleMapObject;
                 GoogleMapObject.APIKey = ConfigurationManager.AppSettings["GoogleAPIKey"];
                 GoogleMapObject.APIVersion = "2";
+                GoogleMapObject.CenterPoint = new GooglePoint("CenterPoint", 42.680872, 23.310297);
+                Session["GOOGLE_MAP_OBJECT"] = GoogleMapObject;
+
+                //GoogleMapObject.Points.Add(new GooglePoint("1", 43.65669, -79.45278));
+                //GoogleMapObject.Width = "800px";
+                //GoogleMapObject.Height = "600px";
             }
             else
             {

@@ -15,6 +15,7 @@ namespace SportSquare.MVP.Tests.Presenters
     {
         const string ServiceExceptionMessage = "Value cannot be null.\r\nParameter name: service";
         const string constIPaddress = "0.0.0.0";
+        const string constFilter = "0.0.0.0";
 
         [Test]
         public void SearchPresenterInitializedWithNullGatherer()
@@ -65,14 +66,14 @@ namespace SportSquare.MVP.Tests.Presenters
             var mockedVenueService = new Mock<IVenueService>();
             var mockedModel = new Mock<SearchViewModel>();
 
+
             mockedSearchView.Setup(x => x.Model).Returns(mockedModel.Object);
-            mockedVenueService.Setup(x => x.FilterVenues(It.IsAny<string>(), It.IsAny<string>())).Returns(It.IsAny<IEnumerable<VenueDTO>>());
+            mockedVenueService.Setup(x => x.FilterVenues(It.IsAny<string>(), It.IsAny<string>())).Verifiable();
 
             var searchPresenter = new SearchPresenter(mockedSearchView.Object, mockedVenueService.Object);
-            mockedSearchView.Raise(x => x.QueryEvent += null, new SearchEventArgs(It.IsAny<string>(), It.IsAny<string>()));
+            mockedSearchView.Raise(x => x.QueryEvent += null, new SearchEventArgs(constIPaddress,constFilter));
 
-            //mockedVenueService.Verify(x => x.FilterVenues(It.Is<string>(arg => arg == constIPaddress), It.Is<string>(arg => arg == constIPaddress)));
-            
+            mockedVenueService.Verify(x => x.FilterVenues(It.Is<string>(arg => arg == constIPaddress), It.Is<string>(arg=>arg==constFilter)),Times.Once);
         }
     }
 }

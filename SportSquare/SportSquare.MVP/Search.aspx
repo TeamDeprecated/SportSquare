@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="SportSquare.MVP.Search" %>
 
-<%@ Register Src="~/GoogleMapsForASPNet.ascx" TagPrefix="uc1" TagName="GoogleMapsForASPNet" %>
+<%--<%@ Register Src="~/GoogleMapsForASPNet.ascx" TagPrefix="uc1" TagName="GoogleMapsForASPNet" %>--%>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -75,10 +75,8 @@
             </asp:ListView>
 
         </div>
-<%--        <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>--%>
+
         <div class="col-md-4 mapContainer">
-            <uc1:GoogleMapsForASPNet runat="server" ID="GoogleMapsForASPNet" />
         </div>
     </div>
 </asp:Content>

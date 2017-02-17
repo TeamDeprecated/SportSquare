@@ -19,9 +19,13 @@
 
 //   This program comes with ABSOLUTELY NO WARRANTY.
 
+using System;
 using System.Web;
+using System.Collections;
 using System.Web.Services;
+using System.Web.Services.Protocols;
 using System.Web.Script.Services;
+using SportSquare.MVP;
 using SportSquareDTOs.GoogleApiModels;
 
 /// <summary>
@@ -33,8 +37,7 @@ using SportSquareDTOs.GoogleApiModels;
 public class GService : System.Web.Services.WebService
 {
 
-    public GService()
-    {
+    public GService () {
 
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
@@ -47,8 +50,8 @@ public class GService : System.Web.Services.WebService
     [WebMethod(EnableSession = true)]
     public void SetLatLon(string pID, double pLatitude, double pLongitude)
     {
-        GoogleObject objGoogleNew = (GoogleObject)HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
-        GoogleObject objGoogleOld = (GoogleObject)HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"];
+        GoogleObject objGoogleNew = (GoogleObject)System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
+        GoogleObject objGoogleOld = (GoogleObject)System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"];
         objGoogleNew.Points[pID].Latitude = pLatitude;
         objGoogleNew.Points[pID].Longitude = pLongitude;
         objGoogleOld.Points[pID].Latitude = pLatitude;
@@ -58,8 +61,8 @@ public class GService : System.Web.Services.WebService
     [WebMethod(EnableSession = true)]
     public void SetZoom(string pID, int pZoomLevel)
     {
-        GoogleObject objGoogleNew = (GoogleObject)HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
-        GoogleObject objGoogleOld = (GoogleObject)HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"];
+        GoogleObject objGoogleNew = (GoogleObject)System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
+        GoogleObject objGoogleOld = (GoogleObject)System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"];
         objGoogleNew.ZoomLevel = pZoomLevel;
         objGoogleOld.ZoomLevel = pZoomLevel;
     }
@@ -68,16 +71,16 @@ public class GService : System.Web.Services.WebService
     [WebMethod(EnableSession = true)]
     public void RecenterMapComplete()
     {
-        GoogleObject objGoogleNew = (GoogleObject)HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
-        GoogleObject objGoogleOld = (GoogleObject)HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"];
-        objGoogleNew.RecenterMap = false;
+        GoogleObject objGoogleNew = (GoogleObject)System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
+        GoogleObject objGoogleOld = (GoogleObject)System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"];
+        objGoogleNew.RecenterMap=false;
         objGoogleOld.RecenterMap = false;
     }
 
     [WebMethod(EnableSession = true)]
     public GoogleObject GetGoogleObject()
     {
-        GoogleObject objGoogle = (GoogleObject)HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
+        GoogleObject objGoogle =  (GoogleObject)System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
 
         System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"] = new GoogleObject(objGoogle);
         return objGoogle;
@@ -87,8 +90,8 @@ public class GService : System.Web.Services.WebService
     [WebMethod(EnableSession = true)]
     public GoogleObject GetOptimizedGoogleObject()
     {
-        GoogleObject objGoogleNew = (GoogleObject)HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
-        GoogleObject objGoogleOld = (GoogleObject)HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"];
+        GoogleObject objGoogleNew = (GoogleObject)System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT"];
+        GoogleObject objGoogleOld = (GoogleObject)System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"];
         GoogleObject objGoogle = new GoogleObject();
 
         if (objGoogleOld != null)
@@ -209,7 +212,7 @@ public class GService : System.Web.Services.WebService
         objGoogle.AutomaticBoundaryAndZoom = objGoogleNew.AutomaticBoundaryAndZoom;
         //Save new Google object state in session variable.
         //System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"] = objGoogleNew;
-        HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"] = new GoogleObject(objGoogleNew);
+        System.Web.HttpContext.Current.Session["GOOGLE_MAP_OBJECT_OLD"] = new GoogleObject(objGoogleNew);
 
         return objGoogle;
 

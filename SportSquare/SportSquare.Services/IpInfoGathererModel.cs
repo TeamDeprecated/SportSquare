@@ -22,7 +22,7 @@ namespace SportSquare.Services
         public string Region { get; set; }
 
         [JsonProperty("country")]
-        public string Country { get; set; }
+        public virtual string Country { get; set; }
 
         [JsonProperty("loc")]
         public string Loc { get; set; }
