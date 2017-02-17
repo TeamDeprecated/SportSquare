@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoogleApiModels\cCommon.cs" />
-    <Compile Include="GoogleApiModels\GoogleDirections.cs" />
-    <Compile Include="GoogleApiModels\GoogleMapType.cs" />
-    <Compile Include="GoogleApiModels\GoogleObject.cs" />
-    <Compile Include="GoogleApiModels\GooglePoint.cs" />
-    <Compile Include="GoogleApiModels\GooglePoints.cs" />
-    <Compile Include="GoogleApiModels\GooglePolygon.cs" />
-    <Compile Include="GoogleApiModels\GooglePolygons.cs" />
-    <Compile Include="GoogleApiModels\GooglePolyline.cs" />
-    <Compile Include="GoogleApiModels\GooglePolylines.cs" />
+    <Compile Include="cCommon.cs" />
+    <Compile Include="GoogleDirections.cs" />
+    <Compile Include="GoogleMapType.cs" />
+    <Compile Include="GoogleObject.cs" />
+    <Compile Include="GooglePoint.cs" />
+    <Compile Include="GooglePoints.cs" />
+    <Compile Include="GooglePolygon.cs" />
+    <Compile Include="GooglePolygons.cs" />
+    <Compile Include="GooglePolyline.cs" />
+    <Compile Include="GooglePolylines.cs" />
     <Compile Include="VenueDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VenueImporter.cs" />

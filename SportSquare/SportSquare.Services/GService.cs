@@ -27,7 +27,7 @@ using SportSquareDTOs.GoogleApiModels;
 /// <summary>
 /// Summary description for GService
 /// </summary>
-[WebService(Namespace = "http://tempuri.org/")]
+//[WebService(Namespace = "http://tempuri.org/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 [ScriptService]
 public class GService : System.Web.Services.WebService

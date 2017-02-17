@@ -75,10 +75,8 @@
             </asp:ListView>
 
         </div>
-<%--        <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>--%>
+
         <div class="col-md-4 mapContainer">
-            <uc1:GoogleMapsForASPNet runat="server" ID="GoogleMapsForASPNet" />
         </div>
     </div>
 </asp:Content>

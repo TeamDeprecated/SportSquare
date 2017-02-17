@@ -15,6 +15,10 @@ namespace SportSquare.Services
         private IpInfoGathererModel ipModel;
         public IpInfoGatherer(IpInfoGathererModel model)
         {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
             this.ipModel = model;
         }
 

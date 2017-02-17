@@ -45,33 +45,28 @@ namespace SportSquare.MVP.Tests.Presenters
             var mockedHomeView = new Mock<IHomeView>();
             var mockedIipGathererService = new Mock<IipInfoGatherer>();
             var mockedModel = new Mock<HomeViewModel>();
-
             mockedHomeView.Setup(x => x.Model).Returns(mockedModel.Object);
             mockedIipGathererService.Setup(x => x.GetUserCityByIp("")).Returns("");
 
             var homePresenter = new HomePresenter(mockedHomeView.Object, mockedIipGathererService.Object);
             mockedHomeView.Raise(x => x.IpDetails += null, null, new HomeEventArgs(constIPaddress));
 
-            mockedIipGathererService.Verify(x=>x.GetUserCityByIp(It.IsAny<string>()), Times.Exactly(1));
+            mockedIipGathererService.Verify(x=>x.GetUserCityByIp(It.IsAny<string>()), Times.Once);
         }
 
         [Test]
         public void IpDetailsShouldCallGathererSeriveceGetUserCityByIpWithCorrectIp()
         {
-            //TODO fix this test
             var mockedHomeView = new Mock<IHomeView>();
             var mockedIipGathererService = new Mock<IipInfoGatherer>();
             var mockedModel = new Mock<HomeViewModel>();
-
             mockedHomeView.Setup(x => x.Model).Returns(mockedModel.Object);
-            mockedIipGathererService.Setup(x => x.GetUserCityByIp("")).Returns("");
-
+            mockedIipGathererService.Setup(x => x.GetUserCityByIp("")).Verifiable();
             var homePresenter = new HomePresenter(mockedHomeView.Object, mockedIipGathererService.Object);
+
             mockedHomeView.Raise(x => x.IpDetails += null, null, new HomeEventArgs(constIPaddress));
 
-      
-
-        //mockedIipGathererService.Verify(x => x.GetUserCityByIp(It.Is<string>(arg => arg ==constIPaddress  )));
+            mockedIipGathererService.Verify(x => x.GetUserCityByIp(It.Is<string>(arg => arg == constIPaddress)),Times.Once);
         }
     }
 }
