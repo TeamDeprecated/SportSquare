@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportSquare.Services.Contracts
+namespace SportSquare.Models.Contracts
 {
-    public interface ISportSquareGenericSerivce<T>
+    public interface IDbModel
     {
+        bool IsDeleted { get; set; }
     }
 }

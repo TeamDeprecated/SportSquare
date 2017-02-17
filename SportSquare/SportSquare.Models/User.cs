@@ -1,9 +1,11 @@
-﻿using SportSquare.Enums;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
+using SportSquare.Enums;
+using SportSquare.Models.Contracts;
 
 namespace SportSquare.Models
 {
-    public class User
+    public class User : IDbModel
     {
         // TODO: Must be added validations!
 

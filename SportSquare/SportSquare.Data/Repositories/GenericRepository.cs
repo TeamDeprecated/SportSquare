@@ -6,10 +6,11 @@ using System.Linq;
 using System.Linq.Expressions;
 
 using SportSquare.Data.Contracts;
+using SportSquare.Models.Contracts;
 
 namespace SportSquare.Data.Repositories
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IDbModel
     {
         private ISportSquareDbContext dbContext;
         private IDbSet<TEntity> dbSet;
@@ -28,6 +29,17 @@ namespace SportSquare.Data.Repositories
             {
                 throw new ArgumentException("This DbSet<{0}> doesn't exist in DbContext", typeof(TEntity).Name);
             }
+        }
+
+        private DbEntityEntry AttachIfDetached(TEntity entity)
+        {
+            var entry = this.DbContext.Entry(entity);
+            if (entry.State == EntityState.Detached)
+            {
+                this.DbSet.Attach(entity);
+            }
+
+            return entry;
         }
 
         protected ISportSquareDbContext DbContext
@@ -56,6 +68,32 @@ namespace SportSquare.Data.Repositories
             return this.DbSet.Find(id);
         }
 
+        public void Add(TEntity entity)
+        {
+            var entry = AttachIfDetached(entity);
+            entry.State = EntityState.Added;
+        }
+
+        public void Update(TEntity entity)
+        {
+            var entry = AttachIfDetached(entity);
+            entry.State = EntityState.Modified;
+        }
+
+        public void Hide(TEntity entity)
+        {
+            entity.IsDeleted = true;
+
+            var entry = AttachIfDetached(entity);
+            entry.State = EntityState.Modified;
+        }
+
+        public void Delete(TEntity entity)
+        {
+            var entry = AttachIfDetached(entity);
+            entry.State = EntityState.Deleted;
+        }
+
         public IEnumerable<TEntity> GetAll()
         {
             return this.GetAll(null);
@@ -68,7 +106,7 @@ namespace SportSquare.Data.Repositories
                 throw new ArgumentNullException("Filter can't be null!");
             }
 
-            return this.GetAll<object>(filterExpression, null);
+            return this.GetAll<TEntity>(filterExpression, null);
         }
 
         public IEnumerable<TEntity> GetAll<T1>(Expression<Func<TEntity, bool>> filterExpression, Expression<Func<TEntity, T1>> sortExpression)
@@ -110,35 +148,6 @@ namespace SportSquare.Data.Repositories
             {
                 return result.OfType<T2>().ToList();
             }
-        }
-
-        public void Add(TEntity entity)
-        {
-            var entry = AttachIfDetached(entity);
-            entry.State = EntityState.Added;
-        }
-
-        public void Update(TEntity entity)
-        {
-            var entry = AttachIfDetached(entity);
-            entry.State = EntityState.Modified;
-        }
-
-        public void Delete(TEntity entity)
-        {
-            var entry = AttachIfDetached(entity);
-            entry.State = EntityState.Deleted;
-        }
-
-        private DbEntityEntry AttachIfDetached(TEntity entity)
-        {
-            var entry = this.DbContext.Entry(entity);
-            if (entry.State == EntityState.Detached)
-            {
-                this.DbSet.Attach(entity);
-            }
-
-            return entry;
         }
     }
 }

@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+using SportSquare.Models.Contracts;
+
 
 namespace SportSquare.Models
 {
-    public class Venue
+    public class Venue : IDbModel
     {
         // TODO: Must be added validations!
 
@@ -32,12 +37,9 @@ namespace SportSquare.Models
             this.venueTypes = new HashSet<VenueType>();
         }
 
+        [Key]
         // Guid cheched to Int.....temporarily
-        public int VenueId { get; set; }
-
-        public string Title { get; set; }
-
-        public string Description { get; set; }
+        public int Id { get; set; }
 
         public string Image { get; set; }
 
@@ -53,6 +55,8 @@ namespace SportSquare.Models
 
         public string Address { get; set; }
 
+        public string WebAddress { get; set; }
+
         public virtual ICollection<VenueType> VenueTypes
         {
             get
@@ -64,8 +68,6 @@ namespace SportSquare.Models
                 this.venueTypes = value;
             }
         }
-
-        public string WebAddress { get; set; }
 
         public virtual ICollection<Rating> Ratings
         {

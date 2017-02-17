@@ -78,10 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentService.cs" />
     <Compile Include="Contracts\IipInfoGatherer.cs" />
     <Compile Include="Contracts\IVenueService.cs" />
-    <Compile Include="Contracts\ISportSquareGenericSerivce.cs" />
+    <Compile Include="Contracts\ISportSquareGenericService.cs" />
     <Compile Include="GoogleLocationModel.cs" />
+    <Compile Include="Contracts\ICommentService.cs" />
     <Compile Include="GService.cs">
       <SubType>Component</SubType>
     </Compile>

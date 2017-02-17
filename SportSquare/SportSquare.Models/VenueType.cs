@@ -1,15 +1,23 @@
 ﻿using System.Collections.Generic;
 
+using SportSquare.Models.Contracts;
+
 namespace SportSquare.Models
 {
-    public class VenueType
+    public class VenueType : IDbModel
     {
         private ICollection<Venue> venues;
-        public int VenueTypeId { get; set; }
+
+        public VenueType()
+        {
+            this.venues = new HashSet<Venue>();
+        }
+
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public ICollection<Venue> Venues
+        public virtual ICollection<Venue> Venues
         {
             get
             {
@@ -21,5 +29,7 @@ namespace SportSquare.Models
                 this.venues = value;
             }
         }
+
+        public bool IsDeleted { get; set; }
     }
 }
