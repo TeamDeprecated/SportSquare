@@ -35,12 +35,12 @@ namespace SportSquare.MVP
                             "~/Scripts/modernizr-*"));
 
             ScriptManager.ScriptResourceMapping.AddDefinition(
-                "respond",
-                new ScriptResourceDefinition
-                {
-                    Path = "~/Scripts/respond.min.js",
-                    DebugPath = "~/Scripts/respond.js",
-                });
+                 "respond",
+                 new ScriptResourceDefinition
+                 {
+                     Path = "~/Scripts/respond.min.js",
+                     DebugPath = "~/Scripts/respond.js",
+                 });
         }
     }
 }
