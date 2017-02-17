@@ -61,6 +61,7 @@ namespace SportSquare.Services.Tests
             var mockedRepo = new Mock<IVenueRepository>();
             mockedRepo.Setup(x => x.FilterVenues(It.IsAny<string>(), locationFilter)).Verifiable();
             var service = new VenueService(mockedRepo.Object);
+            service.FilterVenues(locationFilter, locationFilter);
             mockedRepo.Verify(x => x.FilterVenues(It.IsAny<string>(),It.Is<string>(arg => arg == locationFilter)), Times.Once);
         }
 
