@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="SportSquare.MVP.Search" %>
 
-<%@ Register Src="~/GoogleMapsForASPNet.ascx" TagPrefix="uc1" TagName="GoogleMapsForASPNet" %>
+<%--<%@ Register Src="~/GoogleMapsForASPNet.ascx" TagPrefix="uc1" TagName="GoogleMapsForASPNet" %>--%>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
