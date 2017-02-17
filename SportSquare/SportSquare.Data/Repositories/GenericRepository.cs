@@ -82,7 +82,7 @@ namespace SportSquare.Data.Repositories
 
         public void Hide(TEntity entity)
         {
-            entity.IsDeleted = true;
+            entity.IsHidden = true;
 
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Modified;

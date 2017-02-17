@@ -1,5 +1,4 @@
-﻿    using EF.Model;
-using SportSquareDTOs;
+﻿using SportSquareDTOs;
 using System.Collections.Generic;
 
 

@@ -33,8 +33,6 @@ namespace SportSquare.Services
             //TODO fix this shit IpInfoGatherer should return City in Cyrilic!
             var venues = this.venueRepository.FilterVenues(filter,"софия");
             return Mapper.Map<IEnumerable<Venue>, IEnumerable<VenueDTO>>(venues);
-
-
         }
     }
 }

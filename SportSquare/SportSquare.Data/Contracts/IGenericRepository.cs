@@ -6,7 +6,7 @@ using SportSquare.Models.Contracts;
 
 namespace SportSquare.Data.Contracts
 {
-   public  interface IGenericRepository<TEntity> where TEntity : class, IDbModel
+   public interface IGenericRepository<TEntity> where TEntity : class, IDbModel
     {
         TEntity GetById(object id);
 
