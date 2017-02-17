@@ -56,6 +56,16 @@ namespace SportSquare.Services
             }
         }
 
+        public void Hide(TEntity entity)
+        {
+            this.repository.Hide(entity);
+
+            using (this.UnitOfWork)
+            {
+                this.UnitOfWork.Commit();
+            }
+        }
+
         public void Delete(TEntity entity)
         {
             this.repository.Delete(entity);
@@ -86,9 +96,9 @@ namespace SportSquare.Services
             return this.repository.GetAll();
         }
 
-        public IEnumerable<TEntity> GetDeleted()
+        public IEnumerable<TEntity> GetHidden()
         {
-            return this.GetAll(ent => ent.IsDeleted);
+            return this.GetAll(ent => ent.IsHidden);
         }
 
         public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter)
