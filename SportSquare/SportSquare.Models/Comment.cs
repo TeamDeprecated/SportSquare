@@ -9,12 +9,6 @@ namespace SportSquare.Models
     {
         // TODO: Must be added validations!
 
-        private ICollection<User> users;
-
-        public Comment()
-        {
-            this.users = new HashSet<User>();
-        }
         public int Id { get; set; }
 
         public int VenueId { get; set; }
@@ -29,6 +23,6 @@ namespace SportSquare.Models
 
         public DateTime Date { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public bool IsHidden { get; set; }
     }
 }

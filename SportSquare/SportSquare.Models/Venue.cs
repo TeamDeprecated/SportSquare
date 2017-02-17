@@ -81,6 +81,6 @@ namespace SportSquare.Models
             set { this.comments = value; }
         }
 
-        public bool IsDeleted { get; set; }
+        public bool IsHidden { get; set; }
     }
 }

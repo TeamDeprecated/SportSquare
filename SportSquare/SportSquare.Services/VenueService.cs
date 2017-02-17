@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using EF.Model;
 using SportSquare.Data.Contracts;
 using SportSquare.Models;
 using SportSquare.Services.Contracts;

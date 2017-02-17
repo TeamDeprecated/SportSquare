@@ -8,6 +8,6 @@ namespace SportSquare.Models.Contracts
 {
     public interface IDbModel
     {
-        bool IsDeleted { get; set; }
+        bool IsHidden { get; set; }
     }
 }

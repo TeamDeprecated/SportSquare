@@ -30,6 +30,6 @@ namespace SportSquare.Models
             }
         }
 
-        public bool IsDeleted { get; set; }
+        public bool IsHidden { get; set; }
     }
 }

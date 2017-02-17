@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace SportSquare.Services.Contracts
 {
@@ -9,11 +8,13 @@ namespace SportSquare.Services.Contracts
     {
         T GetById(object id);
 
-        void Add(T item);
+        void Add(T entity);
 
-        void Update(T item);
+        void Update(T entity);
 
-        void Delete(T item);
+        void Hide(T entity);
+
+        void Delete(T entity);
 
         IEnumerable<T> GetAll();
 
@@ -28,6 +29,6 @@ namespace SportSquare.Services.Contracts
            Expression<Func<T, T1>> orderBy,
            Expression<Func<T, TResult>> select);
 
-        IEnumerable<T> GetDeleted();
+        IEnumerable<T> GetHidden();
     }
 }

@@ -26,6 +26,6 @@ namespace SportSquare.Models
             set { this.users = value; }
         }
 
-        public bool IsDeleted { get; set; }
+        public bool IsHidden { get; set; }
     }
 }
