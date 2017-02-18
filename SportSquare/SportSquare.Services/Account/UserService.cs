@@ -11,6 +11,7 @@ using SportSquare.Models;
 using SportSquare.Data.Contracts;
 using AutoMapper;
 using SportSquareDTOs;
+using SportSquare.Models.Factories;
 
 namespace SportSquare.Services.Account
 {
@@ -18,8 +19,9 @@ namespace SportSquare.Services.Account
     {
         private readonly IGenericRepository<User> repository;
         private readonly IUnitOfWork unitOfWork;
+        private readonly IUserFactory userFactory;
 
-        public UserService(IGenericRepository<User> repository, IUnitOfWork unitOfWork)
+        public UserService(IGenericRepository<User> repository, IUnitOfWork unitOfWork, IUserFactory userFactory)
         {
             if (repository==null)
             {
@@ -31,6 +33,12 @@ namespace SportSquare.Services.Account
                 throw new ArgumentNullException(nameof(unitOfWork));
             }
             this.unitOfWork = unitOfWork;
+            if (userFactory == null)
+            {
+                throw new ArgumentNullException(nameof(userFactory));
+            }
+            this.userFactory = userFactory;
+
         }
 
         public IEnumerable<UserDTO> FilterUsers(string filter)
@@ -44,15 +52,10 @@ namespace SportSquare.Services.Account
             
         }
 
-        public bool RegisterUser(string email, Guid AspNetUserId, string firstName, string lastName, GenderType gender, int age)
+        public bool RegisterUser(string email, Guid aspNetUserId, string firstName, string lastName, GenderType gender, int age)
         {
-            var user = new User();
-            user.Email = email;
-            user.AspNetUserId = AspNetUserId;
-            user.FirstName = firstName;
-            user.LastName = lastName;
-            user.Gender = gender;
-            user.Age = age;
+            var user = this.userFactory.CreateUser(email, aspNetUserId, firstName, lastName, gender, age);
+     
             try
             {
                 using (this.unitOfWork)
