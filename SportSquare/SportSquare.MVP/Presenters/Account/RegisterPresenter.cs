@@ -34,7 +34,8 @@ namespace SportSquare.MVP.Presenters.Account
 
             var manager = e.Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = e.Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = e.FirstName, Email = e.Email };
+            var user = new ApplicationUser() { Name = e.FirstName, Email = e.Email , UserName = e.Email};
+
             IdentityResult result = manager.Create(user, e.PasswordHash);
             if (result.Succeeded)
             {
