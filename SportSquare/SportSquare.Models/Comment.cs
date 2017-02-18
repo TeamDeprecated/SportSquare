@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 using SportSquare.Models.Contracts;
 
@@ -8,6 +8,17 @@ namespace SportSquare.Models
     public class Comment : IDbModel
     {
         // TODO: Must be added validations!
+        public Comment()
+        {
+        }
+
+        public Comment(int venueId, int userId, string description)
+        {
+            this.VenueId = venueId;
+            this.UserId = userId;
+            this.Description = description;
+            this.Date = DateTime.Now;
+        }
 
         public int Id { get; set; }
 
@@ -21,6 +32,7 @@ namespace SportSquare.Models
 
         public string Description { get; set; }
 
+        [Column(TypeName = "datetime2")]
         public DateTime Date { get; set; }
 
         public bool IsHidden { get; set; }

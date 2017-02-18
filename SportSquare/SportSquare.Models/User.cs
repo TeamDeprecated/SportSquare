@@ -2,6 +2,7 @@
 
 using SportSquare.Enums;
 using SportSquare.Models.Contracts;
+using System;
 
 namespace SportSquare.Models
 {
@@ -22,7 +23,15 @@ namespace SportSquare.Models
             this.wishVenues = new HashSet<UserWishVenue>();
         }
 
+        public User(Guid aspNetUserId, string username) : this()
+        {
+            this.AspNetUserId = aspNetUserId;
+            this.Username = username;
+        }
+
         public int Id { get; set; }
+
+        public Guid AspNetUserId { get; set; }
 
         public string Username { get; set; }
 
