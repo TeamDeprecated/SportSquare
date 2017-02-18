@@ -1,7 +1,6 @@
 ﻿using Ninject.Modules;
 using SportSquare.MVP.Presenters;
 using SportSquare.Services;
-using SportSquare.Services.Account;
 using SportSquare.Services.Contracts;
 using Ninject.Extensions.Conventions;
 using SportSquare.Services.AssemblyInfo;
