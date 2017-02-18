@@ -23,19 +23,21 @@ namespace SportSquare.Models
             this.wishVenues = new HashSet<UserWishVenue>();
         }
 
-        public User(Guid aspNetUserId, string username) : this()
+        public User( string email, Guid aspNetUserId, string firstName, string lastName, GenderType gender, int age) : this()
         {
-            this.AspNetUserId = aspNetUserId;
-            this.Username = username;
+            this.Id = aspNetUserId;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Gender = Gender;
+            this.Age = age;
+            
         }
 
-        public int Id { get; set; }
 
-        public Guid AspNetUserId { get; set; }
+        public Guid Id { get; set; }
 
         public string Username { get; set; }
 
-        //public string Username { get; set; }
 
         //[MinLength(2)]
         //[MaxLength(10)]

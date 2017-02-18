@@ -2,13 +2,10 @@
 using SportSquare.MVP.Presenters;
 using SportSquare.MVP.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
+using Microsoft.AspNet.Identity;
+
 
 namespace SportSquare.MVP
 {
@@ -24,8 +21,10 @@ namespace SportSquare.MVP
                 var ip = this.Request.UserHostAddress;
                 IpDetails?.Invoke(sender, new HomeEventArgs(ip));
                 this.location.Value = this.Model.City;
+
             }
         }
+  
 
         protected void search_Click(object sender, EventArgs e)
         {
@@ -36,6 +35,7 @@ namespace SportSquare.MVP
             }
             var locationFilter = this.location.Value;
             this.Response.Redirect(string.Format("~/search?q={0}&location={1}", filter, locationFilter));
+                
         }
     
     }

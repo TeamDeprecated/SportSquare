@@ -12,7 +12,7 @@ namespace SportSquare.Models
         {
         }
 
-        public Comment(int venueId, int userId, string description)
+        public Comment(Guid userId, int venueId, string description)
         {
             this.VenueId = venueId;
             this.UserId = userId;
@@ -26,7 +26,7 @@ namespace SportSquare.Models
 
         public virtual Venue Venue { get; set; }
 
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         public virtual User User { get; set; }
 
