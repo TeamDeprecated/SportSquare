@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using SportSquare.Auth;
+using SportSquare.Enums;
 using SportSquare.MVP.Models;
 using SportSquare.MVP.Models.AccountModels.Register;
 using SportSquare.MVP.Views.AccountViews;
@@ -41,8 +42,9 @@ namespace SportSquare.MVP.Presenters.Account
                 //string code = manager.GenerateEmailConfirmationToken(user.Id);
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-
-                var isLocalRegistered=this.userService.RegisterUser(new Guid(user.Id), e.Email, e.FirstName, e.LastName, e.Gender, e.Age);
+                GenderType gender;
+                Enum.TryParse<GenderType>(e.Gender, out gender);
+                var isLocalRegistered=this.userService.RegisterUser(new Guid(user.Id), e.Email, e.FirstName, e.LastName, gender, e.Age);
                 if (isLocalRegistered)
                 {
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);

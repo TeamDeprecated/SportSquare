@@ -59,7 +59,7 @@ namespace SportSquare.MVP.Tests.Models.AccountModels
         [Test]
         public void RegisterEventArgsConstructorOverloadInalizedCorectly_NewInstanceIsCreated()
         {
-            var actualInstance = new RegisterEventArgs(httpContextMock, mockedString, mockedString, mockedString, mockedString, GenderType.Male, mockedString);
+            var actualInstance = new RegisterEventArgs(httpContextMock, mockedString, mockedString, mockedString, mockedString, mockedString, mockedString);
             Assert.That(actualInstance, Is.Not.Null);
         }
 
@@ -88,7 +88,7 @@ namespace SportSquare.MVP.Tests.Models.AccountModels
         public void ConstructorSetFirstNameCorectly()
         {
             var firstName = "MyName";
-            var actualInstance = new RegisterEventArgs(httpContextMock, mockedString, mockedString, firstName, mockedString, GenderType.Male, mockedString);
+            var actualInstance = new RegisterEventArgs(httpContextMock, mockedString, mockedString, firstName, mockedString, mockedString, mockedString);
             Assert.AreEqual(firstName, actualInstance.FirstName);
         }
 
@@ -96,14 +96,14 @@ namespace SportSquare.MVP.Tests.Models.AccountModels
         public void ConstructorSetLastNameCorectly()
         {
             var lastName = "MyName";
-            var actualInstance = new RegisterEventArgs(httpContextMock, mockedString, mockedString, mockedString, lastName, GenderType.Male, mockedString);
+            var actualInstance = new RegisterEventArgs(httpContextMock, mockedString, mockedString, mockedString, lastName, mockedString, mockedString);
             Assert.AreEqual(lastName, actualInstance.LastName);
         }
 
         [Test]
         public void ConstructorSetGenderCorectly()
         {
-            var gender = GenderType.Male;
+            var gender = "male";
             var actualInstance = new RegisterEventArgs(httpContextMock, mockedString, mockedString, mockedString, mockedString, gender, mockedString);
             Assert.AreEqual(gender, actualInstance.Gender);
         }
@@ -112,7 +112,7 @@ namespace SportSquare.MVP.Tests.Models.AccountModels
         public void ConstructorSetAgeCorectly()
         {
             var age = "42";
-            var actualInstance = new RegisterEventArgs(httpContextMock, mockedString, mockedString, mockedString, mockedString, GenderType.Male, age);
+            var actualInstance = new RegisterEventArgs(httpContextMock, mockedString, mockedString, mockedString, mockedString, mockedString, age);
             Assert.AreEqual(int.Parse(age), actualInstance.Age);
         }
 

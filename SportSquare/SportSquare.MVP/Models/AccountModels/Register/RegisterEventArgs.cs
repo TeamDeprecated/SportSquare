@@ -18,7 +18,7 @@ namespace SportSquare.MVP.Models.AccountModels.Register
             this.Email = email;
             this.PasswordHash = passwordHash;
         }
-        public RegisterEventArgs(HttpContext context, string email, string passwordHash, string firstName, string lastName, GenderType gender, string age)
+        public RegisterEventArgs(HttpContext context, string email, string passwordHash, string firstName, string lastName, string gender, string age)
             :this(context,email,passwordHash)
         {
 
@@ -44,7 +44,7 @@ namespace SportSquare.MVP.Models.AccountModels.Register
         public string PasswordHash { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
-        public GenderType Gender { get; private set; }
+        public string Gender { get; private set; }
         public int Age { get; private set; }
     }
 }

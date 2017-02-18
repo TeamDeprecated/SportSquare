@@ -1,9 +1,12 @@
-﻿namespace SportSquare.Enums
+﻿using System.ComponentModel;
+
+namespace SportSquare.Enums
 {
     public enum GenderType
     {
-        NotRecognized = 0,
-        Female = 1,
-        Male = 2
+        Male,
+        Female,
+        [Description("Better not say")]
+        undefined
     }
 }

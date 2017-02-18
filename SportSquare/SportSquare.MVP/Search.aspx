@@ -53,21 +53,19 @@
                                 </div>
                             </div>
                             <div class="resultFooter">
+
+                                 <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <asp:Button Text="Save" CssClass="btn btn-success" runat="server" />
+                        </LoggedInTemplate>
+                    </asp:LoginView>
                                 <div class="buttons">
 
                                 </div>
                             </div>
                         </div>
-                        <%--<div class="detail tips ">
-                                    <ul class="tips">
-                                        <li class="tip">
-                                            <div class="avatar">
-                                                <img src="https://igx.4sqi.net/img/user/64x64/11962673-EB3GNJ42SCWEY0UN.jpg" alt="Elena K." class="avatar " width="64" height="64" title="Elena K." data-retina-url="https://igx.4sqi.net/img/user/128x128/11962673-EB3GNJ42SCWEY0UN.jpg">
-                                            </div>
-                                            <p class="tipText"><span class="tipAuthor "><a class="userName" href="/user/11962673" target="_blank">Elena K.</a> • April 8, 2016</span>The <span class="entity tip_taste_match">staff</span> is really <span class="entity tip_taste_match">friendly</span> and treat you like a family especially when you are one of the regulars. Lovely <span class="entity tip_taste_match">organic</span> <span class="entity tip_taste_match">cocktails</span> and <span class="entity tip_taste_match">lemonade</span>. The <span class="entity tip_taste_match">garden</span> works until 10pm which is a bit of disadvantage.</p>
-                                        </li>
-                                    </ul>
-                                </div>--%>
                     </div>
                 </ItemTemplate>
             </asp:ListView>

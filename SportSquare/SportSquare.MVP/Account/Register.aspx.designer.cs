@@ -40,6 +40,15 @@ namespace SportSquare.MVP.Account {
         protected global::System.Web.UI.WebControls.TextBox FirstName;
         
         /// <summary>
+        /// FirstNameValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator FirstNameValidator;
+        
+        /// <summary>
         /// LastName control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,24 @@ namespace SportSquare.MVP.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox LastName;
+        
+        /// <summary>
+        /// LastNameValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator LastNameValidator;
+        
+        /// <summary>
+        /// GenderTypeView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList GenderTypeView;
         
         /// <summary>
         /// Age control.

@@ -18,36 +18,44 @@
                     CssClass="text-danger" ErrorMessage="The email field is required." />
             </div>
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="FirstName" CssClass="col-md-2 control-label">First Name</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="FirstName" CssClass="form-control"  />
-                <%-- <asp:RangeValidator runat="server"   ControlToValidate="FirstName" 
-                    CssClass="text-danger" ErrorMessage="Name should be between 2 and 20 symbols." />--%>
+                <asp:TextBox runat="server" ID="FirstName" CssClass="form-control" />
+                <asp:RegularExpressionValidator ID="FirstNameValidator" runat="server" SetFocusOnError="True"
+                    ErrorMessage="Името може да бъде максимум 20 букви на латиница или кирилица" Display="Dynamic"
+                    ControlToValidate="FirstName" ValidationExpression="^[a-zA-Zа-яА-Я]{2,20}$">
+                </asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
+                    CssClass="text-danger" ErrorMessage="First Name field is required." />
+
+
             </div>
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="LastName" CssClass="col-md-2 control-label">Last Name</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="LastName" CssClass="form-control"  />
-               <%--  <asp:RangeValidator runat="server"   ControlToValidate="LastName" 
-                    CssClass="text-danger" ErrorMessage="Name should be between 2 and 20 symbols." />--%>
+                <asp:TextBox runat="server" ID="LastName" CssClass="form-control" />
+                <asp:RegularExpressionValidator ID="LastNameValidator" runat="server" SetFocusOnError="True"
+                    ErrorMessage="Името може да бъде максимум 20 букви на латиница или кирилица" Display="Dynamic"
+                    ControlToValidate="LastName" ValidationExpression="^[a-zA-Zа-яА-Я]{2,20}$">
+                </asp:RegularExpressionValidator>
             </div>
         </div>
-       <%--  <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="LastName" CssClass="col-md-2 control-label">Last Name</asp:Label>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="GenderTypeView" CssClass="col-md-2 control-label">Gender</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control"  />
-                 <asp:RangeValidator runat="server"   ControlToValidate="LastName" MinimumValue="2" MaximumValue="20"
-                    CssClass="text-danger" ErrorMessage="Name should be between 2 and 20 symbols." />
+                <asp:DropDownList runat="server" ID="GenderTypeView">
+              
+                </asp:DropDownList>
             </div>
-        </div>--%>
-         <div class="form-group">
+        </div>
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Age" CssClass="col-md-2 control-label">Age</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Age" CssClass="form-control" />
-             <%--    <asp runat="server"   ControlToValidate="Age" MinimumValue="0"  MaximumValue="120"
-                    CssClass="text-danger" ErrorMessage="Age cannot be less than 0" />--%>
+                <asp:RangeValidator runat="server"   ControlToValidate="Age" MinimumValue="0"  MaximumValue="120"
+                    CssClass="text-danger" ErrorMessage="Age should be between 0 and 120" />
             </div>
         </div>
         <div class="form-group">
