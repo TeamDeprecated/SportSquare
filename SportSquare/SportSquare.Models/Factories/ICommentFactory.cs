@@ -8,6 +8,6 @@ namespace SportSquare.Models.Factories
 {
     public interface ICommentFactory
     {
-        Comment CreateComment(int userId, int venueId, string description);
+        Comment CreateComment(Guid aspNetuserId, int venueId, string description);
     }
 }

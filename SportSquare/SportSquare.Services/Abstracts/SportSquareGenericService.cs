@@ -36,6 +36,14 @@ namespace SportSquare.Services
             }
         }
 
+        protected IGenericRepository<TEntity> Repository
+        {
+            get
+            {
+                return this.repository;
+            }
+        }
+
         public void Add(TEntity entity)
         {
             this.repository.Add(entity);
