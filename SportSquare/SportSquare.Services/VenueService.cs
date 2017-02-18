@@ -26,7 +26,10 @@ namespace SportSquare.Services
         public IEnumerable<VenueDTO> FilterVenues(string filter, string location)
         {
             //TODO fix this shit IpInfoGatherer should return City in Cyrilic!
-            var venues = this.venueRepository.FilterVenues(filter, location);
+            //var venues = this.venueRepository.FilterVenues(filter, location);
+
+            var venues = this.venueRepository.GetAll(x => x.City == location && x.VenueTypes.Any(vt => vt.Name.Contains(filter)));
+
             return Mapper.Map<IEnumerable<Venue>, IEnumerable<VenueDTO>>(venues);
         }
     }
