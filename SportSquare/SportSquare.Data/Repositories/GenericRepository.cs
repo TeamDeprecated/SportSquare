@@ -99,27 +99,28 @@ namespace SportSquare.Data.Repositories
             return this.GetAll(null);
         }
 
+        // TODO SEE IT
         public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filterExpression)
         {
-            if (filterExpression == null)
-            {
-                throw new ArgumentNullException("Filter can't be null!");
-            }
+            //if (filterExpression == null)
+            //{
+            //    throw new ArgumentNullException("Filter can't be null!");
+            //}
 
             return this.GetAll<TEntity>(filterExpression, null);
         }
 
         public IEnumerable<TEntity> GetAll<T1>(Expression<Func<TEntity, bool>> filterExpression, Expression<Func<TEntity, T1>> sortExpression)
         {
-            if (filterExpression == null)
-            {
-                throw new ArgumentNullException("Filter can't be null!");
-            }
+            //if (filterExpression == null)
+            //{
+            //    throw new ArgumentNullException("Filter can't be null!");
+            //}
 
-            if (sortExpression == null)
-            {
-                throw new ArgumentNullException("Sort can't be null!");
-            }
+            //if (sortExpression == null)
+            //{
+            //    throw new ArgumentNullException("Sort can't be null!");
+            //}
 
             return this.GetAll<T1, TEntity>(filterExpression, sortExpression, null);
         }
