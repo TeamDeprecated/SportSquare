@@ -47,15 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cCommon.cs" />
-    <Compile Include="GoogleDirections.cs" />
-    <Compile Include="GoogleMapType.cs" />
-    <Compile Include="GoogleObject.cs" />
-    <Compile Include="GooglePoint.cs" />
-    <Compile Include="GooglePoints.cs" />
-    <Compile Include="GooglePolygon.cs" />
-    <Compile Include="GooglePolygons.cs" />
-    <Compile Include="GooglePolyline.cs" />
-    <Compile Include="GooglePolylines.cs" />
+    <Compile Include="Google\GoogleDirections.cs" />
+    <Compile Include="Google\GoogleMapType.cs" />
+    <Compile Include="Google\GoogleObject.cs" />
+    <Compile Include="Google\GooglePoint.cs" />
+    <Compile Include="Google\GooglePoints.cs" />
+    <Compile Include="Google\GooglePolygon.cs" />
+    <Compile Include="Google\GooglePolygons.cs" />
+    <Compile Include="Google\GooglePolyline.cs" />
+    <Compile Include="Google\GooglePolylines.cs" />
+    <Compile Include="UserDTO.cs" />
     <Compile Include="VenueDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VenueImporter.cs" />

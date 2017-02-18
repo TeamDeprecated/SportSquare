@@ -22,7 +22,7 @@ namespace SportSquare.MVP.Account
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            this.RegisterDetails?.Invoke(sender, new RegisterEventArgs(this.Context,Email.Text, Password.Text));
+            this.RegisterDetails?.Invoke(sender, new RegisterEventArgs(this.Context,Email.Text, Password.Text,FirstName.Text,LastName.Text,Enums.GenderType.Male, Age.Text));
             if (this.Model.Succeeded)
             {
              

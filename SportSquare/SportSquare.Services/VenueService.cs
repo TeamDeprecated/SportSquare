@@ -12,7 +12,6 @@ namespace SportSquare.Services
     public class VenueService: IVenueService
     {
         private readonly IVenueRepository venueRepository;
-        private readonly IMapper mapper;
 
         public VenueService(IVenueRepository venueRepository)
         {

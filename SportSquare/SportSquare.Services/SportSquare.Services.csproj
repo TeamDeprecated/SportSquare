@@ -78,8 +78,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\UserService.cs" />
     <Compile Include="CommentService.cs" />
     <Compile Include="Contracts\IipInfoGatherer.cs" />
+    <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Contracts\IVenueService.cs" />
     <Compile Include="Contracts\ISportSquareGenericService.cs" />
     <Compile Include="GoogleLocationModel.cs" />
@@ -94,6 +96,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SportSquare.Auth\SportSquare.Auth.csproj">
+      <Project>{770EDEB7-24E9-41EF-ACF6-49FCD2B690A6}</Project>
+      <Name>SportSquare.Auth</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SportSquare.Data\SportSquare.Data.csproj">
       <Project>{C10646D7-BD7A-43F8-9102-219050207A54}</Project>
       <Name>SportSquare.Data</Name>

@@ -2,6 +2,9 @@
 
 using SportSquare.Enums;
 using SportSquare.Models.Contracts;
+using System.ComponentModel.DataAnnotations;
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SportSquare.Models
 {
@@ -22,18 +25,30 @@ namespace SportSquare.Models
             this.wishVenues = new HashSet<UserWishVenue>();
         }
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public string Username { get; set; }
+        //[Required]
+        //[Index("DataBaseId", IsUnique = true)]
+        public Guid DatabaseId { get; set; }
 
+        //public string Username { get; set; }
+
+        //[MinLength(2)]
+        //[MaxLength(10)]
         public string FirstName { get; set; }
 
+        //[MinLength(2)]
+        //[MaxLength(10)]
         public string LastName { get; set; }
 
         public GenderType Gender { get; set; }
 
-        public int Age { get; set; }
+       public int Age { get; set; }
 
+        //[Required]
+        //[EmailAddress]
         public string Email { get; set; }
 
         public virtual ICollection<Comment> Comments

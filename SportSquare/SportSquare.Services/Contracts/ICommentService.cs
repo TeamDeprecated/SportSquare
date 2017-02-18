@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-
 using SportSquare.Models;
 using SportSquare.Services.Contracts;
 

@@ -57,6 +57,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web" />
     <Reference Include="WebFormsMvp, Version=1.4.5.0, Culture=neutral, PublicKeyToken=537f18701145dff0, processorArchitecture=MSIL">
       <HintPath>..\packages\WebFormsMvp.1.4.5.0\lib\WebFormsMvp.dll</HintPath>
       <Private>True</Private>
@@ -77,21 +78,25 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Models\AccountModels\RegisterEventArgsTests.cs" />
     <Compile Include="Models\HomeEventArgsTests.cs" />
     <Compile Include="Models\SearchEventArgsTests.cs" />
     <Compile Include="Presenters\Account\LoginPresenterTest.cs" />
+    <Compile Include="Presenters\Account\RegisterPresenterTest.cs" />
     <Compile Include="Presenters\HomePresenterTests.cs" />
     <Compile Include="Presenters\SearchPresenterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\AccountModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SportSquare.Models\SportSquare.Models.csproj">
+      <Project>{4F36305A-0ABB-40DF-845A-A5A3170545EC}</Project>
+      <Name>SportSquare.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SportSquare.MVP\SportSquare.MVP.csproj">
       <Project>{06486713-7F9B-4C15-8F71-1EE68D819AF5}</Project>
       <Name>SportSquare.MVP</Name>

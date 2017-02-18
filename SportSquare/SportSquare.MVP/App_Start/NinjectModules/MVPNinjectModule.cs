@@ -3,6 +3,7 @@ using Ninject.Activation;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using Ninject.Parameters;
+using SportSquare.MVP.Presenters;
 using SportSqure.MVP.Factories;
 using System;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace SportSqure.MVP.App_Start
             this.Bind<ICustomPresenterFactory>().ToFactory().InSingletonScope();
 
             this.Bind<IPresenter>().ToMethod(this.GetPresenter).NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.GetPresenter(null, null));
+            this.Bind<SearchPresenter>().ToSelf();
+
         }
 
         private IPresenter GetPresenter(IContext context)

@@ -10,7 +10,7 @@ namespace SportSquare.Data.Migrations
     using System.Linq;
     using VenueImporter;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SportSquare.Data.SportSquareDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SportSquareDbContext>
     {
         public Configuration()
         {
