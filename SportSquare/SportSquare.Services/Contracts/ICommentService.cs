@@ -8,12 +8,12 @@ namespace SportSquare.Services
     {
         void CreateComment(int userId, int venueID, string description);
 
-        void UpdateComment(int commentId, int userId, string description);
+        void UpdateComment(int commentId, string userId, string description);
 
         Comment GetLastCommentByVenueId(int id);
 
         IEnumerable<Comment> GetAllCommentsByVenueId(int id);
 
-        IEnumerable<Comment> GetAllCommentsByUserId(int id);
+        IEnumerable<Comment> GetAllCommentsByUserId(string id);
     }
 }

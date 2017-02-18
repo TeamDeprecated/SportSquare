@@ -54,9 +54,7 @@
                             </div>
                             <div class="resultFooter">
                                 <div class="buttons">
-                                    <%--TODO Check if loged in, if not hide--%>
-                                    <%--TODO make above with AJAXS--%>
-                                    <asp:Button Text="Save" class="btn" ID="SaveButton" OnClick="SaveButton_Click" runat="server" />
+
                                 </div>
                             </div>
                         </div>

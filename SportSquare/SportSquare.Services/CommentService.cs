@@ -34,11 +34,12 @@ namespace SportSquare.Services.Contracts
         }
 
         // TODO Test it works && edit (int) id!
-        public void UpdateComment(int commentId, int userId, string description)
+        public void UpdateComment(int commentId, string userId, string description)
         {
-            var comment = this.Repository.GetById(commentId);
+            var comment = this.repository.GetById(commentId);
+            var userGuid = Guid.Parse(userId);
 
-            if (comment.UserId != userId)
+            if (comment.UserId != userGuid)
             {
                 throw new ArgumentException("This user is not author of this comment!");
             }
@@ -60,9 +61,11 @@ namespace SportSquare.Services.Contracts
             return this.repository.GetAll(c => c.IsHidden == false && c.VenueId == (int)id);
         }
 
-        public IEnumerable<Comment> GetAllCommentsByUserId(int id)
+        public IEnumerable<Comment> GetAllCommentsByUserId(string id)
         {
-            return this.repository.GetAll(c => c.UserId == id && c.IsHidden == false);
+            var userGuid = Guid.Parse(id);
+
+            return this.repository.GetAll(c => c.UserId == userGuid && c.IsHidden == false);
         }
     }
 }

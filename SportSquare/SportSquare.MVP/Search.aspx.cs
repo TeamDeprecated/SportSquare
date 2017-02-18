@@ -31,10 +31,11 @@ namespace SportSquare.MVP
             this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
             this.FilteredVenues.DataSource = Model.FilteredVenues;
             this.FilteredVenues.DataBind();
+            if (this.User.Identity.IsAuthenticated)
+            {
+               //this.filte
+            }
         }
-        protected void SaveButton_Click( object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

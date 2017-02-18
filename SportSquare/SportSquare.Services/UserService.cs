@@ -29,6 +29,8 @@ namespace SportSquare.Services.Account
             this.userFactory = userfactory;
         }
 
+        }
+
         public IEnumerable<UserDTO> FilterUsers(string filter)
         {
             throw new NotImplementedException();
@@ -40,16 +42,10 @@ namespace SportSquare.Services.Account
             
         }
 
-        public bool RegisterUser(string email, Guid AspNetUserId, string firstName, string lastName, GenderType gender, int age)
+        public bool RegisterUser(string email, Guid aspNetUserId, string firstName, string lastName, GenderType gender, int age)
         {
-            var user = new User();
-            user.Email = email;
-            user.AspNetUserId = AspNetUserId;
-            user.FirstName = firstName;
-            user.LastName = lastName;
-            user.Gender = gender;
-            user.Age = age;
-
+            var user = this.userFactory.CreateUser(email, aspNetUserId, firstName, lastName, gender, age);
+     
             try
             {
                 using (this.UnitOfWork)

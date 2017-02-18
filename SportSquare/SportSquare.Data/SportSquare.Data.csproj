@@ -57,17 +57,9 @@
     <Compile Include="Contracts\ISportSquareDbContext.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IVenueRepository.cs" />
-    <Compile Include="Migrations\201702160923162_NewRelationsV1.cs" />
-    <Compile Include="Migrations\201702160923162_NewRelationsV1.Designer.cs">
-      <DependentUpon>201702160923162_NewRelationsV1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702171923543_AddGuidPropToUser.cs" />
-    <Compile Include="Migrations\201702171923543_AddGuidPropToUser.Designer.cs">
-      <DependentUpon>201702171923543_AddGuidPropToUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702172036060_ChangeDateFormatToDatetime2.cs" />
-    <Compile Include="Migrations\201702172036060_ChangeDateFormatToDatetime2.Designer.cs">
-      <DependentUpon>201702172036060_ChangeDateFormatToDatetime2.cs</DependentUpon>
+    <Compile Include="Migrations\201702181352358_UserIdReplacedWithAspNetGuiID.cs" />
+    <Compile Include="Migrations\201702181352358_UserIdReplacedWithAspNetGuiID.Designer.cs">
+      <DependentUpon>201702181352358_UserIdReplacedWithAspNetGuiID.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,14 +85,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702160923162_NewRelationsV1.resx">
-      <DependentUpon>201702160923162_NewRelationsV1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702171923543_AddGuidPropToUser.resx">
-      <DependentUpon>201702171923543_AddGuidPropToUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702172036060_ChangeDateFormatToDatetime2.resx">
-      <DependentUpon>201702172036060_ChangeDateFormatToDatetime2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702181352358_UserIdReplacedWithAspNetGuiID.resx">
+      <DependentUpon>201702181352358_UserIdReplacedWithAspNetGuiID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

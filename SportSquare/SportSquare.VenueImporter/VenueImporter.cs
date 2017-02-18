@@ -11,7 +11,9 @@ namespace SportSquare.VenueImporter
 {
     public class VenueImporter
     {   
-        private const string FILE_PATH = "\\SportSquare.VenueImporter\\venueList.xml";
+        private const string FILE_PATH = "\\venueList.xml";
+        //private const string FILE_PATH = "\\SportSquare.VenueImporter\\venueList.xml";
+
         public IList<Venue> Venues { get; private set; }
         public IList<VenueType> VenueTypes { get; private set; }
         public VenueImporter()
@@ -22,10 +24,11 @@ namespace SportSquare.VenueImporter
 
         public IList<Venue> ParseVenues()
         {
-            var directory = "D:\\GitHub\\Team works\\SportSquare\\SportSquare";
+            //var directory = "D:\\GitHub\\Team works\\SportSquare\\SportSquare";
 
-            //var directory = Directory.GetCurrentDirectory();
-            //Environment.CurrentDirectory;
+            var directory = Environment.CurrentDirectory;
+
+
 
             using (var reader = XmlReader.Create(directory+FILE_PATH))
             {
