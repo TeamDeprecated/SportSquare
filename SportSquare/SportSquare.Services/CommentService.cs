@@ -25,9 +25,9 @@ namespace SportSquare.Services.Contracts
         // TODO To Implement!
         public void CreateComment(string aspNetUserId, int venueId, string description)
         {
-            var guidUser = Guid.Parse(aspNetUserId);
+            var userGuid = Guid.Parse(aspNetUserId);
 
-            var comment = this.commentFactory.CreateComment(guidUser, venueId, description);
+            var comment = this.commentFactory.CreateComment(userGuid, venueId, description);
 
             this.Add(comment);
         }
@@ -44,7 +44,7 @@ namespace SportSquare.Services.Contracts
                 throw new ArgumentException("This user is not author of this comment!");
             }
 
-            comment.Description = description;
+            comment.Description = description ?? comment.Description;
             comment.Date = DateTime.Now;
 
             this.Update(comment);
