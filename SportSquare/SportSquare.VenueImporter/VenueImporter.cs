@@ -22,9 +22,9 @@ namespace SportSquare.VenueImporter
 
         public IList<Venue> ParseVenues()
         {
-            //var directory = "D:\\GitHub\\Team works\\SportSquare\\SportSquare";
+            var directory = "D:\\GitHub\\Team works\\SportSquare\\SportSquare";
 
-            var directory = Directory.GetCurrentDirectory();
+            //var directory = Directory.GetCurrentDirectory();
             //Environment.CurrentDirectory;
 
             using (var reader = XmlReader.Create(directory+FILE_PATH))

@@ -5,6 +5,7 @@ using NUnit.Framework;
 using SportSquare.Models;
 using SportSquare.Data.Contracts;
 using SportSquare.Services.Contracts;
+using SportSquare.Models.Factories;
 
 namespace SportSquare.Services.Tests
 {
@@ -15,22 +16,37 @@ namespace SportSquare.Services.Tests
         public void ConstructorShouldThrowException_WhenRepositoryIsNull()
         {
             // Arrange
-            IGenericRepository<Comment> repository = null;
+            var commentFactory = new Mock<ICommentFactory>();
             var unitOfWork = new Mock<IUnitOfWork>();
+            IGenericRepository<Comment> repository = null;
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new CommentService(repository, unitOfWork.Object));
+            Assert.Throws<ArgumentNullException>(() => new CommentService(repository, unitOfWork.Object, commentFactory.Object));
         }
 
         [Test]
         public void ConstructorShouldThrowException_WhenUnitOfWorkIsNull()
         {
             // Arrange
+            var commentFactory = new Mock<ICommentFactory>();
             var repository = new Mock<IGenericRepository<Comment>>();
             IUnitOfWork unitOfWork = null;
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new CommentService(repository.Object, unitOfWork));
+            Assert.Throws<ArgumentNullException>(() => new CommentService(repository.Object, unitOfWork, commentFactory.Object));
+        }
+
+
+        [Test]
+        public void ConstructorShouldThrowException_WhenCommentFactoryIsNull()
+        {
+            // Arrange
+            var unitOfWork = new Mock<IUnitOfWork>();
+            var repository = new Mock<IGenericRepository<Comment>>();
+            ICommentFactory commentFactory = null;
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new CommentService(repository.Object, unitOfWork.Object, commentFactory));
         }
 
         [Test]
@@ -39,9 +55,10 @@ namespace SportSquare.Services.Tests
             // Arrange
             var repository = new Mock<IGenericRepository<Comment>>();
             var unitOfWork = new Mock<IUnitOfWork>();
+            var commentFactory = new Mock<ICommentFactory>();
 
             // Act
-            ICommentService commentService = new CommentService(repository.Object, unitOfWork.Object);
+            ICommentService commentService = new CommentService(repository.Object, unitOfWork.Object, commentFactory.Object);
 
             // Assert
             Assert.IsNotNull(commentService);
