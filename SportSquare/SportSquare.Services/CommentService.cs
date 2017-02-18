@@ -10,7 +10,7 @@ namespace SportSquare.Services.Contracts
 {
     public class CommentService : SportSquareGenericService<Comment>, ICommentService
     {
-        private IGenericRepository<Comment> repository;
+        //private IGenericRepository<Comment> repository;
         private ICommentFactory commentFactory;
 
         public CommentService(IGenericRepository<Comment> repository, IUnitOfWork unitOfWork, ICommentFactory commentFactory) : base(repository, unitOfWork)
@@ -20,14 +20,15 @@ namespace SportSquare.Services.Contracts
                 throw new ArgumentNullException("Comment cant't be null");
             }
 
-            this.repository = repository;
             this.commentFactory = commentFactory;
         }
         
         // TODO To Implement!
-        public void CreateComment(int userId, int venueId, string description)
+        public void CreateComment(string aspNetUserId, int venueId, string description)
         {
-            var comment = this.commentFactory.CreateComment(userId, venueId, description);
+            var guidUser = Guid.Parse(aspNetUserId);
+
+            var comment = this.commentFactory.CreateComment(guidUser, venueId, description);
 
             this.Add(comment);
         }
@@ -35,7 +36,7 @@ namespace SportSquare.Services.Contracts
         // TODO Test it works && edit (int) id!
         public void UpdateComment(int commentId, int userId, string description)
         {
-            var comment = this.repository.GetById(commentId);
+            var comment = this.Repository.GetById(commentId);
 
             if (comment.UserId != userId)
             {

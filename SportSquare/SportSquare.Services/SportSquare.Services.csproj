@@ -79,7 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo\IServiceAssemblyInfo.cs" />
-    <Compile Include="Account\UserService.cs" />
+    <Compile Include="UserService.cs" />
     <Compile Include="CommentService.cs" />
     <Compile Include="Contracts\IipInfoGatherer.cs" />
     <Compile Include="Contracts\IUserService.cs" />

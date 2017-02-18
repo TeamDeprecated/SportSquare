@@ -11,26 +11,22 @@ using SportSquare.Models;
 using SportSquare.Data.Contracts;
 using AutoMapper;
 using SportSquareDTOs;
+using SportSquare.Models.Factories;
 
 namespace SportSquare.Services.Account
 {
-    public class UserService: IUserService
+    public class UserService: SportSquareGenericService<User>, IUserService
     {
-        private readonly IGenericRepository<User> repository;
-        private readonly IUnitOfWork unitOfWork;
+        private IUserFactory userFactory;
 
-        public UserService(IGenericRepository<User> repository, IUnitOfWork unitOfWork)
+        public UserService(IGenericRepository<User> repository, IUnitOfWork unitOfWork, IUserFactory userfactory, IUserFactory userFactory) : base(repository, unitOfWork)
         {
-            if (repository==null)
+            if (userFactory == null)
             {
                 throw new ArgumentNullException(nameof(repository));
             }
-            this.repository = repository;
-            if (unitOfWork == null)
-            {
-                throw new ArgumentNullException(nameof(unitOfWork));
-            }
-            this.unitOfWork = unitOfWork;
+
+            this.userFactory = userfactory;
         }
 
         public IEnumerable<UserDTO> FilterUsers(string filter)
@@ -40,7 +36,7 @@ namespace SportSquare.Services.Account
 
         public IEnumerable<UserDTO> GetAllUsers()
         {
-           return  Mapper.Map<IEnumerable<User>, IEnumerable<UserDTO>>(this.repository.GetAll());
+           return  Mapper.Map<IEnumerable<User>, IEnumerable<UserDTO>>(this.Repository.GetAll());
             
         }
 
@@ -53,18 +49,20 @@ namespace SportSquare.Services.Account
             user.LastName = lastName;
             user.Gender = gender;
             user.Age = age;
+
             try
             {
-                using (this.unitOfWork)
+                using (this.UnitOfWork)
                 {
-                    this.repository.Add(user);
-                    this.unitOfWork.Commit();
+                    this.Repository.Add(user);
+                    this.UnitOfWork.Commit();
                 }
             }
             catch
             {
                 return false;
             }
+
             return true;
         }
     }
