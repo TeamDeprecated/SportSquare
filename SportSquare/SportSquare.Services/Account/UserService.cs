@@ -44,11 +44,11 @@ namespace SportSquare.Services.Account
             
         }
 
-        public bool RegisterUser(string email, Guid userDatabaseId, string firstName, string lastName, GenderType gender, int age)
+        public bool RegisterUser(string email, Guid AspNetUserId, string firstName, string lastName, GenderType gender, int age)
         {
             var user = new User();
             user.Email = email;
-            user.DatabaseId = userDatabaseId;
+            user.AspNetUserId = AspNetUserId;
             user.FirstName = firstName;
             user.LastName = lastName;
             user.Gender = gender;
