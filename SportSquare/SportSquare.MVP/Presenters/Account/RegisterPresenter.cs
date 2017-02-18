@@ -43,7 +43,7 @@ namespace SportSquare.MVP.Presenters.Account
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
-                var isLocalRegistered=this.userService.RegisterUser(new Guid(user.Id), e.Email, e.FirstName, e.LastName, e.Gender, e.Age);
+                var isLocalRegistered=this.userService.RegisterUser(user.Id, e.Email, e.FirstName, e.LastName, e.Gender, e.Age);
                 if (isLocalRegistered)
                 {
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
