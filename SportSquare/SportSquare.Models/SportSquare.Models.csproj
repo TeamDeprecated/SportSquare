@@ -50,10 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyInfo\IModelAssemblyInfo.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Constants\Validation.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
     <Compile Include="Enums\GenderType.cs" />
+    <Compile Include="Factories\ICommentFactory.cs" />
+    <Compile Include="Factories\IUserFactory.cs" />
+    <Compile Include="Factories\IVenueFactory.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserFavoriteVenue.cs" />
@@ -68,6 +72,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

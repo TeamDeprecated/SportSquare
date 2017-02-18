@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyInfo\IServiceAssemblyInfo.cs" />
     <Compile Include="CommentService.cs" />
     <Compile Include="Contracts\IipInfoGatherer.cs" />
     <Compile Include="Contracts\IVenueService.cs" />
