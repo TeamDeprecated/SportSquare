@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 
 namespace SportSquare.Services.Contracts
 {
-    public interface IUserService
+    public interface IUserService : ISportSquareGenericService<User>
     {
         IEnumerable<UserDTO> GetAllUsers();
+
         IEnumerable<UserDTO> FilterUsers(string filter);
+
         bool RegisterUser(string aspNetUserId, string email, string firstName, string lastName, GenderType gender, int age);
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SportSquare.Services.Contracts
 {
-    public interface IVenueService
+    public interface IVenueService : ISportSquareGenericService<Venue>
     {
         void CreateVenue(double latitude, double longitude, string name, string phone, string webAddress, string address, string city, string image = null);
 

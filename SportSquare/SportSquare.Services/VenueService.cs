@@ -12,7 +12,6 @@ namespace SportSquare.Services
 {
     public class VenueService: SportSquareGenericService<Venue>, IVenueService
     {
-        private readonly IVenueRepository venueRepository;
         private readonly IVenueFactory venueFactory;
 
         public VenueService(IGenericRepository<Venue> repository, IUnitOfWork unitOfWork, IVenueFactory venueFactory) : base(repository, unitOfWork)
@@ -52,7 +51,7 @@ namespace SportSquare.Services
 
         public IEnumerable<VenueDTO> FilterVenues(string filter, string location)
         {
-            var venues = this.venueRepository.GetAll(x => x.City == location && x.VenueTypes.Any(vt => vt.Name.Contains(filter)));
+            var venues = this.Repository.GetAll(x => x.City == location && x.VenueTypes.Any(vt => vt.Name.Contains(filter)));
 
             return Mapper.Map<IEnumerable<Venue>, IEnumerable<VenueDTO>>(venues);
         }

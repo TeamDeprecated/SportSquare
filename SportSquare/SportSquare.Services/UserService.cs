@@ -13,20 +13,20 @@ using AutoMapper;
 using SportSquareDTOs;
 using SportSquare.Models.Factories;
 
-namespace SportSquare.Services.Account
+namespace SportSquare.Services
 {
     public class UserService: SportSquareGenericService<User>, IUserService
     {
         private IUserFactory userFactory;
 
-        public UserService(IGenericRepository<User> repository, IUnitOfWork unitOfWork, IUserFactory userfactory, IUserFactory userFactory) : base(repository, unitOfWork)
+        public UserService(IGenericRepository<User> repository, IUnitOfWork unitOfWork, IUserFactory userFactory) : base(repository, unitOfWork)
         {
             if (userFactory == null)
             {
-                throw new ArgumentNullException(nameof(repository));
+                throw new ArgumentNullException(nameof(userFactory));
             }
 
-            this.userFactory = userfactory;
+            this.userFactory = userFactory;
         }
 
         public bool RegisterUser(string aspNetUserId, string email, string firstName, string lastName, GenderType gender, int age)
