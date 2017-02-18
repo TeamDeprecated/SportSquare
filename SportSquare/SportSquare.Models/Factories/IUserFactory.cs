@@ -9,6 +9,6 @@ namespace SportSquare.Models.Factories
 {
     public interface IUserFactory
     {
-        User CreateUser(string email, Guid AspNetUserId, string firstName, string lastName, GenderType gender, int age);
+        User CreateUser(Guid aspNetUserId, string email, string firstName, string lastName, GenderType gender, int age);
     }
 }

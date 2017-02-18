@@ -6,7 +6,7 @@ namespace SportSquare.Services
 {
     public interface ICommentService : ISportSquareGenericService<Comment>
     {
-        void CreateComment(int userId, int venueID, string description);
+        void CreateComment(string userId, int venueID, string description);
 
         void UpdateComment(int commentId, string userId, string description);
 

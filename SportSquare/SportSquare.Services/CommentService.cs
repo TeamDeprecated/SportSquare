@@ -35,7 +35,9 @@ namespace SportSquare.Services.Contracts
         // TODO Test it works && edit (int) id!
         public void UpdateComment(int commentId, string userId, string description)
         {
-            var comment = this.repository.GetById(commentId);
+            var userGuid = Guid.Parse(userId);
+
+            var comment = this.Repository.GetById(commentId);
 
             if (comment.UserId != userGuid)
             {
@@ -51,19 +53,19 @@ namespace SportSquare.Services.Contracts
         // TODO Test it works && edit (int) id!
         public Comment GetLastCommentByVenueId(int id)
         {
-            return this.repository.GetAll(c => c.IsHidden == false && c.VenueId == (int)id, c => c.Date).FirstOrDefault();
+            return this.Repository.GetAll(c => c.IsHidden == false && c.VenueId == (int)id, c => c.Date).FirstOrDefault();
         }
 
         public IEnumerable<Comment> GetAllCommentsByVenueId(int id)
         {
-            return this.repository.GetAll(c => c.IsHidden == false && c.VenueId == (int)id);
+            return this.Repository.GetAll(c => c.IsHidden == false && c.VenueId == (int)id);
         }
 
         public IEnumerable<Comment> GetAllCommentsByUserId(string id)
         {
             var userGuid = Guid.Parse(id);
 
-            return this.repository.GetAll(c => c.UserId == userGuid && c.IsHidden == false);
+            return this.Repository.GetAll(c => c.UserId == userGuid && c.IsHidden == false);
         }
     }
 }

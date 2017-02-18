@@ -40,9 +40,9 @@ namespace SportSquare.Services.Account
             
         }
 
-        public bool RegisterUser(string email, Guid aspNetUserId, string firstName, string lastName, GenderType gender, int age)
+        public bool RegisterUser(Guid aspNetUserId, string email, string firstName, string lastName, GenderType gender, int age)
         {
-            var user = this.userFactory.CreateUser(email, aspNetUserId, firstName, lastName, gender, age);
+            var user = this.userFactory.CreateUser(aspNetUserId, email, firstName, lastName, gender, age);
      
             try
             {

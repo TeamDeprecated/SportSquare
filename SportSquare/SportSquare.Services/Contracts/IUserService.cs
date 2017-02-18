@@ -13,6 +13,6 @@ namespace SportSquare.Services.Contracts
     {
         IEnumerable<UserDTO> GetAllUsers();
         IEnumerable<UserDTO> FilterUsers(string filter);
-        bool RegisterUser(string email, Guid databaseId, string firstName, string lastName, GenderType gender, int age);
+        bool RegisterUser(Guid aspNetUserId, string email, string firstName, string lastName, GenderType gender, int age);
     }
 }

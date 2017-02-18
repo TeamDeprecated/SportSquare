@@ -57,10 +57,6 @@
     <Compile Include="Contracts\ISportSquareDbContext.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IVenueRepository.cs" />
-    <Compile Include="Migrations\201702181352358_UserIdReplacedWithAspNetGuiID.cs" />
-    <Compile Include="Migrations\201702181352358_UserIdReplacedWithAspNetGuiID.Designer.cs">
-      <DependentUpon>201702181352358_UserIdReplacedWithAspNetGuiID.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -83,11 +79,6 @@
       <Project>{ebf92a33-5cb4-4671-a339-8c64ed1ad3e3}</Project>
       <Name>SportSquare.VenueImporter</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702181352358_UserIdReplacedWithAspNetGuiID.resx">
-      <DependentUpon>201702181352358_UserIdReplacedWithAspNetGuiID.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
