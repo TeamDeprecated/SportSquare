@@ -26,13 +26,13 @@ namespace SportSquare.Models
         public User(Guid aspNetUserId, string email, string firstName, string lastName, GenderType gender, int age) : this()
         {
             this.Id = aspNetUserId;
+            this.Username = email;
             this.Email = email;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Gender = Gender;
             this.Age = age;
         }
-
 
         public Guid Id { get; set; }
 
