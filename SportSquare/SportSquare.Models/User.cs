@@ -2,9 +2,7 @@
 
 using SportSquare.Enums;
 using SportSquare.Models.Contracts;
-using System.ComponentModel.DataAnnotations;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SportSquare.Models
 {
@@ -25,13 +23,17 @@ namespace SportSquare.Models
             this.wishVenues = new HashSet<UserWishVenue>();
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public User(Guid aspNetUserId, string username) : this()
+        {
+            this.AspNetUserId = aspNetUserId;
+            this.Username = username;
+        }
+
         public int Id { get; set; }
 
-        //[Required]
-        //[Index("DataBaseId", IsUnique = true)]
-        public Guid DatabaseId { get; set; }
+        public Guid AspNetUserId { get; set; }
+
+        public string Username { get; set; }
 
         //public string Username { get; set; }
 

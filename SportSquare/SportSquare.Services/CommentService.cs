@@ -4,27 +4,32 @@ using System.Collections.Generic;
 
 using SportSquare.Data.Contracts;
 using SportSquare.Models;
+using SportSquare.Models.Factories;
 
 namespace SportSquare.Services.Contracts
 {
     public class CommentService : SportSquareGenericService<Comment>, ICommentService
     {
         private IGenericRepository<Comment> repository;
+        private ICommentFactory commentFactory;
 
-        public CommentService(IGenericRepository<Comment> repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork)
+        public CommentService(IGenericRepository<Comment> repository, IUnitOfWork unitOfWork, ICommentFactory commentFactory) : base(repository, unitOfWork)
         {
-            if (repository == null)
+            if (commentFactory == null)
             {
-                throw new ArgumentNullException("Repository cant't be null");
+                throw new ArgumentNullException("Comment cant't be null");
             }
 
             this.repository = repository;
+            this.commentFactory = commentFactory;
         }
         
         // TODO To Implement!
-        public void CreateComment(int userId, int venueID, string description)
+        public void CreateComment(int userId, int venueId, string description)
         {
-            throw new NotImplementedException();
+            var comment = this.commentFactory.CreateComment(userId, venueId, description);
+
+            this.Add(comment);
         }
 
         // TODO Test it works && edit (int) id!
@@ -40,7 +45,7 @@ namespace SportSquare.Services.Contracts
             comment.Description = description;
             comment.Date = DateTime.Now;
 
-            this.repository.Update(comment);
+            this.Update(comment);
         }
 
         // TODO Test it works && edit (int) id!

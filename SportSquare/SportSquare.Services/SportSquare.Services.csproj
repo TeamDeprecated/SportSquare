@@ -78,19 +78,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyInfo\IServiceAssemblyInfo.cs" />
     <Compile Include="Account\UserService.cs" />
     <Compile Include="CommentService.cs" />
     <Compile Include="Contracts\IipInfoGatherer.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Contracts\IVenueService.cs" />
     <Compile Include="Contracts\ISportSquareGenericService.cs" />
-    <Compile Include="GoogleLocationModel.cs" />
+    <Compile Include="ExternalServices\GoogleLocationModel.cs" />
     <Compile Include="Contracts\ICommentService.cs" />
-    <Compile Include="GService.cs">
+    <Compile Include="ExternalServices\GService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="IpInfoGatherer.cs" />
-    <Compile Include="IpInfoGathererModel.cs" />
+    <Compile Include="ExternalServices\IpInfoGatherer.cs" />
+    <Compile Include="ExternalServices\IpInfoGathererModel.cs" />
     <Compile Include="VenueService.cs" />
     <Compile Include="Abstracts\SportSquareGenericService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

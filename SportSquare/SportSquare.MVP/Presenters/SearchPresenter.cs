@@ -1,5 +1,6 @@
 ﻿using SportSquare.MVP.Models.Search;
 using SportSquare.MVP.Views;
+using SportSquare.Services;
 using SportSquare.Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using WebFormsMvp;
 
 namespace SportSquare.MVP.Presenters
 {
+
     public class SearchPresenter : Presenter<ISearchView>
     {
         private IVenueService service;
