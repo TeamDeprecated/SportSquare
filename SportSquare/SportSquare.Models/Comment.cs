@@ -12,7 +12,7 @@ namespace SportSquare.Models
         {
         }
 
-        public Comment(int venueId, int userId, string description)
+        public Comment(Guid userId, int venueId, string description)
         {
             this.VenueId = venueId;
             this.UserId = userId;
