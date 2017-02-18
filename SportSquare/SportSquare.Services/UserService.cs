@@ -29,8 +29,6 @@ namespace SportSquare.Services.Account
             this.userFactory = userfactory;
         }
 
-        }
-
         public IEnumerable<UserDTO> FilterUsers(string filter)
         {
             throw new NotImplementedException();

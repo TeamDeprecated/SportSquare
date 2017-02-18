@@ -10,7 +10,6 @@ namespace SportSquare.Services.Contracts
 {
     public class CommentService : SportSquareGenericService<Comment>, ICommentService
     {
-        //private IGenericRepository<Comment> repository;
         private ICommentFactory commentFactory;
 
         public CommentService(IGenericRepository<Comment> repository, IUnitOfWork unitOfWork, ICommentFactory commentFactory) : base(repository, unitOfWork)
@@ -37,7 +36,6 @@ namespace SportSquare.Services.Contracts
         public void UpdateComment(int commentId, string userId, string description)
         {
             var comment = this.repository.GetById(commentId);
-            var userGuid = Guid.Parse(userId);
 
             if (comment.UserId != userGuid)
             {
