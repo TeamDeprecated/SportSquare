@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26020.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.Data", "SportSquare.Data\SportSquare.Data.csproj", "{C10646D7-BD7A-43F8-9102-219050207A54}"
 EndProject
@@ -24,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoverallDependency", "CoverallDependency\CoverallDependency.csproj", "{0C868BE3-9DE8-4029-901F-E733A6E50A8A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.Auth", "SportSquare.Auth\SportSquare.Auth.csproj", "{770EDEB7-24E9-41EF-ACF6-49FCD2B690A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.Data.Tests", "SportSquare.Data.Tests\SportSquare.Data.Tests.csproj", "{67404F04-D34A-4245-9AE6-CC60C5EE2061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSquare.Models.Tests", "SportSquare.Models.Tests\SportSquare.Models.Tests.csproj", "{2BE92436-51CA-407A-9440-D89E30B56712}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +117,22 @@ Global
 		{770EDEB7-24E9-41EF-ACF6-49FCD2B690A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{770EDEB7-24E9-41EF-ACF6-49FCD2B690A6}.Release|x64.ActiveCfg = Release|Any CPU
 		{770EDEB7-24E9-41EF-ACF6-49FCD2B690A6}.Release|x64.Build.0 = Release|Any CPU
+		{67404F04-D34A-4245-9AE6-CC60C5EE2061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67404F04-D34A-4245-9AE6-CC60C5EE2061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67404F04-D34A-4245-9AE6-CC60C5EE2061}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{67404F04-D34A-4245-9AE6-CC60C5EE2061}.Debug|x64.Build.0 = Debug|Any CPU
+		{67404F04-D34A-4245-9AE6-CC60C5EE2061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67404F04-D34A-4245-9AE6-CC60C5EE2061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67404F04-D34A-4245-9AE6-CC60C5EE2061}.Release|x64.ActiveCfg = Release|Any CPU
+		{67404F04-D34A-4245-9AE6-CC60C5EE2061}.Release|x64.Build.0 = Release|Any CPU
+		{2BE92436-51CA-407A-9440-D89E30B56712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BE92436-51CA-407A-9440-D89E30B56712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BE92436-51CA-407A-9440-D89E30B56712}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2BE92436-51CA-407A-9440-D89E30B56712}.Debug|x64.Build.0 = Debug|Any CPU
+		{2BE92436-51CA-407A-9440-D89E30B56712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BE92436-51CA-407A-9440-D89E30B56712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BE92436-51CA-407A-9440-D89E30B56712}.Release|x64.ActiveCfg = Release|Any CPU
+		{2BE92436-51CA-407A-9440-D89E30B56712}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,5 +140,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{07E7C727-4E7A-48E3-9B02-8ED500D34EA5} = {144AF1E1-14C1-4709-9CC7-8FE0F9A44C0B}
 		{8C0CD794-5375-4509-A2EF-8FF70179ADDF} = {144AF1E1-14C1-4709-9CC7-8FE0F9A44C0B}
+		{67404F04-D34A-4245-9AE6-CC60C5EE2061} = {144AF1E1-14C1-4709-9CC7-8FE0F9A44C0B}
+		{2BE92436-51CA-407A-9440-D89E30B56712} = {144AF1E1-14C1-4709-9CC7-8FE0F9A44C0B}
 	EndGlobalSection
 EndGlobal
