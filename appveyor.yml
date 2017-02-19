@@ -17,5 +17,5 @@ environment:
     secure: TdLhGJw0dLbWKQ3+j8OaDcOWbnQ1fZEIw271PA0RbhlGCl0P722wvvxH7o5PfW/K
 
 after_test: 
-       - SportSquare\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[SportSquare*]* -[SportSquare.MVP.Tests*]* -[SportSquare.Services.Tests*]*" -target:"SportSquare\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single SportSquare\SportSquare.MVP.Tests\bin\Debug\SportSquare.MVP.Tests.dll SportSquare\SportSquare.Services.Tests\bin\Debug\SportSquare.Services.Tests.dll" -output:cover.xml
+       - SportSquare\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[SportSquare*]* -[SportSquare.MVP.Tests*]* -[SportSquare.Services.Tests*]* -[SportSquare.Model.Tests*]* -[SportSquare.Data.Tests*]*" -target:"SportSquare\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single SportSquare\SportSquare.MVP.Tests\bin\Debug\SportSquare.MVP.Tests.dll SportSquare\SportSquare.Services.Tests\bin\Debug\SportSquare.Services.Tests.dll SportSquare\SportSquare.Models.Tests\bin\Debug\SportSquare.Models.Tests.dll SportSquare\SportSquare.Data.Tests\bin\Debug\SportSquare.Data.Tests.dll" -output:cover.xml
        - SportSquare\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover cover.xml

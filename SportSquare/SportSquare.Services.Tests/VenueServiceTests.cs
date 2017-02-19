@@ -28,7 +28,7 @@ namespace SportSquare.Services.Tests
         [Test]
         public void ConstructorShouldThrowIfRepositoryIsNull()
         {
-            var message = "Value cannot be null.\r\nParameter name: venueRepository";
+            var message = "Value cannot be null.\r\nParameter name: Repository cannot be null!";
             var ex = Assert.Throws<ArgumentNullException>(() => new VenueService(null, null, null));
             Assert.AreEqual(message, ex.Message);
         }

@@ -27,7 +27,7 @@ namespace SportSquare.Data.Repositories
 
             if (this.dbSet == null)
             {
-                throw new ArgumentException("This DbSet<{0}> doesn't exist in DbContext", typeof(TEntity).Name);
+                throw new ArgumentNullException("This DbSet<{0}> doesn't exist in DbContext", typeof(TEntity).Name);
             }
         }
 

@@ -18,6 +18,7 @@ namespace SportSquare.Models
             this.UserId = userId;
             this.Description = description;
             this.Date = DateTime.Now;
+            this.IsHidden = false;
         }
 
         public int Id { get; set; }
