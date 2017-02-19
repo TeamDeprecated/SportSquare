@@ -29,6 +29,24 @@ namespace SportSquare.Services.Account
             this.userFactory = userfactory;
         }
 
+        public bool RegisterUser(string aspNetUserId, string email, string firstName, string lastName, GenderType gender, int age)
+        {
+            var userGuid = Guid.Parse(aspNetUserId);
+
+            var user = this.userFactory.CreateUser(userGuid, email, firstName, lastName, gender, age);
+
+            try
+            {
+                this.Add(user);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public IEnumerable<UserDTO> FilterUsers(string filter)
         {
             throw new NotImplementedException();
@@ -37,27 +55,6 @@ namespace SportSquare.Services.Account
         public IEnumerable<UserDTO> GetAllUsers()
         {
            return  Mapper.Map<IEnumerable<User>, IEnumerable<UserDTO>>(this.Repository.GetAll());
-            
-        }
-
-        public bool RegisterUser(Guid aspNetUserId, string email, string firstName, string lastName, GenderType gender, int age)
-        {
-            var user = this.userFactory.CreateUser(aspNetUserId, email, firstName, lastName, gender, age);
-     
-            try
-            {
-                using (this.UnitOfWork)
-                {
-                    this.Repository.Add(user);
-                    this.UnitOfWork.Commit();
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
         }
     }
 }

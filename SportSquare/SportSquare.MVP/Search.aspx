@@ -39,7 +39,7 @@
                             <div class="venueDetails">
                                 <div class="venueScore btnSpecial pull-right" title="Рейтинг: <%#:string.Format("{0:F1}",Item.RatingAvarage) %>"><%#:string.Format("{0:F1}",Item.RatingAvarage) %>/10 </div>
                                 <div class="venueName">
-                                    <h2><span class="venueIndex"></span><%# Container.DataItemIndex+1 %>. <a href="venue" target="_blank"><%#: Item.Name %></a></h2>
+                                    <h2><span class="venueIndex"></span><%# Container.DataItemIndex+1 %>. <asp:HyperLink NavigateUrl='<%# string.Format("~/venuedetails.aspx?id={0}", Item.Id) %>' runat="server" Text='<%#:Item.Name %>' /></h2>
                                 </div>
                                 <div class="venueMeta">
                                     <div class="venueAddressData">

@@ -9,9 +9,11 @@ using WebFormsMvp.Web;
 using SportSquare.MVP.Models;
 using WebFormsMvp;
 using SportSquare.MVP.Models.Search;
+using SportSquare.MVP.Presenters;
 
 namespace SportSquare.MVP
 {
+    [PresenterBinding(typeof(SearchPresenter))]
     public partial class Search : MvpPage<SearchViewModel>, ISearchView
     {
         

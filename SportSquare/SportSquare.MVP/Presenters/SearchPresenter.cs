@@ -14,6 +14,7 @@ namespace SportSquare.MVP.Presenters
     public class SearchPresenter : Presenter<ISearchView>
     {
         private IVenueService service;
+
         public SearchPresenter(ISearchView view, IVenueService service) : base(view)
         {
             this.View.QueryEvent += View_QueryEvent;
