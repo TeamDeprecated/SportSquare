@@ -46,17 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cCommon.cs" />
     <Compile Include="CommentDTO.cs" />
-    <Compile Include="Google\GoogleDirections.cs" />
-    <Compile Include="Google\GoogleMapType.cs" />
-    <Compile Include="Google\GoogleObject.cs" />
-    <Compile Include="Google\GooglePoint.cs" />
-    <Compile Include="Google\GooglePoints.cs" />
-    <Compile Include="Google\GooglePolygon.cs" />
-    <Compile Include="Google\GooglePolygons.cs" />
-    <Compile Include="Google\GooglePolyline.cs" />
-    <Compile Include="Google\GooglePolylines.cs" />
     <Compile Include="UserDTO.cs" />
     <Compile Include="VenueDetailedDTO.cs" />
     <Compile Include="VenueDTO.cs" />
@@ -73,9 +63,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VenueDetails.aspx.cs" Inherits="SportSquare.MVP.VenueDetails" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:FormView runat="server" ID="FormViewVenueDetails" ItemType="SportSquareDTOs.VenueDetailedDTO" SelectMethod="FormViewVenueDetails_GetItem">
         <ItemTemplate>

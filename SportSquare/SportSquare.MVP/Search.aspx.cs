@@ -10,6 +10,7 @@ using SportSquare.MVP.Models;
 using WebFormsMvp;
 using SportSquare.MVP.Models.Search;
 using SportSquare.MVP.Presenters;
+using GoogleMaps.Markers;
 
 namespace SportSquare.MVP
 {
@@ -31,13 +32,36 @@ namespace SportSquare.MVP
              filter = this.Request.QueryString.GetValues("q")[0];
             locationFilter = this.Request.QueryString.GetValues("location")[0];
             this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
-            this.FilteredVenues.DataSource = Model.FilteredVenues;
+            this.FilteredVenues.DataSource = Model.FilteredVenues;  
             this.FilteredVenues.DataBind();
-            if (this.User.Identity.IsAuthenticated)
+         
+            var firstVenue = this.Model.FilteredVenues.First();
+            if (firstVenue != null)
             {
-               //this.filte
+                this.GoogleMap1.Center.Latitude = firstVenue.Latitude;
+                this.GoogleMap1.Center.Longitude = firstVenue.Longitude;
+
             }
+            var index = 1;
+            foreach (var item in this.Model.FilteredVenues)
+            {
+                var marker = new Marker();
+                marker.Position.Latitude = item.Latitude;
+                marker.Position.Longitude = item.Longitude;
+                marker.Visible = true;
+                marker.ZoomLevel = 15;
+                //marker.Title = item.Title;
+                //marker.AutoOpen = true;
+                marker.Clickable = true;
+                marker.Info = item.Title;
+                marker.LabelText = index.ToString();
+                this.GoogleMap1.Markers.Add(marker);
+                this.Markers.Markers.Add(marker);
+
+                index++;
+            }
+
         }
-       
+
     }
 }

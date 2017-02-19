@@ -87,9 +87,6 @@
     <Compile Include="Contracts\ISportSquareGenericService.cs" />
     <Compile Include="ExternalServices\GoogleLocationModel.cs" />
     <Compile Include="Contracts\ICommentService.cs" />
-    <Compile Include="ExternalServices\GService.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="ExternalServices\IpInfoGatherer.cs" />
     <Compile Include="ExternalServices\IpInfoGathererModel.cs" />
     <Compile Include="VenueService.cs" />

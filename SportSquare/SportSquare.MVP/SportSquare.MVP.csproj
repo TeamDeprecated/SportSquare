@@ -73,6 +73,10 @@
       <HintPath>..\packages\DelegateDecompiler.EntityFramework.0.18.1\lib\net45\DelegateDecompiler.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GoogleMaps, Version=7.0.6234.39932, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMapControl.7.0.6234.39932\lib\net40\GoogleMaps.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -266,8 +270,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="GoogleMapForASPNet.ascx" />
-    <Content Include="GService.asmx" />
     <Content Include="Home.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -433,9 +435,6 @@
     <Compile Include="Models\VenueDetails\VenueDetailsViewModel.cs" />
     <Compile Include="Presenters\VenueDetailsPresenter.cs" />
     <Compile Include="Views\IVenueDetailsView.cs" />
-    <Content Include="App_Code\GService.cs">
-      <SubType>Component</SubType>
-    </Content>
     <Compile Include="AdminPanel.aspx.cs">
       <DependentUpon>AdminPanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -472,10 +471,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="GoogleMapForASPNet.ascx.cs">
-      <DependentUpon>GoogleMapForASPNet.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -539,7 +534,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="w\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SportSquare.Auth\SportSquare.Auth.csproj">

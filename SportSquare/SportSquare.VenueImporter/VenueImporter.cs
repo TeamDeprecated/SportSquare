@@ -11,8 +11,8 @@ namespace SportSquare.VenueImporter
 {
     public class VenueImporter
     {   
-        private const string FILE_PATH = "\\venueList.xml";
-        //private const string FILE_PATH = "\\SportSquare.VenueImporter\\venueList.xml";
+        //private const string FILE_PATH = "\\venueList.xml";
+        private const string FILE_PATH = "\\SportSquare.VenueImporter\\venueList.xml";
 
         public IList<Venue> Venues { get; private set; }
         public IList<VenueType> VenueTypes { get; private set; }
@@ -48,7 +48,7 @@ namespace SportSquare.VenueImporter
                     if (reader.AttributeCount > 0 && reader.GetAttribute(0) == "sp-club clearfix")
                     {
                         latitude = double.Parse(reader.GetAttribute(1));
-                        longitude = double.Parse(reader.GetAttribute(1));
+                        longitude = double.Parse(reader.GetAttribute(2));
                     }
                     if (reader.AttributeCount > 0 && reader.GetAttribute(0) == "image col-xs-4")
                     {

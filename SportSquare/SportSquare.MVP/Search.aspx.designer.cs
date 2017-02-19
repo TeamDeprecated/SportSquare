@@ -20,5 +20,23 @@ namespace SportSquare.MVP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView FilteredVenues;
+        
+        /// <summary>
+        /// GoogleMap1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::GoogleMaps.GoogleMap GoogleMap1;
+        
+        /// <summary>
+        /// Markers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::GoogleMaps.Markers.GoogleMarkers Markers;
     }
 }
