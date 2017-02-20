@@ -53,8 +53,10 @@ namespace SportSquare.MVP
 
         protected void SaveComment_Click(object sender, EventArgs e)
         {
-            this.AddComment?.Invoke(sender, new AddCommentEventArgs(this.User.Identity.GetUserId(), 140, "Яката дупара"));
-            this.UpdatePanel.Update();
+                this.AddComment?.Invoke(sender, new AddCommentEventArgs(this.User.Identity.GetUserId(), 140, "Яката дупара"));
+
+            this.FormViewVenueDetails.DataBind();
+            //this.UpdatePanel.Update();
         }
 
       

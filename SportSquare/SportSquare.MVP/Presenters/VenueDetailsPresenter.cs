@@ -49,7 +49,7 @@ namespace SportSquare.MVP.Presenters
             
             this.View.Model.Venue= this.venueService.GetVenue(e.Id);
         }
-        private  int ParseId(string id)
+        private int ParseId(string id)
         {
             int rate;
             int.TryParse(id, out rate);
