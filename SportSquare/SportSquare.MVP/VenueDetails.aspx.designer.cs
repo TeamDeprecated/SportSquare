@@ -13,6 +13,15 @@ namespace SportSquare.MVP {
     public partial class VenueDetails {
         
         /// <summary>
+        /// UpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel;
+        
+        /// <summary>
         /// FormViewVenueDetails control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace SportSquare.MVP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FormView FormViewVenueDetails;
+        
+        /// <summary>
+        /// VenueRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.Rating VenueRating;
     }
 }

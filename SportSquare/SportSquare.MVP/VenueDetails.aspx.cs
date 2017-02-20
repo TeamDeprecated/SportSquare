@@ -1,4 +1,5 @@
-﻿using SportSquare.MVP.Models.VenueDetails;
+﻿using AjaxControlToolkit;
+using SportSquare.MVP.Models.VenueDetails;
 using SportSquare.MVP.Presenters;
 using SportSquare.MVP.Views;
 using SportSquareDTOs;
@@ -10,6 +11,7 @@ using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebFormsMvp;
+using Microsoft.AspNet.Identity;
 using WebFormsMvp.Web;
 
 namespace SportSquare.MVP
@@ -19,8 +21,13 @@ namespace SportSquare.MVP
     public partial class VenueDetails : MvpPage<VenueDetailsViewModel>, IVenueDetailsView
     {
         public event EventHandler<GetVenueDetailsEventArgs> OnFormGetItems;
+        public event EventHandler<UpdateRatingEventArgs> UpdateRating;
+        public event EventHandler<AddCommentEventArgs> AddComment;
 
-
+        public VenueDetails()
+        {
+            this.AutoDataBind = false;
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,9 +41,23 @@ namespace SportSquare.MVP
             return this.Model.Venue;
         }
 
-        protected void VenueRating_Changed(object sender, AjaxControlToolkit.RatingEventArgs e)
+        public void VenueRating_Changed(object sender, RatingEventArgs e)
+        {
+            this.UpdateRating?.Invoke(sender, new UpdateRatingEventArgs(this.User.Identity.GetUserId(), 140, e.Value));
+        }
+
+        protected void Save_Click(object sender, EventArgs e)
         {
 
         }
+
+        protected void SaveComment_Click(object sender, EventArgs e)
+        {
+            this.AddComment?.Invoke(sender, new AddCommentEventArgs(this.User.Identity.GetUserId(), 140, "Яката дупара"));
+            this.UpdatePanel.Update();
+        }
+
+      
+      
     }
 }

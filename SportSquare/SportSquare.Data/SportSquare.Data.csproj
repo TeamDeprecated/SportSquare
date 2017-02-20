@@ -57,9 +57,9 @@
     <Compile Include="Contracts\ISportSquareDbContext.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IVenueRepository.cs" />
-    <Compile Include="Migrations\201702181457263_ChangedUserIdToGuidV1.cs" />
-    <Compile Include="Migrations\201702181457263_ChangedUserIdToGuidV1.Designer.cs">
-      <DependentUpon>201702181457263_ChangedUserIdToGuidV1.cs</DependentUpon>
+    <Compile Include="Migrations\201702201118105_UserRatingUpdated.cs" />
+    <Compile Include="Migrations\201702201118105_UserRatingUpdated.Designer.cs">
+      <DependentUpon>201702201118105_UserRatingUpdated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,8 +85,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702181457263_ChangedUserIdToGuidV1.resx">
-      <DependentUpon>201702181457263_ChangedUserIdToGuidV1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702201118105_UserRatingUpdated.resx">
+      <DependentUpon>201702201118105_UserRatingUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 
 using SportSquare.Models.Contracts;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SportSquare.Models
 {
@@ -12,22 +14,28 @@ namespace SportSquare.Models
 
         public Rating()
         {
-            this.users = new HashSet<User>();
+        }
+
+        public Rating(Guid user, int venueId, int rate)
+        {
+            this.UserId= user;
+            this.VenueId = venueId;
+            this.Rate = rate;
         }
 
         public int Id { get; set; }
 
         public int Rate { get; set; }
 
+        //[Key]
+        public Guid UserId { get; set; }
+
+        public virtual User User { get; set; }
+
+        //[Key]
         public int VenueId { get; set; }
 
         public virtual Venue Venue { get; set; }
-
-        public ICollection<User> Users
-        {
-            get { return this.users; }
-            set { this.users = value; }
-        }
 
         public bool IsHidden { get; set; }
     }

@@ -17,7 +17,8 @@ namespace SportSquare.MVP
         private static void AddProfilesToAutomapperConfig(IMapperConfigurationExpression config)
         {
             config.AddProfile(new VenueProfiles());
-         
+            config.AddProfile(new VenueDetailedProfile());
+
         }
     }
 }
