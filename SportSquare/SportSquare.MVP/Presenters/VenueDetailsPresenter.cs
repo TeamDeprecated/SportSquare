@@ -33,15 +33,15 @@ namespace SportSquare.MVP.Presenters
 
         private void View_AddComment(object sender, AddCommentEventArgs e)
         {
-            this.commentService.CreateComment(e.UserID, e.VenueId, e.Comment);
-            this.View.Model.Venue = this.venueService.GetVenue(e.VenueId);
+            this.commentService.CreateComment(this.ParseGuid(e.UserID), this.ParseId(e.VenueId), e.Comment);
+            this.View.Model.Venue = this.venueService.GetVenue(this.ParseId(e.VenueId));
 
         }
 
         private void View_UpdateRating(object sender, UpdateRatingEventArgs e)
         {
            
-            this.ratingService.AddRating(e.UserID, e.VenueId, ParseId(e.RatingNew));
+            this.ratingService.AddRating(this.ParseGuid(e.UserID), this.ParseId(e.VenueId), ParseId(e.RatingNew));
         }
 
         private void View_OnFormGetItems(object sender, GetVenueDetailsEventArgs e)
@@ -51,9 +51,15 @@ namespace SportSquare.MVP.Presenters
         }
         private int ParseId(string id)
         {
-            int rate;
-            int.TryParse(id, out rate);
-            return rate;
+            int parsedID;
+            int.TryParse(id, out parsedID);
+            return parsedID;
+        }
+        private Guid ParseGuid(string id)
+        {
+            Guid parsedId;
+            Guid.TryParse(id, out parsedId);
+            return parsedId;
         }
     }
 }

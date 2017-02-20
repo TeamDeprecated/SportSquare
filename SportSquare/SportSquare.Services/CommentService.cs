@@ -22,24 +22,24 @@ namespace SportSquare.Services.Contracts
             this.commentFactory = commentFactory;
         }
         
-        // TODO To Implement!
-        public void CreateComment(string aspNetUserId, int venueId, string description)
+        public void CreateComment(Guid aspNetUserId, int venueId, string description)
         {
-            var userGuid = Guid.Parse(aspNetUserId);
 
-            var comment = this.commentFactory.CreateComment(userGuid, venueId, description);
+            // Implement validation and think should the validation throw?!
+          
+
+            var comment = this.commentFactory.CreateComment(aspNetUserId, venueId, description);
 
             this.Add(comment);
         }
 
         // TODO Test it works && edit (int) id!
-        public void UpdateComment(int commentId, string userId, string description)
+        public void UpdateComment(int commentId, Guid userId, string description)
         {
-            var userGuid = Guid.Parse(userId);
 
             var comment = this.Repository.GetById(commentId);
 
-            if (comment.UserId != userGuid)
+            if (comment.UserId != userId)
             {
                 throw new ArgumentException("This user is not author of this comment!");
             }

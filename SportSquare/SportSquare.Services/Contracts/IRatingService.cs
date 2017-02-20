@@ -8,6 +8,6 @@ namespace SportSquare.Services.Contracts
 {
     public interface IRatingService
     {
-         void AddRating(string user, int venue, int Rating);
+         void AddRating(Guid user, int venue, int Rating);
     }
 }

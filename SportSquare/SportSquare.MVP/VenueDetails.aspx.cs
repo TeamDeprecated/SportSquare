@@ -43,7 +43,7 @@ namespace SportSquare.MVP
 
         public void VenueRating_Changed(object sender, RatingEventArgs e)
         {
-            this.UpdateRating?.Invoke(sender, new UpdateRatingEventArgs(this.User.Identity.GetUserId(), 140, e.Value));
+            this.UpdateRating?.Invoke(sender, new UpdateRatingEventArgs(this.User.Identity.GetUserId(), this.Request.QueryString.GetValues("id")[0], e.Value));
         }
 
         protected void Save_Click(object sender, EventArgs e)
@@ -53,8 +53,8 @@ namespace SportSquare.MVP
 
         protected void SaveComment_Click(object sender, EventArgs e)
         {
-                this.AddComment?.Invoke(sender, new AddCommentEventArgs(this.User.Identity.GetUserId(), 140, "Яката дупара"));
-
+                this.AddComment?.Invoke(sender, new AddCommentEventArgs(this.User.Identity.GetUserId(), this.Request.QueryString.GetValues("id")[0], this.VenueComment.Text));
+            
             this.FormViewVenueDetails.DataBind();
             //this.UpdatePanel.Update();
         }

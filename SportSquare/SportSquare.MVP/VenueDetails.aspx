@@ -8,63 +8,62 @@
     <link rel="stylesheet" href="/content/venueDetails.css" type="text/css" />
     <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 
-    <asp:UpdatePanel runat="server" ID="UpdatePanel" UpdateMode="Always">
-        <ContentTemplate>
-            <asp:FormView runat="server" ID="FormViewVenueDetails" ItemType="SportSquareDTOs.VenueDetailedDTO" SelectMethod="FormViewVenueDetails_GetItem">
-                <ItemTemplate>
-                    <div class="row">Тук трябва да се визуализират снимките от фитнеса! Ако няма???</div>
-                    <div class="row info-container">
-                        <div class="col-md-2 image-cont" style="overflow: hidden">
-                            <asp:Image ImageUrl="<%#:Item.Image %>" runat="server" />
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row item-name">
-                                <h1><%#:Item.Name%></h1>
-                            </div>
-                            <div class="row">
-                                <h3><a href="<%#:Item.WebAddress %><%#:Item.WebAddress %>"><%#:Item.WebAddress %></a></h3>
-                            </div>
-                            <div class="row">
-                                <asp:ListView runat="server" DataSource="<%#Item.VenueTypes %>" ItemType="SportSquareDTOs.VenueTypeDTO">
-                                    <ItemTemplate><span><%#:Item.Name %>, </span></ItemTemplate>
-                                </asp:ListView>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="row rating">
-                                <div class="col-md-2"></div>
-                                <asp:Button CssClass="btn btn-success col-md-4" ID="Save" runat="server" OnClick="Save_Click" Text="Save" />
-                                <div class="col-md-4">
 
-                                    <%--<%#:Item.RatingAvarage %>--%>
-                                </div>
-                            </div>
-                            <div class="row like">
-                                айдееееее на лайковете
-                            </div>
-                        </div>
+    <asp:FormView runat="server" ID="FormViewVenueDetails" ItemType="SportSquareDTOs.VenueDetailedDTO" SelectMethod="FormViewVenueDetails_GetItem">
+        <ItemTemplate>
+            <div class="row">Тук трябва да се визуализират снимките от фитнеса! Ако няма???</div>
+            <div class="row info-container">
+                <div class="col-md-2 image-cont" style="overflow: hidden">
+                    <asp:Image ImageUrl="<%#:Item.Image %>" runat="server" />
+                </div>
+                <div class="col-md-6">
+                    <div class="row item-name">
+                        <h1><%#:Item.Name%></h1>
                     </div>
                     <div class="row">
+                        <h3><a href="<%#:Item.WebAddress %><%#:Item.WebAddress %>"><%#:Item.WebAddress %></a></h3>
+                    </div>
+                    <div class="row">
+                        <asp:ListView runat="server" DataSource="<%#Item.VenueTypes %>" ItemType="SportSquareDTOs.VenueTypeDTO">
+                            <ItemTemplate><span><%#:Item.Name %>, </span></ItemTemplate>
+                        </asp:ListView>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row rating">
+                        <div class="col-md-2"></div>
+                        <asp:Button CssClass="btn btn-success col-md-4" ID="Save" runat="server" OnClick="Save_Click" Text="Save" />
+                        <div class="col-md-4">
+
+                            <%--<%#:Item.RatingAvarage %>--%>
+                        </div>
+                    </div>
+                    <div class="row like">
+                        айдееееее на лайковете
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <asp:UpdatePanel runat="server" ID="UpdatePanel" UpdateMode="Always">
+                    <ContentTemplate>
                         <div class="col-md-8">
                             <div class="row">
                                 <div class="widget-area no-padding blank">
 
-                                    <div class="status-upload">
-                                        <formview>
-                                            <textarea placeholder="Коментирай баце!"></textarea>
-                                            <ul>
-                                                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
-                                            </ul>
->
-                                            <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i>Share</button>
-                                        </formview>
-                                        <asp:Button ID="SaveComment" runat="server"
-                                            Text="Comment" OnClick="SaveComment_Click" />
-                                    </div>
+                                    <%--<div class="status-upload">--%>
+                                    <asp:TextBox ID="VenueComment" runat="server" Text="Кометари"></asp:TextBox>
+                                    <ul>
+                                        <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
+                                    </ul>
+                                    <asp:Button ID="SaveComment" runat="server" class="fa fa-share"
+                                        Text="Comment" OnClick="SaveComment_Click" />
+
+
+                                    <%--</div>--%>
                                 </div>
                             </div>
                             <div class="row">
-                                <asp:ListView runat="server" ItemType="SportSquareDTOs.CommentDTO" ID="Comments" DataSource="<%#Item.Comments %>">
+                                <asp:ListView runat="server" ItemType="SportSquareDTOs.CommentDTO" ID="Comments" DataSource="<%#this.Model.Venue.Comments %>">
                                     <ItemTemplate>
 
                                         <div class="row">
@@ -91,31 +90,32 @@
                                 </asp:ListView>
                             </div>
                         </div>
-                        <div class="col-md-4 map-container">
-                            <div class="row">
-                                <map:GoogleMap ID="GoogleMap1" runat="server" MapType="Roadmap" ApiKey="AIzaSyAR4Ih_of4fsUSaLhDrfIUOUCQIaKPxn8k" Height="150px" Width="300px" Latitude="42.7" Longitude="23.33" Zoom="13">
-                                </map:GoogleMap>
-                                <map:GoogleMarkers ID="Markers" TargetControlID="GoogleMap1" runat="server">
-                                    <Markers>
-                                    </Markers>
-                                </map:GoogleMarkers>
-                            </div>
-                            <div class="row">
-                                <h3><%#:Item.Name %></h3>
-                                <%#:Item.Address %> <%#:Item.City %>
-                            </div>
-                            <div class="row">
-                                <asp:HyperLink NavigateUrl="<%#:Item.WebAddress %>" Text="<%#:Item.WebAddress %>" runat="server" />
-                            </div>
-                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <div class="col-md-4 map-container">
+                    <div class="row">
+                        <map:GoogleMap ID="GoogleMap1" runat="server" MapType="Roadmap" ApiKey="AIzaSyAR4Ih_of4fsUSaLhDrfIUOUCQIaKPxn8k" Height="150px" Width="300px" Latitude="42.7" Longitude="23.33" Zoom="13">
+                        </map:GoogleMap>
+                        <map:GoogleMarkers ID="Markers" TargetControlID="GoogleMap1" runat="server">
+                            <Markers>
+                            </Markers>
+                        </map:GoogleMarkers>
                     </div>
-                </ItemTemplate>
-                <EmptyDataTemplate>
-                    Няма Намерен такъв обект    
-                </EmptyDataTemplate>
-            </asp:FormView>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+                    <div class="row">
+                        <h3><%#:Item.Name %></h3>
+                        <%#:Item.Address %> <%#:Item.City %>
+                    </div>
+                    <div class="row">
+                        <asp:HyperLink NavigateUrl="<%#:Item.WebAddress %>" Text="<%#:Item.WebAddress %>" runat="server" />
+                    </div>
+                </div>
+            </div>
+        </ItemTemplate>
+        <EmptyDataTemplate>
+            Няма Намерен такъв обект    
+        </EmptyDataTemplate>
+    </asp:FormView>
+
 
     <ajaxToolkit:Rating ID="VenueRating" runat="server"
         CurrentRating="3"

@@ -19,11 +19,10 @@ namespace SportSquare.Services
             this.raitingFacgory = ratingFactory;
         }
 
-        public void AddRating(string user, int venue, int rating)
+        public void AddRating(Guid user, int venue, int rating)
         {
-            Guid userGuid;
-            Guid.TryParse(user, out userGuid);
-            this.Add(this.raitingFacgory.Create(userGuid, venue, rating));
+        
+            this.Add(this.raitingFacgory.Create(user, venue, rating));
         }
     }
 }
