@@ -15,6 +15,7 @@ namespace SportSquare.MVP.App_Start.NinjectModules
             this.Bind<ICommentService>().To<CommentService>();
             this.Bind<IipInfoGatherer>().To<IpInfoGatherer>();
             this.Bind<IUserService>().To<UserService>();
+            this.Bind<IRatingService>().To<RatingService>();
 
             //this.Kernel.Bind(x => x.FromAssemblyContaining<IServiceAssemblyInfo>()
             //                    .SelectAllClasses()

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace SportSquare.MVP.App_Start.AutomapperProfiles
 {
-    public class RatingResolver : IValueResolver<Venue, VenueDTO, double>
+    public class RatingResolverGeneric : IValueResolver<Venue, VenueDTO, double>
     {
         public double Resolve(Venue source, VenueDTO destination, double destMember, ResolutionContext context)
         {

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SportSquare.Models.Factories
 {
-    public interface ICommentFactory
+    public interface IRatingFactory
     {
-        Comment CreateComment(Guid userId, int venueId, string description);
+        Rating Create(Guid user, int venueId, int rate);
     }
 }

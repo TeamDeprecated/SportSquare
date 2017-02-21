@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EF.Model;
 using SportSquare.Models;
+using SportSquare.MVP.App_Start.AutomapperProfiles;
 using SportSquareDTOs;
 
 namespace SportSquare.MVP.App_Start.AutomapperProfiles
@@ -12,14 +13,9 @@ namespace SportSquare.MVP.App_Start.AutomapperProfiles
         {
             this.CreateMap<Venue, VenueDTO>()
                 .ForMember(dest => dest.VenueTypes, opt => opt.MapFrom(v => v.VenueTypes))
-                .ForMember(dest => dest.RatingAvarage, opt => opt.ResolveUsing<RatingResolver>());
+                .ForMember(dest => dest.RatingAvarage, opt => opt.ResolveUsing<RatingResolverGeneric>());
             this.CreateMap<VenueType, VenueTypeDTO>()
               .ForMember(x => x.Name, opt => opt.MapFrom(v => v.Name));
-
-            this.CreateMap<Venue, VenueDetailedDTO>()
-               .ForMember(dest => dest.VenueTypes, opt => opt.MapFrom(v => v.VenueTypes));
-            this.CreateMap<Comment, CommentDTO>();
-                //.ForMember(dest=>dest.
         }
     }
   

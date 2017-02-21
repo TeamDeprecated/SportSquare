@@ -13,11 +13,13 @@ namespace SportSquare.MVP.App_Start.AutomapperProfiles
         public VenueDetailedProfile()
         {
 
-            //this.CreateMap<Venue, VenueDetailedDTO>()
-            //       .ForMember(dest => dest.VenueTypes, opt => opt.MapFrom(v => v.VenueTypes))
-            //       .ForMember(dest=Des)
-            //this.CreateMap<Comment, CommentDTO>()
-            //    .ForMember(dest => dest.
+            this.CreateMap<Venue, VenueDetailedDTO>()
+                .ForMember(dest => dest.VenueTypes, opt => opt.MapFrom(v => v.VenueTypes))
+                .ForMember(dest => dest.RatingAvarage, opt => opt.ResolveUsing<RatingResolverGeneric>());
+                
+
+            this.CreateMap<Comment, CommentDTO>()
+               .ForMember(dest => dest.User, opt => opt.MapFrom(u => u.User.FirstName));
         }
 
     }

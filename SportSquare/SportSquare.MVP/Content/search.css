@@ -1,18 +1,18 @@
-﻿body {
+﻿/*body {
 }
 
 photoContainer {
     overflow:hidden
-}
+}*/
 
-imageContainer{
+.imageContainer{
     display:inline-block;
     margin-top:20px;
 }
-infoContainer{
+.infoContainer{
     display:inline-block
 }
-listViewContainer{
+.listViewContainer{
     background-color: azure
 }
 .btnSpecial {

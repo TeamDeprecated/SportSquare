@@ -22,7 +22,7 @@ namespace SportSquare.MVP.Presenters.Account
         public RegisterPresenter(IRegisterView view, IUserService userService) : base(view)
         {
             this.View.RegisterDetails += View_RegisterDetails;
-            if(userService== null)
+            if (userService == null)
             {
                 throw new ArgumentNullException(nameof(userService));
             }
@@ -34,7 +34,7 @@ namespace SportSquare.MVP.Presenters.Account
 
             var manager = e.Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = e.Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { Name = e.FirstName, Email = e.Email , UserName = e.Email};
+            var user = new ApplicationUser() { Name = e.FirstName, Email = e.Email, UserName = e.Email };
 
             IdentityResult result = manager.Create(user, e.PasswordHash);
             if (result.Succeeded)
@@ -45,7 +45,7 @@ namespace SportSquare.MVP.Presenters.Account
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
                 GenderType gender;
                 Enum.TryParse<GenderType>(e.Gender, out gender);
-                var isLocalRegistered=this.userService.RegisterUser(user.Id, e.Email, e.FirstName, e.LastName, gender, e.Age);
+                var isLocalRegistered = this.userService.RegisterUser(user.Id, e.Email, e.FirstName, e.LastName, gender, e.Age);
                 if (isLocalRegistered)
                 {
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
@@ -53,6 +53,7 @@ namespace SportSquare.MVP.Presenters.Account
                 }
                 else
                 {
+                    manager.Delete(user);
                     this.UnsuccessFullLogin(UnsuccessfullLoginErrorMessage);
                 }
             }
@@ -64,7 +65,7 @@ namespace SportSquare.MVP.Presenters.Account
         }
         private void UnsuccessFullLogin(string error)
         {
-            this.View.Model.ErrorMessage =error;
+            this.View.Model.ErrorMessage = error;
 
         }
     }

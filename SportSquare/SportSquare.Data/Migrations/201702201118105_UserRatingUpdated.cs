@@ -3,7 +3,7 @@ namespace SportSquare.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ChangedUserIdToGuidV1 : DbMigration
+    public partial class UserRatingUpdated : DbMigration
     {
         public override void Up()
         {
@@ -55,11 +55,14 @@ namespace SportSquare.Data.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Rate = c.Int(nullable: false),
+                        UserId = c.Guid(nullable: false),
                         VenueId = c.Int(nullable: false),
                         IsHidden = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
                 .ForeignKey("dbo.Venues", t => t.VenueId, cascadeDelete: true)
+                .Index(t => t.UserId)
                 .Index(t => t.VenueId);
             
             CreateTable(
@@ -113,19 +116,6 @@ namespace SportSquare.Data.Migrations
                 .Index(t => t.User_Id);
             
             CreateTable(
-                "dbo.RatingUsers",
-                c => new
-                    {
-                        Rating_Id = c.Int(nullable: false),
-                        User_Id = c.Guid(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.Rating_Id, t.User_Id })
-                .ForeignKey("dbo.Ratings", t => t.Rating_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
-                .Index(t => t.Rating_Id)
-                .Index(t => t.User_Id);
-            
-            CreateTable(
                 "dbo.VenueTypeVenues",
                 c => new
                     {
@@ -161,8 +151,7 @@ namespace SportSquare.Data.Migrations
             DropForeignKey("dbo.VenueTypeVenues", "VenueType_Id", "dbo.VenueTypes");
             DropForeignKey("dbo.Ratings", "VenueId", "dbo.Venues");
             DropForeignKey("dbo.Comments", "VenueId", "dbo.Venues");
-            DropForeignKey("dbo.RatingUsers", "User_Id", "dbo.Users");
-            DropForeignKey("dbo.RatingUsers", "Rating_Id", "dbo.Ratings");
+            DropForeignKey("dbo.Ratings", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserFavoriteVenueUsers", "User_Id", "dbo.Users");
             DropForeignKey("dbo.UserFavoriteVenueUsers", "UserFavoriteVenue_Id", "dbo.UserFavoriteVenues");
             DropForeignKey("dbo.Comments", "UserId", "dbo.Users");
@@ -170,16 +159,14 @@ namespace SportSquare.Data.Migrations
             DropIndex("dbo.UserWishVenueUsers", new[] { "UserWishVenue_Id" });
             DropIndex("dbo.VenueTypeVenues", new[] { "Venue_Id" });
             DropIndex("dbo.VenueTypeVenues", new[] { "VenueType_Id" });
-            DropIndex("dbo.RatingUsers", new[] { "User_Id" });
-            DropIndex("dbo.RatingUsers", new[] { "Rating_Id" });
             DropIndex("dbo.UserFavoriteVenueUsers", new[] { "User_Id" });
             DropIndex("dbo.UserFavoriteVenueUsers", new[] { "UserFavoriteVenue_Id" });
             DropIndex("dbo.Ratings", new[] { "VenueId" });
+            DropIndex("dbo.Ratings", new[] { "UserId" });
             DropIndex("dbo.Comments", new[] { "UserId" });
             DropIndex("dbo.Comments", new[] { "VenueId" });
             DropTable("dbo.UserWishVenueUsers");
             DropTable("dbo.VenueTypeVenues");
-            DropTable("dbo.RatingUsers");
             DropTable("dbo.UserFavoriteVenueUsers");
             DropTable("dbo.UserWishVenues");
             DropTable("dbo.VenueTypes");

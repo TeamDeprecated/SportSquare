@@ -7,13 +7,13 @@ namespace SportSquare.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ChangedUserIdToGuidV1 : IMigrationMetadata
+    public sealed partial class UserRatingUpdated : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedUserIdToGuidV1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UserRatingUpdated));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702181457263_ChangedUserIdToGuidV1"; }
+            get { return "201702201118105_UserRatingUpdated"; }
         }
         
         string IMigrationMetadata.Source

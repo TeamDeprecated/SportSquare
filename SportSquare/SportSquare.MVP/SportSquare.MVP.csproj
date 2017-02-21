@@ -260,7 +260,9 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\search.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\venueDetails.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -438,7 +440,10 @@
       <DependentUpon>EditVenues.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\AutomapperProfiles\VenueDetailedProfile.cs" />
+    <Compile Include="Models\VenueDetails\AddCommentEventArgs.cs" />
+    <Compile Include="Models\VenueDetails\GenericVenueDetailsEventArgs.cs" />
     <Compile Include="Models\VenueDetails\GetVenueDetailsEventArgs.cs" />
+    <Compile Include="Models\VenueDetails\UpdateRatingEventArgs.cs" />
     <Compile Include="Models\VenueDetails\VenueDetailsViewModel.cs" />
     <Compile Include="Presenters\AdminPanel\EditVenuesPresenter.cs" />
     <Compile Include="Presenters\VenueDetailsPresenter.cs" />
@@ -558,6 +563,9 @@
       <Project>{4C3F4DE4-FD6E-40DB-8CE9-66099C40A87C}</Project>
       <Name>SportSquareDTOs</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

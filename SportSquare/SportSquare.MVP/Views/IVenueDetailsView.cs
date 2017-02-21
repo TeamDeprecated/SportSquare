@@ -10,5 +10,7 @@ namespace SportSquare.MVP.Views
     public interface  IVenueDetailsView:IView<VenueDetailsViewModel>
     {
         event EventHandler<GetVenueDetailsEventArgs> OnFormGetItems;
+        event EventHandler<UpdateRatingEventArgs> UpdateRating; 
+        event EventHandler<AddCommentEventArgs> AddComment;
     }
 }
