@@ -7,6 +7,7 @@ using System.Web;
 using WebFormsMvp;
 using SportSquare.MVP.Models.Search;
 using SportSquare.MVP.Models.AdminPanel;
+using SportSquare.MVP.Models.VenueDetails;
 
 namespace SportSquare.MVP.Presenters.AdminPanel
 {
@@ -25,10 +26,10 @@ namespace SportSquare.MVP.Presenters.AdminPanel
             this.service = service;
         }
 
-        private void View_GetVenuesById(object sender, BasicEventArgs e)
+        private void View_GetVenuesById(object sender, StringEventArgs e)
         {
             int id;
-            int.TryParse(e.Id.ToString(), out id);
+            int.TryParse(e.StringParameter.ToString(), out id);
 
             this.View.Model.Venue = this.service.GetVenue(id);
         }
