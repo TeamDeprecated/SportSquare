@@ -9,6 +9,5 @@ namespace SportSquare.MVP.Models.Search
     public class SearchViewModel
     {
         public IEnumerable<VenueDTO> FilteredVenues { get; set; }
-
     }
 }

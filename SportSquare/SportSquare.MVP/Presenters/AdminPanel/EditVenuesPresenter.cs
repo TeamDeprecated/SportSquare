@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using WebFormsMvp;
 using SportSquare.MVP.Models.Search;
+using SportSquare.MVP.Models.AdminPanel;
 
 namespace SportSquare.MVP.Presenters.AdminPanel
 {
@@ -20,7 +21,16 @@ namespace SportSquare.MVP.Presenters.AdminPanel
                 throw new ArgumentNullException("Venue service can't be null!");
             }
             this.View.QueryEvent += View_QueryEvent;
+            this.View.VenueDetailsId += View_GetVenuesById;
             this.service = service;
+        }
+
+        private void View_GetVenuesById(object sender, BasicEventArgs e)
+        {
+            int id;
+            int.TryParse(e.Id.ToString(), out id);
+
+            this.View.Model.Venue = this.service.GetVenue(id);
         }
 
         private void View_QueryEvent(object sender, SearchEventArgs e)

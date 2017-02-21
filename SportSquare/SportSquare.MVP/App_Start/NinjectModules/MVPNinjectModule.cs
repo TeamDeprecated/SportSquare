@@ -21,8 +21,6 @@ namespace SportSqure.MVP.App_Start
             this.Bind<ICustomPresenterFactory>().ToFactory().InSingletonScope();
 
             this.Bind<IPresenter>().ToMethod(this.GetPresenter).NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.GetPresenter(null, null));
-            this.Bind<SearchPresenter>().ToSelf();
-
         }
 
         private IPresenter GetPresenter(IContext context)

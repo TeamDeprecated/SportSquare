@@ -12,6 +12,7 @@ namespace SportSquare.Services.Contracts
         void UpdateVenue(string id, double latitude, double longitude, string name, string phone, string webAddress, string address, string city, string image = null);
 
         IEnumerable<VenueDTO> FilterVenues(string filter, string location);
+
         VenueDetailedDTO GetVenue(int? id);
     }
 }

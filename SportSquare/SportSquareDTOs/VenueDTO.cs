@@ -31,7 +31,7 @@ namespace SportSquareDTOs
         public IEnumerable<VenueTypeDTO> VenueTypes { get; set; }
 
         public string WebAddress { get; set; }
-        public double RatingAvarage { get; set; }
+        public int RatingAvarage { get; set; }
 
         //public virtual ICollection<Comment> Comments
         //{

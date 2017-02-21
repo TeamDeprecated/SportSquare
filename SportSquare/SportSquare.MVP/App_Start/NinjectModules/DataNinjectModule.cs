@@ -13,10 +13,6 @@ namespace SportSquare.MVP.App_Start.NinjectModules
     {
         public override void Load()
         {
-            //this.Bind(typeof(IGenericRepository<>)).To(typeof(GenericRepository<>));
-            //this.Bind<IVenueRepository>().To<VenueRepository>();
-            //this.Bind<ISportSquareDbContext>().To<SportSquareDbContext>();
-
             this.Kernel.Bind(x => x.FromAssemblyContaining<IDataAssemblyInfo>()
                                     .SelectAllClasses()
                                     .BindDefaultInterfaces());

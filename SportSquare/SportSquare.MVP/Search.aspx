@@ -2,11 +2,14 @@
 
 <%--<%@ Register Assembly="Artem.Google" Namespace="Artem.Google.UI" TagPrefix="artem" %>--%>
 <%@ Register Assembly="GoogleMaps" Namespace="GoogleMaps" TagPrefix="artem" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="/content/search.css" type="text/css" />
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 
     <div class="row pageContainer">
         <div class="col-md-6 listViewContainer">
@@ -41,7 +44,17 @@
                                 </div>
                                 <div class="infoContainer col-md-9 col-sm-3 col-xs-2">
                                     <div class="venueDetails">
-                                        <div class="venueScore btnSpecial pull-right" title="Рейтинг: <%#:string.Format("{0:F1}",Item.RatingAvarage) %>"><%#:string.Format("{0:F1}",Item.RatingAvarage) %>/10 </div>
+                                        <%--<div class="venueScore btnSpecial pull-right" title="Рейтинг: <%#:string.Format("{0:F1}",Item.RatingAvarage) %>"><%#:string.Format("{0:F1}",Item.RatingAvarage) %>/10 </div>--%>
+                                        <div class="venueScore pull-right">
+                                            <ajaxtoolkit:rating id="VenueRating" runat="server"
+                                                currentrating="<%#Item.RatingAvarage %>"
+                                                maxrating="5"
+                                                starcssclass="ratingStar fa fa-star"
+                                                waitingstarcssclass="savedRatingStar fa fa-star-half-o"
+                                                filledstarcssclass="filledRatingStar fa fa-star"
+                                                emptystarcssclass="emptyRatingStar  fa fa-star-o "
+                                                  AutoPostBack="false"  OnChanged ="VenueRating_Changed" />
+                                        </div>
                                         <div class="venueName">
                                             <h2><span class="venueIndex"></span><%# Container.DataItemIndex+1 %>.
                                         <asp:HyperLink NavigateUrl='<%# string.Format("~/venuedetails.aspx?id={0}", Item.Id) %>' runat="server" Text='<%#:Item.Name %>' /></h2>

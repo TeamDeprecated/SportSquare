@@ -8,13 +8,20 @@ using SportSquare.MVP.Presenters.AdminPanel;
 using System.Text;
 using System.Collections.Generic;
 using SportSquareDTOs;
+using SportSquare.MVP.Models.VenueDetails;
+using System.Web.UI.WebControls;
+using SportSquare.MVP.Models.AdminPanel;
 
 namespace SportSquare.MVP.AdminPanel
 {
     [PresenterBinding(typeof(EditVenuesPresenter))]
-    public partial class EditVenues : MvpPage<SearchViewModel>, IEditVenuesView
+    public partial class EditVenues : MvpPage<EditVenuesViewModel>, IEditVenuesView
     {
+        public event EventHandler<BasicEventArgs> VenueDetailsId;
         public event EventHandler<SearchEventArgs> QueryEvent;
+
+        public event EventHandler<StringEventArgs> VenueInfoButton;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,8 +32,10 @@ namespace SportSquare.MVP.AdminPanel
                 this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
                 return;
             }
+
             filter = this.Request.QueryString.GetValues("q")[0];
             locationFilter = this.Request.QueryString.GetValues("location")[0];
+
             this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
             this.VenueList.DataSource = Model.FilteredVenues;
             this.VenueList.DataBind();
@@ -61,6 +70,27 @@ namespace SportSquare.MVP.AdminPanel
             }
 
             return builder.ToString();
+        }
+
+        protected void InfoClick(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            var args = new StringEventArgs(btn.CommandArgument);
+
+            //VenueInfoButton?.Invoke(this, args);
+
+            this.GetVenueById(args.StringParameter.ToString());
+        }
+
+        public void GetVenueById(string id)
+        {
+            this.VenueDetailsId?.Invoke(this, new BasicEventArgs(id));
+
+
+           
+            this.VenueDetails.DataSource = new List<VenueDTO> { this.Model.Venue };
+            this.VenueDetails.DataBind();
         }
     }
 }

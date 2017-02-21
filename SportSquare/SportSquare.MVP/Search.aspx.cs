@@ -8,6 +8,8 @@ using SportSquare.MVP.Presenters;
 using GoogleMaps.Markers;
 using Microsoft.AspNet.Identity;
 using System.Web.UI.WebControls;
+using SportSquare.MVP.Models.VenueDetails;
+using AjaxControlToolkit;
 
 namespace SportSquare.MVP
 {
@@ -17,6 +19,13 @@ namespace SportSquare.MVP
 
         public event EventHandler<SearchEventArgs> QueryEvent;
         public event EventHandler<SaveVenueArgs> SaveVenueEvent;
+        public event EventHandler<UpdateRatingEventArgs> UpdateRating;
+
+        public Search()
+        {
+            this.AutoDataBind = false;
+
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,6 +41,7 @@ namespace SportSquare.MVP
             filter = this.Request.QueryString.GetValues("q")[0];
             locationFilter = this.Request.QueryString.GetValues("location")[0];
             this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
+            this.FilteredVenues.DataBind();
             var firstVenue = this.Model.FilteredVenues.FirstOrDefault(x=>x.RatingAvarage>=0);
 
             if (firstVenue != null)
@@ -63,6 +73,10 @@ namespace SportSquare.MVP
             var venue = ((Button)sender).CommandArgument;
             this.SaveVenueEvent?.Invoke(sender, new SaveVenueArgs(user, venue));
 
+        }
+        public void VenueRating_Changed(object sender, RatingEventArgs e)
+        {
+            this.UpdateRating?.Invoke(sender, new UpdateRatingEventArgs(this.User.Identity.GetUserId(), this.Request.QueryString.GetValues("id")[0], e.Value));
         }
     }
 }
