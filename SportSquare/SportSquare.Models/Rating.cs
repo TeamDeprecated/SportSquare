@@ -10,13 +10,12 @@ namespace SportSquare.Models
     {
         // TODO: Must be added validations!
 
-        private ICollection<User> users;
-
         public Rating()
         {
+            this.IsHidden = false;
         }
 
-        public Rating(Guid user, int venueId, int rate)
+        public Rating(Guid user, int venueId, int rate) : this()
         {
             this.UserId= user;
             this.VenueId = venueId;
@@ -27,12 +26,10 @@ namespace SportSquare.Models
 
         public int Rate { get; set; }
 
-        //[Key]
         public Guid UserId { get; set; }
 
         public virtual User User { get; set; }
 
-        //[Key]
         public int VenueId { get; set; }
 
         public virtual Venue Venue { get; set; }
