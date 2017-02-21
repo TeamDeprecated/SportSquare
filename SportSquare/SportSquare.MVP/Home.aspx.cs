@@ -25,8 +25,7 @@ namespace SportSquare.MVP
             }
         }
   
-
-        protected void search_Click(object sender, EventArgs e)
+        protected void Search_Click(object sender, EventArgs e)
         {
             var filter = this.filter.Value;
             if (string.IsNullOrEmpty(this.location.Value))
@@ -35,8 +34,6 @@ namespace SportSquare.MVP
             }
             var locationFilter = this.location.Value;
             this.Response.Redirect(string.Format("~/search?q={0}&location={1}", filter, locationFilter));
-                
         }
-    
     }
 }
