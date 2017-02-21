@@ -17,11 +17,9 @@ namespace SportSquare.MVP.AdminPanel
     [PresenterBinding(typeof(EditVenuesPresenter))]
     public partial class EditVenues : MvpPage<EditVenuesViewModel>, IEditVenuesView
     {
-        public event EventHandler<BasicEventArgs> VenueDetailsId;
+        public event EventHandler<StringEventArgs> VenueDetailsId;
         public event EventHandler<SearchEventArgs> QueryEvent;
-
-        public event EventHandler<StringEventArgs> VenueInfoButton;
-        
+        public event EventHandler<UpdateVenueEventArgs> UpdateVenueDetails;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,18 +42,14 @@ namespace SportSquare.MVP.AdminPanel
         public void Search_Click(object sender, EventArgs e)
         {
             this.Response.Redirect(string.Format("~/adminpanel/editvenues?q={0}&location={1}", filter.Value, location.Value));
-
         }
 
         public void Edit_Click(object sender, EventArgs e)
         {
-            
-            this.Response.Redirect(string.Format("~/adminpanel/editvenues?q={0}&location={1}", filter.Value, location.Value));
         }
 
         public void Delete_Click(object sender, EventArgs e)
         {
-            this.Response.Redirect(string.Format("~/adminpanel/editvenues?q={0}&location={1}", filter.Value, location.Value));
         }
 
         public string NormalizeString(string text)
@@ -64,7 +58,7 @@ namespace SportSquare.MVP.AdminPanel
 
             builder.Append(text[0]);
 
-            for(int i = 1; i < text.Length; i++)
+            for (int i = 1; i < text.Length; i++)
             {
                 builder.Append(text[i].ToString().ToLower());
             }
@@ -78,19 +72,33 @@ namespace SportSquare.MVP.AdminPanel
 
             var args = new StringEventArgs(btn.CommandArgument);
 
-            //VenueInfoButton?.Invoke(this, args);
+            VenueDetailsId?.Invoke(this, args);
 
-            this.GetVenueById(args.StringParameter.ToString());
+            this.GetVenueById();
         }
 
-        public void GetVenueById(string id)
+        public void GetVenueById()
         {
-            this.VenueDetailsId?.Invoke(this, new BasicEventArgs(id));
-
-
-           
             this.VenueDetails.DataSource = new List<VenueDTO> { this.Model.Venue };
             this.VenueDetails.DataBind();
+        }
+
+        public void Save_Changes(object sender, EventArgs e)
+        {
+            var id = ((TextBox)this.VenueDetails.FindControl("VenueId")).Text.ToString();
+            var name = ((TextBox)this.VenueDetails.FindControl("VenueName")).Text.ToString();
+            var city = ((TextBox)this.VenueDetails.FindControl("VenueCity")).Text.ToString();
+            var address = ((TextBox)this.VenueDetails.FindControl("VenueAddress")).Text.ToString();
+            var phone = ((TextBox)this.VenueDetails.FindControl("VenuePhone")).Text.ToString();
+            var webaddress = ((TextBox)this.VenueDetails.FindControl("VenueWebAddress")).Text.ToString();
+
+            double longitude;
+            double.TryParse(((TextBox)this.VenueDetails.FindControl("VenueLongitude")).Text.ToString(), out longitude);
+
+            double latitude;
+            double.TryParse(((TextBox)this.VenueDetails.FindControl("VenueLatitude")).Text.ToString(), out latitude);
+ 
+            UpdateVenueDetails?.Invoke(sender, new UpdateVenueEventArgs(id, latitude,longitude, name,phone,webaddress,address,city,null));
         }
     }
 }

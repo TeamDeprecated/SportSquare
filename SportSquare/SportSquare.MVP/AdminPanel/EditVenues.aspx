@@ -6,14 +6,14 @@
 
     <div>
         <div class="row">
-            <div class="home">
+            <div class="divider"></div>
+            <div class="section">
                 <input id="filter" runat="server" class="form-control" style="display: inline-block" />
                 <input id="location" runat="server" class="form-control" style="display: inline-block" />
                 <asp:Button ID="search" Text="Намери" runat="server" class="btn btn-success btn-large" OnClick="Search_Click" />
             </div>
         </div>
         <div class="row">
-
             <div class="col s6">
                 <asp:UpdatePanel runat="server" ID="SearchData">
                     <ContentTemplate>
@@ -26,10 +26,9 @@
                         </asp:UpdateProgress>
                         <asp:ListView runat="server" ID="VenueList" ItemType="SportSquareDTOs.VenueDTO" AutoPostBack="false">
                             <LayoutTemplate>
-                                <h3 class="text-center">Venues</h3>
-                                <p></p>
+                                <h3 class="text-center">Results</h3>
                                 <div class="panel panel-default">
-                                    <div class="panel-heading"></div>
+                                    <div class="panel-heading"><span></div>
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -37,20 +36,22 @@
                                                 <th>Title</th>
                                                 <th>City</th>
                                                 <th>Address</th>
-                                                <%--<th>Phone</th>--%>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <span runat="server" id="itemPlaceholder" />
-                                            <div class="pagerLine">
-                                                <asp:DataPager ID="DataPagerCustomers" runat="server" PageSize="25" class="pagger">
+                                            <div>
+                                                <asp:DataPager ID="DataPagerCustomers" runat="server" PageSize="5">
                                                     <Fields>
-                                                        <asp:NextPreviousPagerField ShowFirstPageButton="True"
-                                                            ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                                        <asp:NumericPagerField />
+                                                        <asp:NextPreviousPagerField ShowFirstPageButton="false"
+                                                            ShowNextPageButton="False" ShowPreviousPageButton="true" />
+                                                        <asp:NumericPagerField
+                                                            CurrentPageLabelCssClass="buttonClass"
+                                                            NextPreviousButtonCssClass="buttonClass"
+                                                            NumericButtonCssClass="buttonClass" />
                                                         <asp:NextPreviousPagerField ShowLastPageButton="False"
-                                                            ShowNextPageButton="True" ShowPreviousPageButton="False" />
+                                                            ShowNextPageButton="True" ShowPreviousPageButton="False" ButtonType="Button" />
                                                     </Fields>
                                                 </asp:DataPager>
                                             </div>
@@ -89,15 +90,23 @@
                 </asp:UpdatePanel>
             </div>
             <div class="col s6">
-                <div>
-                    <span class="flow-text">Edit</span>
-                </div>
+
                 <asp:UpdatePanel runat="server">
                     <ContentTemplate>
                         <asp:FormView ID="VenueDetails" ItemType="SportSquareDTOs.VenueDTO" runat="server">
                             <ItemTemplate>
+                                <div>
+                                    <h3 class="text-center">Editing</h3>
+                                </div>
                                 <div class="form-horizontal">
                                     <hr />
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="VenueId" CssClass="col-md-2 control-label">Title</asp:Label>
+                                        <div class="col-md-10">
+
+                                            <asp:TextBox runat="server" ID="VenueId" Style="display: none" Text='<%#Item.Id %>' CssClass="form-control" />
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <asp:Label runat="server" AssociatedControlID="VenueName" CssClass="col-md-2 control-label">Title</asp:Label>
                                         <div class="col-md-10">
@@ -143,7 +152,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <asp:Button runat="server" Text="Register" CssClass="btn btn-default" />
+                                            <asp:Button runat="server" Text="Save Changes" OnClick="Save_Changes" CssClass="btn btn-default" />
                                         </div>
                                     </div>
                                 </div>

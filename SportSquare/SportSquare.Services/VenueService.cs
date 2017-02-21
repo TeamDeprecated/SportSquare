@@ -34,8 +34,8 @@ namespace SportSquare.Services
 
         public void UpdateVenue(string venueId, double latitude, double longitude, string name, string phone, string webAddress, string address, string city, string image = null)
         {
-            var venueGuid = Guid.Parse(venueId);
-            var venue = this.GetById(venueGuid);    
+            var venueGuid = int.Parse(venueId);
+            var venue = this.GetById(venueGuid);
 
             venue.Latitude = latitude;
             venue.Longitude = longitude;
@@ -46,7 +46,7 @@ namespace SportSquare.Services
             venue.City = city ?? venue.City;
             venue.Image = image ?? venue.Image;
 
-            this.Add(venue);
+            this.Update(venue);
         }
 
         public IEnumerable<VenueDTO> FilterVenues(string filter, string location)
