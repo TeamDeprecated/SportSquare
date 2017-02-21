@@ -3,6 +3,7 @@
 using SportSquare.Enums;
 using SportSquare.Models.Contracts;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SportSquare.Models
 {
@@ -13,14 +14,14 @@ namespace SportSquare.Models
         private ICollection<Rating> ratings;
         private ICollection<Comment> comments;
         private ICollection<UserFavoriteVenue> favoriteVenues;
-        private ICollection<UserWishVenue> wishVenues;
+        private ICollection<UserWishVenue> userWishVenue;
 
         public User()
         {
             this.ratings = new HashSet<Rating>();
             this.comments = new HashSet<Comment>();
             this.favoriteVenues = new HashSet<UserFavoriteVenue>();
-            this.wishVenues = new HashSet<UserWishVenue>();
+            this.userWishVenue = new HashSet<UserWishVenue>();
         }
 
         public User(Guid aspNetUserId, string email, string firstName, string lastName, GenderType gender, int age) : this()
@@ -72,11 +73,8 @@ namespace SportSquare.Models
             set { this.favoriteVenues = value; }
         }
 
-        public virtual ICollection<UserWishVenue> WishVenues
-        {
-            get { return this.wishVenues; }
-            set { this.wishVenues = value; }
-        }
+
+        public virtual UserWishVenue UserWishVenue { get; set; }
 
         public bool IsHidden { get; set; }
     }

@@ -23,8 +23,14 @@ namespace SportSquare.Services
 
         public void AddRating(Guid user, int venue, int rating)
         {
-        
-            this.Add(this.raitingFacgory.Create(user, venue, rating));
+            var existingRating = this.GetAll(x => x.UserId == user && x.VenueId == venue);
+            if (existingRating.Count() == 0)
+            {
+                this.Add(this.raitingFacgory.Create(user, venue, rating));
+                return;
+            }
+            existingRating.First().Rate = rating;
+            this.Update(existingRating.First());
         }
     }
 }

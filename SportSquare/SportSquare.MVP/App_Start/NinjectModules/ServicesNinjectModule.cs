@@ -1,9 +1,7 @@
 ﻿using Ninject.Modules;
-using SportSquare.MVP.Presenters;
+using Ninject.Web.Common;
 using SportSquare.Services;
 using SportSquare.Services.Contracts;
-using Ninject.Extensions.Conventions;
-using SportSquare.Services.AssemblyInfo;
 
 namespace SportSquare.MVP.App_Start.NinjectModules
 {
@@ -11,17 +9,19 @@ namespace SportSquare.MVP.App_Start.NinjectModules
     {
         public override void Load()
         {
-            this.Bind<IVenueService>().To<VenueService>();
-            this.Bind<ICommentService>().To<CommentService>();
-            this.Bind<IipInfoGatherer>().To<IpInfoGatherer>();
-            this.Bind<IUserService>().To<UserService>();
-            this.Bind<IRatingService>().To<RatingService>();
+            this.Bind<IVenueService>().To<VenueService>().InRequestScope();
+            this.Bind<ICommentService>().To<CommentService>().InRequestScope();
+            this.Bind<IipInfoGatherer>().To<IpInfoGatherer>().InRequestScope();
+            this.Bind<IUserService>().To<UserService>().InRequestScope();
+            this.Bind<IRatingService>().To<RatingService>().InRequestScope();
+            this.Bind<IWishListService>().To<WishListService>().InRequestScope();
+
 
             //this.Kernel.Bind(x => x.FromAssemblyContaining<IServiceAssemblyInfo>()
-            //                    .SelectAllClasses()
-            //                    .InheritedFrom<IService>()
-            //                    .BindDefaultInterface()
-            //                    .Configure(y => y.InRequestScope())
+                                //.SelectAllClasses()
+                                //.InheritedFrom<IService>()
+                                //.BindDefaultInterface()
+                                //.Configure(y => y.InRequestScope())
             //);
         }
     }

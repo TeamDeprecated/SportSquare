@@ -11,6 +11,7 @@ namespace SportSquare.MVP.Views
     public interface ISearchView : IView<SearchViewModel>
     {
         event EventHandler<SearchEventArgs> QueryEvent;
+        event EventHandler<SaveVenueArgs> SaveVenueEvent;
 
     }
 }

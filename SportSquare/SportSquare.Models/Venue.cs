@@ -12,12 +12,12 @@ namespace SportSquare.Models
         // TODO: Must be added validations!
 
         private ICollection<Rating> ratings;
+        private ICollection<UserWishVenue> userWishVenue;
         private ICollection<Comment> comments;
         private ICollection<VenueType> venueTypes;
 
         public Venue()
         {
-
         }
 
         public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress,  string address, string city)
@@ -33,11 +33,12 @@ namespace SportSquare.Models
             this.City = city;
 
             this.ratings = new HashSet<Rating>();
+            this.userWishVenue = new HashSet<UserWishVenue>();
             this.comments = new HashSet<Comment>();
             this.venueTypes = new HashSet<VenueType>();
         }
 
-        [Key]
+        //[Key]
         // Guid cheched to Int.....temporarily
         public int Id { get; set; }
 
@@ -57,6 +58,10 @@ namespace SportSquare.Models
 
         public string WebAddress { get; set; }
 
+        //public int UserWishVenueId { get; set; }
+
+        //public virtual UserWishVenue UserWishVenue { get; set; }
+
         public virtual ICollection<VenueType> VenueTypes
         {
             get
@@ -73,6 +78,11 @@ namespace SportSquare.Models
         {
             get { return this.ratings; }
             set { this.ratings = value; }
+        }
+        public virtual ICollection<UserWishVenue> UserWishVenue
+        {
+            get { return this.userWishVenue; }
+            set { this.userWishVenue = value; }
         }
 
         public virtual ICollection<Comment> Comments

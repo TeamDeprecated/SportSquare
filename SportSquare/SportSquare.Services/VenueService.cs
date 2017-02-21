@@ -35,7 +35,7 @@ namespace SportSquare.Services
         public void UpdateVenue(string venueId, double latitude, double longitude, string name, string phone, string webAddress, string address, string city, string image = null)
         {
             var venueGuid = Guid.Parse(venueId);
-            var venue = this.GetById(venueGuid);
+            var venue = this.GetById(venueGuid);    
 
             venue.Latitude = latitude;
             venue.Longitude = longitude;
@@ -51,7 +51,7 @@ namespace SportSquare.Services
 
         public IEnumerable<VenueDTO> FilterVenues(string filter, string location)
         {
-            var venues = this.Repository.GetAll(x => x.City == location && (x.VenueTypes.Any(vt => vt.Name.Contains(filter)) || x.Name == filter));
+            var venues = this.Repository.GetAll(x =>x.IsHidden==false&& x.City == location && (x.VenueTypes.Any(vt => vt.Name.Contains(filter)) || x.Name.Contains(filter)));
 
             return Mapper.Map<IEnumerable<Venue>, IEnumerable<VenueDTO>>(venues);
         }

@@ -58,14 +58,7 @@
                                         </div>
                                     </div>
                                     <div class="resultFooter">
-
-                                        <asp:LoginView runat="server" ViewStateMode="Disabled">
-                                            <AnonymousTemplate>
-                                            </AnonymousTemplate>
-                                            <LoggedInTemplate>
-                                                <asp:Button Text="Save" CssClass="btn btn-success" runat="server" />
-                                            </LoggedInTemplate>
-                                        </asp:LoginView>
+                                        <asp:Button Visible="<%#User.Identity.IsAuthenticated %>" Text="Save" CommandArgument="<%#:Item.Id %>" ID="WishListSave" OnClick="WishListSave_Click" CssClass="btn btn-success" runat="server" />
                                         <div class="buttons">
                                         </div>
                                     </div>

@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo\IServiceAssemblyInfo.cs" />
     <Compile Include="Contracts\IRatingService.cs" />
+    <Compile Include="Contracts\IWishListService.cs" />
     <Compile Include="RatingService.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="CommentService.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="VenueService.cs" />
     <Compile Include="Abstracts\SportSquareGenericService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WishListService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SportSquare.Auth\SportSquare.Auth.csproj">

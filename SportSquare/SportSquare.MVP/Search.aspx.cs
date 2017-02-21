@@ -6,6 +6,8 @@ using WebFormsMvp;
 using SportSquare.MVP.Models.Search;
 using SportSquare.MVP.Presenters;
 using GoogleMaps.Markers;
+using Microsoft.AspNet.Identity;
+using System.Web.UI.WebControls;
 
 namespace SportSquare.MVP
 {
@@ -14,6 +16,7 @@ namespace SportSquare.MVP
     {
 
         public event EventHandler<SearchEventArgs> QueryEvent;
+        public event EventHandler<SaveVenueArgs> SaveVenueEvent;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +32,7 @@ namespace SportSquare.MVP
             filter = this.Request.QueryString.GetValues("q")[0];
             locationFilter = this.Request.QueryString.GetValues("location")[0];
             this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
-            var firstVenue = this.Model.FilteredVenues.First();
+            var firstVenue = this.Model.FilteredVenues.FirstOrDefault(x=>x.RatingAvarage>=0);
 
             if (firstVenue != null)
             {
@@ -54,5 +57,12 @@ namespace SportSquare.MVP
 
         }
 
+        protected void WishListSave_Click(object sender, EventArgs e)
+        {
+            var user=this.User.Identity.GetUserId();
+            var venue = ((Button)sender).CommandArgument;
+            this.SaveVenueEvent?.Invoke(sender, new SaveVenueArgs(user, venue));
+
+        }
     }
 }

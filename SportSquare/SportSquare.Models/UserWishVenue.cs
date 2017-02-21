@@ -2,28 +2,35 @@
 using System.Collections.Generic;
 
 using SportSquare.Models.Contracts;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace SportSquare.Models
 {
     public class UserWishVenue : IDbModel
     {
         // TODO: Must be added validations!
-
-        private ICollection<User> users;
+        private ICollection<Venue> venues;
 
         public UserWishVenue()
         {
-            this.users = new HashSet<User>();
+            this.venues = new HashSet<Venue>();
+
+        }
+        public UserWishVenue(Guid user) : this()
+        {
+            this.UserId = user;
         }
 
-        public int Id { get; set; }
+        [Key,ForeignKey("User")]
+        public Guid UserId { get; set; }
 
-        public int VenueId { get; set; }
+        public virtual User User { get; set; }
 
-        public virtual ICollection<User> Users
+        public virtual ICollection<Venue> Venues
         {
-            get { return this.users; }
-            set { this.users = value; }
+            get { return this.venues; }
+            set { this.venues = value; }
         }
 
         public bool IsHidden { get; set; }
