@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SportSquare.Data.Contracts;
 using SportSquare.Models.Factories;
+using Bytes2you.Validation;
 
 namespace SportSquare.Services
 {
@@ -16,6 +17,7 @@ namespace SportSquare.Services
         public RatingService(IGenericRepository<Rating> repository, IUnitOfWork unitOfWork,IRatingFactory ratingFactory) 
             : base(repository, unitOfWork)
         {
+            Guard.WhenArgument(ratingFactory, nameof(ratingFactory)).IsNull().Throw();
             this.raitingFacgory = ratingFactory;
         }
 

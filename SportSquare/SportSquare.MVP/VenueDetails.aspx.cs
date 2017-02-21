@@ -53,7 +53,8 @@ namespace SportSquare.MVP
 
         protected void SaveComment_Click(object sender, EventArgs e)
         {
-                this.AddComment?.Invoke(sender, new AddCommentEventArgs(this.User.Identity.GetUserId(), this.Request.QueryString.GetValues("id")[0], this.VenueComment.Text));
+            
+                this.AddComment?.Invoke(sender, new AddCommentEventArgs(this.User.Identity.GetUserId(), this.Request.QueryString.GetValues("id")[0], "шит на килограм"));
             
             this.FormViewVenueDetails.DataBind();
             //this.UpdatePanel.Update();

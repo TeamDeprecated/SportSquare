@@ -24,6 +24,7 @@ namespace SportSquare.Services.Tests
             var model = new Mock<IpInfoGathererModel>();
             Assert.DoesNotThrow(() => new IpInfoGatherer(model.Object));
         }
+
         [Test]
         public void GetUserCountryByIpShouldCallCollectIpInfoOnce()
         {

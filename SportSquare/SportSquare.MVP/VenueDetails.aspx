@@ -52,6 +52,45 @@
 
                                     <%--<div class="status-upload">--%>
                                     <asp:TextBox ID="VenueComment" runat="server" Text="Кометари"></asp:TextBox>
+                                     <%--<asp:TextBox runat="server" ID="TextBox1" />--%>
+                                                <ajaxToolkit:HtmlEditorExtender ID="HtmlEditorExtender1"
+                                                    TargetControlID="VenueComment" DisplaySourceTab="true" EnableSanitization="false"
+                                                    runat="server" />
+                                                <Toolbar>
+                                                    <ajaxToolkit:Undo />
+                                                    <ajaxToolkit:Redo />
+                                                    <ajaxToolkit:Bold />
+                                                    <ajaxToolkit:Italic />
+                                                    <ajaxToolkit:Underline />
+                                                    <ajaxToolkit:StrikeThrough />
+                                                    <ajaxToolkit:Subscript />
+                                                    <ajaxToolkit:Superscript />
+                                                    <ajaxToolkit:JustifyLeft />
+                                                    <ajaxToolkit:JustifyCenter />
+                                                    <ajaxToolkit:JustifyRight />
+                                                    <ajaxToolkit:JustifyFull />
+                                                    <ajaxToolkit:InsertOrderedList />
+                                                    <ajaxToolkit:InsertUnorderedList />
+                                                    <ajaxToolkit:CreateLink />
+                                                    <ajaxToolkit:UnLink />
+                                                    <ajaxToolkit:RemoveFormat />
+                                                    <ajaxToolkit:SelectAll />
+                                                    <ajaxToolkit:UnSelect />
+                                                    <ajaxToolkit:Delete />
+                                                    <ajaxToolkit:Cut />
+                                                    <ajaxToolkit:Copy />
+                                                    <ajaxToolkit:Paste />
+                                                    <ajaxToolkit:BackgroundColorSelector />
+                                                    <ajaxToolkit:ForeColorSelector />
+                                                    <ajaxToolkit:FontNameSelector />
+                                                    <ajaxToolkit:FontSizeSelector />
+                                                    <ajaxToolkit:Indent />
+                                                    <ajaxToolkit:Outdent />
+                                                    <ajaxToolkit:InsertHorizontalRule />
+                                                    <ajaxToolkit:HorizontalSeparator />
+                                                    <ajaxToolkit:InsertImage />
+                                                </Toolbar>
+                                            </ajaxToolkit:HtmlEditorExtender>
                                     <ul>
                                         <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
                                     </ul>
