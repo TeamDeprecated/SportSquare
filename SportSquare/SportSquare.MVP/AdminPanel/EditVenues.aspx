@@ -101,6 +101,13 @@
                                 <div class="form-horizontal">
                                     <hr />
                                     <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="VenueId" CssClass="col-md-2 control-label">Title</asp:Label>
+                                        <div class="col-md-10">
+
+                                            <asp:TextBox runat="server" ID="VenueId" Style="display: none" Text='<%#Item.Id %>' CssClass="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <asp:Label runat="server" AssociatedControlID="VenueName" CssClass="col-md-2 control-label">Title</asp:Label>
                                         <div class="col-md-10">
 
@@ -145,7 +152,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <asp:Button runat="server" Text="Register" CssClass="btn btn-default" />
+                                            <asp:Button runat="server" Text="Save Changes" OnClick="Save_Changes" CssClass="btn btn-default" />
                                         </div>
                                     </div>
                                 </div>

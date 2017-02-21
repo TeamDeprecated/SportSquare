@@ -442,6 +442,7 @@
     <Compile Include="App_Start\AutomapperProfiles\VenueDetailedProfile.cs" />
     <Compile Include="Models\AdminPanel\BasicEventArgs.cs" />
     <Compile Include="Models\AdminPanel\EditVenuesViewModel.cs" />
+    <Compile Include="Models\AdminPanel\UpdateVenueEventArgs.cs" />
     <Compile Include="Models\VenueDetails\AddCommentEventArgs.cs" />
     <Compile Include="Models\VenueDetails\GenericVenueDetailsEventArgs.cs" />
     <Compile Include="Models\VenueDetails\GetVenueDetailsEventArgs.cs" />

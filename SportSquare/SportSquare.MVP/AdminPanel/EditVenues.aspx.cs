@@ -19,8 +19,7 @@ namespace SportSquare.MVP.AdminPanel
     {
         public event EventHandler<StringEventArgs> VenueDetailsId;
         public event EventHandler<SearchEventArgs> QueryEvent;
-
-        //public event EventHandler<StringEventArgs> VenueInfoButton;
+        public event EventHandler<UpdateVenueEventArgs> UpdateVenueDetails;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,7 +42,6 @@ namespace SportSquare.MVP.AdminPanel
         public void Search_Click(object sender, EventArgs e)
         {
             this.Response.Redirect(string.Format("~/adminpanel/editvenues?q={0}&location={1}", filter.Value, location.Value));
-
         }
 
         public void Edit_Click(object sender, EventArgs e)
@@ -83,6 +81,24 @@ namespace SportSquare.MVP.AdminPanel
         {
             this.VenueDetails.DataSource = new List<VenueDTO> { this.Model.Venue };
             this.VenueDetails.DataBind();
+        }
+
+        public void Save_Changes(object sender, EventArgs e)
+        {
+            var id = ((TextBox)this.VenueDetails.FindControl("VenueId")).Text.ToString();
+            var name = ((TextBox)this.VenueDetails.FindControl("VenueName")).Text.ToString();
+            var city = ((TextBox)this.VenueDetails.FindControl("VenueCity")).Text.ToString();
+            var address = ((TextBox)this.VenueDetails.FindControl("VenueAddress")).Text.ToString();
+            var phone = ((TextBox)this.VenueDetails.FindControl("VenuePhone")).Text.ToString();
+            var webaddress = ((TextBox)this.VenueDetails.FindControl("VenueWebAddress")).Text.ToString();
+
+            double longitude;
+            double.TryParse(((TextBox)this.VenueDetails.FindControl("VenueLongitude")).Text.ToString(), out longitude);
+
+            double latitude;
+            double.TryParse(((TextBox)this.VenueDetails.FindControl("VenueLatitude")).Text.ToString(), out latitude);
+ 
+            UpdateVenueDetails?.Invoke(sender, new UpdateVenueEventArgs(id, latitude,longitude, name,phone,webaddress,address,city,null));
         }
     }
 }

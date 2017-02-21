@@ -15,6 +15,8 @@ namespace SportSquare.MVP.Views.AdminPanel
         event EventHandler<SearchEventArgs> QueryEvent;
 
         event EventHandler<StringEventArgs> VenueDetailsId;
+
+        event EventHandler<UpdateVenueEventArgs> UpdateVenueDetails;
     }
 }
     
