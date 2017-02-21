@@ -64,7 +64,6 @@ namespace SportSquare.Services
             }
             var venue = this.Repository.GetById(id);
             return Mapper.Map<Venue, VenueDetailedDTO>(venue);
-
         }
     }
 }

@@ -259,3 +259,6 @@ typings/
 prepros.*
 .vscode/
 bower_components/
+/SportSquare/SportSquare.Data/Migrations/201702210909008_RatingChanges.resx
+/SportSquare/SportSquare.Data/Migrations/201702210909008_RatingChanges.Designer.cs
+/SportSquare/SportSquare.Data/Migrations/201702210909008_RatingChanges.cs

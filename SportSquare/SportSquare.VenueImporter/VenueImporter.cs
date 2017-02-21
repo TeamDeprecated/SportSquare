@@ -24,8 +24,8 @@ namespace SportSquare.VenueImporter
 
         public IList<Venue> ParseVenues()
         {
-            //var directory = "D:\\GitHub\\Team works\\SportSquare\\SportSquare";
-            var directory = "C:\\Academy\\WebForms\\SportSquareV2\\SportSquare\\SportSquare";
+            var directory = "D:\\GitHub\\Team works\\SportSquare\\SportSquare";
+            //var directory = "C:\\Academy\\WebForms\\SportSquareV2\\SportSquare\\SportSquare";
 
             //var directory = Environment.CurrentDirectory;
 

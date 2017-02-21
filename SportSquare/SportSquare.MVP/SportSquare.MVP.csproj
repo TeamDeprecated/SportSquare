@@ -440,9 +440,12 @@
       <DependentUpon>EditVenues.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\AutomapperProfiles\VenueDetailedProfile.cs" />
+    <Compile Include="Models\AdminPanel\BasicEventArgs.cs" />
+    <Compile Include="Models\AdminPanel\EditVenuesViewModel.cs" />
     <Compile Include="Models\VenueDetails\AddCommentEventArgs.cs" />
     <Compile Include="Models\VenueDetails\GenericVenueDetailsEventArgs.cs" />
     <Compile Include="Models\VenueDetails\GetVenueDetailsEventArgs.cs" />
+    <Compile Include="Models\VenueDetails\StringEventArgs.cs" />
     <Compile Include="Models\VenueDetails\UpdateRatingEventArgs.cs" />
     <Compile Include="Models\VenueDetails\VenueDetailsViewModel.cs" />
     <Compile Include="Presenters\AdminPanel\EditVenuesPresenter.cs" />
