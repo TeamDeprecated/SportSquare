@@ -60,10 +60,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyInfo\IModelAssemblyInfoTest.cs" />
     <Compile Include="CommentTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatingTests.cs" />
     <Compile Include="UserTests.cs" />
+    <Compile Include="UserWishVenueTests.cs" />
+    <Compile Include="VenueTests.cs" />
+    <Compile Include="VenueTypeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -72,6 +76,10 @@
     <ProjectReference Include="..\SportSquare.Models\SportSquare.Models.csproj">
       <Project>{4f36305a-0abb-40df-845a-a5a3170545ec}</Project>
       <Name>SportSquare.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportSquare.VenueImporter\SportSquare.VenueImporter.csproj">
+      <Project>{ebf92a33-5cb4-4671-a339-8c64ed1ad3e3}</Project>
+      <Name>SportSquare.VenueImporter</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
