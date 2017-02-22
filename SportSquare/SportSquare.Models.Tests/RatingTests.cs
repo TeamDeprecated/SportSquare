@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+
 using NUnit.Framework;
+
 using SportSquare.Models.Contracts;
 
 namespace SportSquare.Models.Tests
@@ -8,19 +10,6 @@ namespace SportSquare.Models.Tests
     [TestFixture]
     public class RatingTests
     {
-        [Test]
-        public void ConstructorWithParam_MustSetIsHiddenToFalse()
-        {
-            // Arrange & Act
-            var userId = Guid.NewGuid();
-            var venueId = 1;
-            var rate = 3;
-            var rating = new Rating(userId, venueId, rate);
-
-            // Assert
-            Assert.AreEqual(false, rating.IsHidden);
-        }
-
         [Test]
         public void ConstructorWithParams_MustCreateRating()
         {
@@ -33,6 +22,19 @@ namespace SportSquare.Models.Tests
 
             // Assert
             Assert.IsInstanceOf<Rating>(rating);
+        }
+
+        [Test]
+        public void ConstructorWithParam_MustSetIsHiddenToFalse()
+        {
+            // Arrange & Act
+            var userId = Guid.NewGuid();
+            var venueId = 1;
+            var rate = 3;
+            var rating = new Rating(userId, venueId, rate);
+
+            // Assert
+            Assert.AreEqual(false, rating.IsHidden);
         }
 
         [Test]
