@@ -10,6 +10,11 @@ namespace SportSquare.Data.UnitOfWork
 
         public UnitOfWork(ISportSquareDbContext dbContext)
         {
+            if (dbContext == null)
+            {
+                throw new ArgumentNullException("DbContext can't be null");
+            }
+
             this.dbContext = dbContext;
         }
 

@@ -182,26 +182,5 @@ namespace SportSquare.Data.Tests.Repositories
             // Assert
             Assert.Throws<ArgumentNullException>(() => fakeGenericRepository.Add(null));
         }
-
-
-        // TODO !
-        //[Test]
-        //public void Add_ShouldInvoke_DbSetAdd_WhenAddingEntityIsValid()
-        //{
-        //    var mockEntity = new Mock<IDbModel>();
-        //    var mockDbSet = new Mock<DbSet<IDbModel>>();
-        //    var mockDbContext = new Mock<ISportSquareDbContext>();
-        //    mockDbContext.Setup(db => db.Set<IDbModel>()).Returns(mockDbSet.Object);
-
-        //    var fakeGenericRepository = new FakeGenericRepository(mockDbContext.Object);
-
-        //    mockDbSet.Setup(mock => mock.Add(It.IsAny<IDbModel>()));
-
-        //    // Act
-        //    fakeGenericRepository.Add(mockEntity.Object);
-
-        //    // Assert
-        //    mockDbSet.Verify((mock) => mock.Add(It.IsAny<IDbModel>()), Times.Once);
-        //}
     }
 }
