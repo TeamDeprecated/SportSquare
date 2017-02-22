@@ -78,14 +78,22 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Models\AccountModels\LoginEventArgsTests.cs" />
     <Compile Include="Models\AccountModels\RegisterEventArgsTests.cs" />
+    <Compile Include="Models\AdminPanel\BasicEventArgsTests.cs" />
+    <Compile Include="Models\AdminPanel\UpdateVenueEventArgsTests.cs" />
     <Compile Include="Models\HomeEventArgsTests.cs" />
     <Compile Include="Models\SearchEventArgsTests.cs" />
+    <Compile Include="Models\VenueDetails\AddCommentArgsTests.cs" />
+    <Compile Include="Models\VenueDetails\GenericVenueDetailsEventArgsTests.cs" />
+    <Compile Include="Models\VenueDetails\GetVenueDetailsEventArgsTests.cs" />
+    <Compile Include="Models\VenueDetails\UpdateRatingEventArgsTests.cs" />
     <Compile Include="Presenters\Account\LoginPresenterTest.cs" />
     <Compile Include="Presenters\Account\RegisterPresenterTest.cs" />
     <Compile Include="Presenters\AdminPanel\EditVenuesPresenterTests.cs" />
     <Compile Include="Presenters\HomePresenterTests.cs" />
     <Compile Include="Presenters\SearchPresenterTests.cs" />
+    <Compile Include="Presenters\VenueDetailsPresenterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

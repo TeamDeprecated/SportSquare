@@ -81,6 +81,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Abstracts\SportSqaureGenericServiceMock.cs" />
+    <Compile Include="Abstracts\SportSquareGEnericServiceTests.cs" />
     <Compile Include="CommentServiceTests.cs" />
     <Compile Include="IpInfoGathererTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

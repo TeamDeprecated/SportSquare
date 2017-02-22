@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bytes2you.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,9 @@ namespace SportSquare.MVP.Models.AccountModels
 
         public LoginEventArgs(HttpContext context, string email, string passwordHash, bool rememberMeChecked)
         {
+            Guard.WhenArgument(context, nameof(context)).IsNull().Throw();
+            Guard.WhenArgument(passwordHash, nameof(passwordHash)).IsNullOrEmpty().Throw();
+            Guard.WhenArgument(email, nameof(email)).IsNullOrEmpty().Throw();
             this.Context = context;
             this.Email = email;
             this.PasswordHash = passwordHash;
