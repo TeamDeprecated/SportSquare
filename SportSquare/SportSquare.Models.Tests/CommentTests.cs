@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using NUnit.Framework;
+using SportSquare.Models.Contracts;
 
 namespace SportSquare.Models.Tests
 {
@@ -190,6 +192,13 @@ namespace SportSquare.Models.Tests
 
             // Assert
             Assert.AreEqual(0, comment.VenueId);
+        }
+
+        [Test]
+        public void IsCommentImplementHisInterfaces()
+        {
+            // Act & Arrange & Assert
+            Assert.IsNotNull(typeof(Comment).GetInterfaces().SingleOrDefault(i => i == typeof(IDbModel)));
         }
     }
 }
