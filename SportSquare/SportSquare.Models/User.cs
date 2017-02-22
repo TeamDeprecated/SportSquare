@@ -11,14 +11,12 @@ namespace SportSquare.Models
         private ICollection<Comment> comments;
         private ICollection<UserFavoriteVenue> favoriteVenues;
         private ICollection<Rating> ratings;
-        private ICollection<UserWishVenue> wishVenues;
 
         public User()
         {
             this.comments = new HashSet<Comment>();
             this.favoriteVenues = new HashSet<UserFavoriteVenue>();
             this.ratings = new HashSet<Rating>();
-            this.wishVenues = new HashSet<UserWishVenue>();
             this.IsHidden = false;
         }
 
@@ -46,8 +44,6 @@ namespace SportSquare.Models
 
         public int Age { get; set; }
 
-        //[Required]
-        //[EmailAddress]
         public string Email { get; set; }
 
         public virtual ICollection<Comment> Comments
@@ -67,7 +63,6 @@ namespace SportSquare.Models
             get { return this.favoriteVenues; }
             set { this.favoriteVenues = value; }
         }
-
 
         public virtual UserWishVenue UserWishVenue { get; set; }
 

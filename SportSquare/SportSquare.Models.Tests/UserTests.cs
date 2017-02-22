@@ -97,22 +97,6 @@ namespace SportSquare.Models.Tests
         }
 
         [Test]
-        public void ConstructorWithParam_MustCreateWishVenuesCollectionWhenInit()
-        {
-            // Arrange & Act
-            var userId = Guid.NewGuid();
-            var email = "mail@cvb.bacm";
-            var firstname = "gogo";
-            var lastname = "gogov";
-            var gender = GenderType.Female;
-            var age = 17;
-            var user = new User(userId, email, firstname, lastname, gender, age);
-
-            // Assert
-            Assert.IsNotNull(user.WishVenues);
-        }
-
-        [Test]
         public void ConstructorWithParam_MustSetCorrectlyHisInitProp_ID()
         {
             // Arrange & Act
@@ -257,16 +241,6 @@ namespace SportSquare.Models.Tests
 
             // Assert
             Assert.IsNotNull(user.Ratings);
-        }
-
-        [Test]
-        public void ParameterlessConstructor_MustCreateWishVenuesCollectionWhenInit()
-        {
-            // Arrange & Act
-            var user = new User();
-
-            // Assert
-            Assert.IsNotNull(user.WishVenues);
         }
 
         [Test]
@@ -447,20 +421,6 @@ namespace SportSquare.Models.Tests
 
             // Assert
             Assert.AreEqual(favoriteVenues, user.FavoriteVenues);
-        }
-
-        [Test]
-        public void UserPropertyWishVenues_MustBeSetCorectly()
-        {
-            // Arrange
-            var user = new User();
-            var wishVenues = new HashSet<UserWishVenue>();
-
-            // Act
-            user.WishVenues = wishVenues;
-
-            // Assert
-            Assert.AreEqual(wishVenues, user.FavoriteVenues);
         }
     }
 }
