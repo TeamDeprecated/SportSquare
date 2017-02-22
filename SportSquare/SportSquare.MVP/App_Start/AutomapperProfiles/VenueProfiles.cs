@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using EF.Model;
-using SportSquare.Models;
-using SportSquare.MVP.App_Start.AutomapperProfiles;
+
 using SportSquareDTOs;
+using SportSquare.Models;
 
 namespace SportSquare.MVP.App_Start.AutomapperProfiles
 {
@@ -18,5 +17,4 @@ namespace SportSquare.MVP.App_Start.AutomapperProfiles
               .ForMember(x => x.Name, opt => opt.MapFrom(v => v.Name));
         }
     }
-  
 }

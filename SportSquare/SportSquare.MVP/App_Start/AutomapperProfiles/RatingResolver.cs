@@ -1,8 +1,9 @@
-﻿using AutoMapper;
-using EF.Model;
+﻿using System.Linq;
+
+using AutoMapper;
+
 using SportSquare.Models;
 using SportSquareDTOs;
-using System.Linq;
 
 namespace SportSquare.MVP.App_Start.AutomapperProfiles
 {
@@ -22,5 +23,4 @@ namespace SportSquare.MVP.App_Start.AutomapperProfiles
             return total / source.Ratings.Count();
         }
     }
-
 }

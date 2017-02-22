@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml;
-using EF.Model;
-using System.Reflection;
-using System.IO;
 using SportSquare.Models;
 using System.Linq;
 
@@ -26,10 +22,6 @@ namespace SportSquare.VenueImporter
         {
             var directory = "D:\\GitHub\\Team works\\SportSquare\\SportSquare";
             //var directory = "C:\\Academy\\WebForms\\SportSquareV2\\SportSquare\\SportSquare";
-
-            //var directory = Environment.CurrentDirectory;
-
-
 
             using (var reader = XmlReader.Create(directory+FILE_PATH))
             {
@@ -124,11 +116,9 @@ namespace SportSquare.VenueImporter
                         }
                         this.Venues.Add(venue);
                     }
-
                 }
             }
             return Venues;
-
         }
     }
 }

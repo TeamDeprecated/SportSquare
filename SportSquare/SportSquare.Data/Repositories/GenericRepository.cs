@@ -70,6 +70,11 @@ namespace SportSquare.Data.Repositories
 
         public void Add(TEntity entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("Adding entity can't be null");
+            }
+
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Added;
         }
@@ -99,34 +104,18 @@ namespace SportSquare.Data.Repositories
             return this.GetAll(null);
         }
 
-        // TODO SEE IT
         public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filterExpression)
         {
-            //if (filterExpression == null)
-            //{
-            //    throw new ArgumentNullException("Filter can't be null!");
-            //}
-
             return this.GetAll<TEntity>(filterExpression, null);
         }
 
         public IEnumerable<TEntity> GetAll<T1>(Expression<Func<TEntity, bool>> filterExpression, Expression<Func<TEntity, T1>> sortExpression)
         {
-            //if (filterExpression == null)
-            //{
-            //    throw new ArgumentNullException("Filter can't be null!");
-            //}
-
-            //if (sortExpression == null)
-            //{
-            //    throw new ArgumentNullException("Sort can't be null!");
-            //}
-
             return this.GetAll<T1, TEntity>(filterExpression, sortExpression, null);
         }
 
-        public IEnumerable<T2> GetAll<T1, T2>(Expression<Func<TEntity, bool>> filterExpression, 
-            Expression<Func<TEntity, T1>> sortExpression, 
+        public IEnumerable<T2> GetAll<T1, T2>(Expression<Func<TEntity, bool>> filterExpression,
+            Expression<Func<TEntity, T1>> sortExpression,
             Expression<Func<TEntity, T2>> selectExpression)
         {
             IQueryable<TEntity> result = this.DbSet;

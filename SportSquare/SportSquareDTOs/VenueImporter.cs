@@ -1,31 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml;
-using EF.Model;
-using System.Reflection;
 using System.IO;
-using SportSquare.Models;
 using System.Linq;
+
+using SportSquare.Models;
 
 namespace SportSquare.VenueImporter
 {
     public class VenueImporter
-    {   
+    {
         private const string FILE_PATH = "\\SportSquare.VenueImporter\\venueList.xml";
         public IList<Venue> Venues { get; private set; }
         public IList<VenueType> VenueTypes { get; private set; }
         public VenueImporter()
         {
-            this.Venues =  new List<Venue>();
-            this.VenueTypes =  new List<VenueType>();
+            this.Venues = new List<Venue>();
+            this.VenueTypes = new List<VenueType>();
         }
 
         public IList<Venue> ParseVenues()
         {
             var directory = Directory.GetCurrentDirectory();
-                //Environment.CurrentDirectory;
+            //Environment.CurrentDirectory;
 
-            using (var reader = XmlReader.Create(directory+FILE_PATH))
+            using (var reader = XmlReader.Create(directory + FILE_PATH))
             {
                 double latitude = 0.0;
                 double longitude = 0.0;
@@ -108,7 +106,7 @@ namespace SportSquare.VenueImporter
                         var venue = new Venue(latitude, longitude, image, name, phone, webAddress, address, city);
                         foreach (var type in venueType)
                         {
-                            if(this.VenueTypes.FirstOrDefault(x=>x.Name==type)==null)
+                            if (this.VenueTypes.FirstOrDefault(x => x.Name == type) == null)
                             {
                                 var newVenueType = new VenueType();
                                 newVenueType.Name = type;

@@ -11,6 +11,7 @@ namespace SportSquare.Models
         public VenueType()
         {
             this.venues = new HashSet<Venue>();
+            this.IsHidden = false;
         }
 
         public int Id { get; set; }

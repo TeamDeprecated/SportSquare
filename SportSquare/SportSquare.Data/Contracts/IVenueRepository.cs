@@ -4,7 +4,7 @@ using SportSquare.Models;
 
 namespace SportSquare.Data.Contracts
 {
-    public interface IVenueRepository: IGenericRepository<Venue>
+    public interface IVenueRepository : IGenericRepository<Venue>
     {
         IEnumerable<Venue> GetVenuesByLocation(string city);
 

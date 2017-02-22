@@ -7,18 +7,17 @@ namespace SportSquare.Models
 {
     public class Comment : IDbModel
     {
-        // TODO: Must be added validations!
         public Comment()
         {
+            this.Date = DateTime.Now;
+            this.IsHidden = false;
         }
 
-        public Comment(Guid userId, int venueId, string description)
+        public Comment(Guid userId, int venueId, string description) : this()
         {
             this.VenueId = venueId;
             this.UserId = userId;
             this.Description = description;
-            this.Date = DateTime.Now;
-            this.IsHidden = false;
         }
 
         public int Id { get; set; }

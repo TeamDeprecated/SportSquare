@@ -18,9 +18,14 @@ namespace SportSquare.Models
 
         public Venue()
         {
+            this.ratings = new HashSet<Rating>();
+            this.userWishVenue = new HashSet<UserWishVenue>();
+            this.comments = new HashSet<Comment>();
+            this.venueTypes = new HashSet<VenueType>();
+            this.IsHidden = false;
         }
 
-        public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress,  string address, string city)
+        public Venue(double latitude, double longitude, string image, string name, string phone, string webAddress,  string address, string city) : this()
         {
 
             this.Latitude = latitude;
@@ -31,15 +36,8 @@ namespace SportSquare.Models
             this.WebAddress = webAddress;
             this.Address = address;
             this.City = city;
-
-            this.ratings = new HashSet<Rating>();
-            this.userWishVenue = new HashSet<UserWishVenue>();
-            this.comments = new HashSet<Comment>();
-            this.venueTypes = new HashSet<VenueType>();
         }
 
-        //[Key]
-        // Guid cheched to Int.....temporarily
         public int Id { get; set; }
 
         public string Image { get; set; }
@@ -57,10 +55,6 @@ namespace SportSquare.Models
         public string Address { get; set; }
 
         public string WebAddress { get; set; }
-
-        //public int UserWishVenueId { get; set; }
-
-        //public virtual UserWishVenue UserWishVenue { get; set; }
 
         public virtual ICollection<VenueType> VenueTypes
         {

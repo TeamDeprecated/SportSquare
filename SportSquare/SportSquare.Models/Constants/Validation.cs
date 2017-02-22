@@ -1,4 +1,4 @@
-﻿namespace EF.Model.Constants
+﻿namespace SportSquare.Models.Constants
 {
     public static class Validation
     {
