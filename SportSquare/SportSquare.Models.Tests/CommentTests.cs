@@ -47,7 +47,7 @@ namespace SportSquare.Models.Tests
             var comment = new Comment(userId, venueId, description);
 
             // Assert
-            Assert.IsNotNull(description, comment.Description);
+            Assert.IsNotNull(comment.Date);
         }
 
         [Test]
@@ -135,13 +135,23 @@ namespace SportSquare.Models.Tests
         }
 
         [Test]
-        public void ParameterlessConstructor_MustNotSet_Date()
+        public void ParameterlessConstructor_MustSet_IsHidden()
         {
             // Arrange & Act
             var comment = new Comment();
 
             // Assert
             Assert.IsFalse(comment.IsHidden);
+        }
+
+        [Test]
+        public void ParameterlessConstructor_MustSet_Date()
+        {
+            // Arrange & Act
+            var comment = new Comment();
+
+            // Assert
+            Assert.IsNotNull(comment.Date);
         }
 
         [Test]
@@ -162,16 +172,6 @@ namespace SportSquare.Models.Tests
 
             // Assert
             Assert.AreEqual(0, comment.Id);
-        }
-
-        [Test]
-        public void ParameterlessConstructor_MustNotSet_IsHiddenProperty()
-        {
-            // Arrange & Act
-            var comment = new Comment();
-
-            // Assert
-            Assert.IsFalse(comment.IsHidden);
         }
 
         [Test]
