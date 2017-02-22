@@ -56,6 +56,14 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ploeh.AutoFixture, Version=3.50.2.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoFixture.3.50.2\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture.NUnit3, Version=3.50.2.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoFixture.NUnit3.3.50.2\lib\net40\Ploeh.AutoFixture.NUnit3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
     <Reference Include="WebFormsMvp, Version=1.4.5.0, Culture=neutral, PublicKeyToken=537f18701145dff0, processorArchitecture=MSIL">
@@ -83,6 +91,7 @@
     <Compile Include="Models\SearchEventArgsTests.cs" />
     <Compile Include="Presenters\Account\LoginPresenterTest.cs" />
     <Compile Include="Presenters\Account\RegisterPresenterTest.cs" />
+    <Compile Include="Presenters\AdminPanel\EditVenuesPresenterTests.cs" />
     <Compile Include="Presenters\HomePresenterTests.cs" />
     <Compile Include="Presenters\SearchPresenterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

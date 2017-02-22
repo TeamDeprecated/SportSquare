@@ -19,11 +19,12 @@
                         <LayoutTemplate>
                             <span runat="server" id="itemPlaceholder" />
                             <div class="pagerLine">
-                                <asp:DataPager ID="DataPagerCustomers" runat="server" PageSize="5">
+                                <asp:DataPager class="pagination" ID="DataPagerCustomers" runat="server" PageSize="5">
+                                    
                                     <Fields>
-                                        <asp:NextPreviousPagerField ShowFirstPageButton="True"
+                                        <asp:NextPreviousPagerField  ButtonCssClass="" ShowFirstPageButton="True"
                                             ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                        <asp:NumericPagerField />
+                                        <asp:NumericPagerField  NumericButtonCssClass="" CurrentPageLabelCssClass="active"/>
                                         <asp:NextPreviousPagerField ShowLastPageButton="True"
                                             ShowNextPageButton="False" ShowPreviousPageButton="False" />
                                     </Fields>
@@ -45,15 +46,15 @@
                                 <div class="infoContainer col-md-9 col-sm-3 col-xs-2">
                                     <div class="venueDetails">
                                         <%--<div class="venueScore btnSpecial pull-right" title="Рейтинг: <%#:string.Format("{0:F1}",Item.RatingAvarage) %>"><%#:string.Format("{0:F1}",Item.RatingAvarage) %>/10 </div>--%>
-                                        <div class="venueScore pull-right">
-                                            <ajaxtoolkit:rating id="VenueRating" runat="server"
-                                                currentrating="<%#Item.RatingAvarage %>"
-                                                maxrating="5"
-                                                starcssclass="ratingStar fa fa-star"
-                                                waitingstarcssclass="savedRatingStar fa fa-star-half-o"
-                                                filledstarcssclass="filledRatingStar fa fa-star"
-                                                emptystarcssclass="emptyRatingStar  fa fa-star-o "
-                                                  AutoPostBack="false"  OnChanged ="VenueRating_Changed" />
+                                        <div class="venueScore  pull-right ">
+                                            <ajaxToolkit:Rating ID="VenueRating" runat="server"
+                                                CurrentRating="<%#Item.RatingAvarage %>"
+                                                MaxRating="5"
+                                                StarCssClass="ratingStar fa fa-star"
+                                                WaitingStarCssClass="savedRatingStar fa fa-star-half-o"
+                                                FilledStarCssClass="filledRatingStar fa fa-star"
+                                                EmptyStarCssClass="emptyRatingStar  fa fa-star-o "
+                                                OnChanged="VenueRating_Changed" />
                                         </div>
                                         <div class="venueName">
                                             <h2><span class="venueIndex"></span><%# Container.DataItemIndex+1 %>.

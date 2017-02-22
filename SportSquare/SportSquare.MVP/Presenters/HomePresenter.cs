@@ -26,10 +26,7 @@ namespace SportSquare.MVP.Presenters
 
         protected void IpDetails(object sender, HomeEventArgs e)
         {
-            //TODO comment hardcoded Ip address and use the one comming from the event!\
             var city = gatherer.GetUserCityByIp(e.Ip);
-            // hard coded for test purposes!!
-            //var city = gatherer.GetUserCityByIp("87.126.72.111");
 
             this.View.Model.City = city;
         }

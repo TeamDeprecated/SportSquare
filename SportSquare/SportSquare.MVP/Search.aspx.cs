@@ -58,7 +58,7 @@ namespace SportSquare.MVP
                 marker.Position.Latitude = item.Latitude;
                 marker.Position.Longitude = item.Longitude;
                 marker.Clickable = true;
-                marker.Info = item.Title;
+                marker.Title = item.Title;
                 marker.LabelText = index.ToString();
                 this.GoogleMap1.Markers.Add(marker);
                 this.Markers.Markers.Add(marker);
