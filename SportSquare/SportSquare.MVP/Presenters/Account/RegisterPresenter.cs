@@ -29,6 +29,7 @@ namespace SportSquare.MVP.Presenters.Account
             this.userService = userService;
         }
 
+
         private void View_RegisterDetails(object sender, RegisterEventArgs e)
         {
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
 using SportSquare.MVP.Models;
-using Moq;
 
 namespace SportSquare.MVP.Tests.Models
 {

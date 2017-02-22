@@ -27,7 +27,6 @@ namespace SportSquare.MVP.Tests.Models.AccountModels
         {
             this.httpContextMock = null;
         }
-        //TODO figure out how to mock HttpContext
         [Test]
         public void ConstructorThrowsIfNullContextIsPassed()
         {
