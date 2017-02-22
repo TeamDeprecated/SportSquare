@@ -41,7 +41,7 @@ namespace SportSquare.MVP.AdminPanel
 
         public void Search_Click(object sender, EventArgs e)
         {
-            this.Response.Redirect(string.Format("~/adminpanel/editvenues?q={0}&location={1}", filter.Value, location.Value));
+            this.Response.Redirect($"~/adminpanel/editvenues?q={filter.Value}&location={location.Value}");
         }
 
         public void Edit_Click(object sender, EventArgs e)
@@ -54,14 +54,10 @@ namespace SportSquare.MVP.AdminPanel
 
         public string NormalizeString(string text)
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
 
             builder.Append(text[0]);
-
-            for (int i = 1; i < text.Length; i++)
-            {
-                builder.Append(text[i].ToString().ToLower());
-            }
+            builder.AppendLine(text.Substring(1, text.Length - 1).ToLower());
 
             return builder.ToString();
         }
