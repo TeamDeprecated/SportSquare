@@ -8,7 +8,6 @@ using SportSquare.MVP.Models.Search;
 using System.Collections.Generic;
 using SportSquareDTOs;
 using SportSquare.MVP.Models.VenueDetails;
-using Ploeh.AutoFixture;
 
 namespace SportSquare.MVP.Tests.Presenters
 {
@@ -189,25 +188,6 @@ namespace SportSquare.MVP.Tests.Presenters
         [Test]
         public void View_SaveVenueEventShouldCallwishListServiceOnce()
         {
-            //Fixture fixture = new Fixture();
-            //string expectedString = fixture.Create<string>();
-            //int expectedInt = fixture.Create<int>();
-            //Guid expectedGuid= fixture.Create<Guid>();
-
-            //var mockedSearchView = new Mock<ISearchView>();
-            //var mockedVenueService = new Mock<IVenueService>();
-            //var mockedRatingService = new Mock<IRatingService>();
-            //var mockedWishListService = new Mock<IWishListService>();
-            //var mockedModel = new Mock<SearchViewModel>();
-            //mockedSearchView.Setup(x => x.Model).Returns(mockedModel.Object);
-            //mockedWishListService.Setup(x => x.UpdateWishList(expectedGuid, expectedInt)).Verifiable();
-
-            //var searchPresenter = new SearchPresenter(mockedSearchView.Object, mockedVenueService.Object, mockedWishListService.Object, mockedRatingService.Object);
-
-            //mockedSearchView.Raise(x => x.SaveVenueEvent += null, new SaveVenueArgs(expectedString, expectedString));
-
-            //mockedWishListService.Verify(x => x.UpdateWishList(expectedGuid, expectedInt), Times.Once);
-
 
             var mockedSearchView = new Mock<ISearchView>();
             var mockedVenueService = new Mock<IVenueService>();

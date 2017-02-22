@@ -1,6 +1,5 @@
 ﻿using Moq;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 using SportSquare.MVP.Models.AdminPanel;
 using SportSquare.MVP.Presenters.AdminPanel;
 using SportSquare.MVP.Views.AdminPanel;
@@ -43,9 +42,8 @@ namespace SportSquare.MVP.Tests.Presenters.AdminPanel
         [Test]
         public void View_UpdateVenueDetailsSholdCallVenueServiceUpdateVenueOnce()
         {
-            Fixture fixture = new Fixture();
-            string expectedString= fixture.Create<string>();
-            double expectedDouble = fixture.Create<double>();
+            string expectedString= "expectedstring";
+            double expectedDouble = 2.02;
             var mockedview = new Mock<IEditVenuesView>();
             var mockService = new Mock<IVenueService>();
             var mockedModel = new Mock<EditVenuesViewModel>();
@@ -61,9 +59,8 @@ namespace SportSquare.MVP.Tests.Presenters.AdminPanel
         [Test]
         public void View_UpdateVenueDetailsSholdCallVenueServiceUpdateVenueWithCorrectParameters()
         {
-            Fixture fixture = new Fixture();
-            string expectedString = fixture.Create<string>();
-            double expectedDouble = fixture.Create<double>();
+            string expectedString = "expectedstring";
+            double expectedDouble = 2.02;
             var mockedview = new Mock<IEditVenuesView>();
             var mockService = new Mock<IVenueService>();
             var mockedModel = new Mock<EditVenuesViewModel>();
