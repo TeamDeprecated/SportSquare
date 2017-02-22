@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportSquare.Services.Contracts
+namespace SportSquare.Models.Factories
 {
-    public interface IRatingService
+    public interface IWishListFactory
     {
-         void AddRating(Guid user, int venue, int Rating);
+        UserWishVenue Create(Guid user);
     }
 }

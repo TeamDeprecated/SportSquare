@@ -440,6 +440,7 @@
       <DependentUpon>EditVenues.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\AutomapperProfiles\VenueDetailedProfile.cs" />
+    <Compile Include="Models\Search\SaveVenueArgs.cs" />
     <Compile Include="Models\AdminPanel\BasicEventArgs.cs" />
     <Compile Include="Models\AdminPanel\EditVenuesViewModel.cs" />
     <Compile Include="Models\AdminPanel\UpdateVenueEventArgs.cs" />

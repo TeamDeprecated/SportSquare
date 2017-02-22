@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace SportSquare.MVP.App_Start.AutomapperProfiles
 {
-    public class RatingResolverGeneric : IValueResolver<Venue, VenueDTO, double>
+    public class RatingResolverGeneric : IValueResolver<Venue, VenueDTO, int>
     {
-        public double Resolve(Venue source, VenueDTO destination, double destMember, ResolutionContext context)
+        public int Resolve(Venue source, VenueDTO destination, int destMember, ResolutionContext context)
         {
             if (source.Ratings.Count() == 0)
             {
@@ -19,7 +19,7 @@ namespace SportSquare.MVP.App_Start.AutomapperProfiles
             {
                 total += rate.Rate;
             }
-            return total / (double)source.Ratings.Count();
+            return total / source.Ratings.Count();
         }
     }
 

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SportSquare.Data.Contracts;
 using SportSquare.Models.Factories;
+using Bytes2you.Validation;
 
 namespace SportSquare.Services
 {
@@ -16,14 +17,20 @@ namespace SportSquare.Services
         public RatingService(IGenericRepository<Rating> repository, IUnitOfWork unitOfWork,IRatingFactory ratingFactory) 
             : base(repository, unitOfWork)
         {
+            Guard.WhenArgument(ratingFactory, nameof(ratingFactory)).IsNull().Throw();
             this.raitingFacgory = ratingFactory;
         }
 
-        public void AddRating(string user, int venue, int rating)
+        public void AddRating(Guid user, int venue, int rating)
         {
-            Guid userGuid;
-            Guid.TryParse(user, out userGuid);
-            this.Add(this.raitingFacgory.Create(userGuid, venue, rating));
+            var existingRating = this.GetAll(x => x.UserId == user && x.VenueId == venue);
+            if (existingRating.Count() == 0)
+            {
+                this.Add(this.raitingFacgory.Create(user, venue, rating));
+                return;
+            }
+            existingRating.First().Rate = rating;
+            this.Update(existingRating.First());
         }
     }
 }

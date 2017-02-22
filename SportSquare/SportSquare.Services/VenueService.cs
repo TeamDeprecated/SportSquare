@@ -51,7 +51,7 @@ namespace SportSquare.Services
 
         public IEnumerable<VenueDTO> FilterVenues(string filter, string location)
         {
-            var venues = this.Repository.GetAll(x => x.City == location && (x.VenueTypes.Any(vt => vt.Name.Contains(filter)) || x.Name == filter));
+            var venues = this.Repository.GetAll(x =>x.IsHidden==false&& x.City == location && (x.VenueTypes.Any(vt => vt.Name.Contains(filter)) || x.Name.Contains(filter)));
 
             return Mapper.Map<IEnumerable<Venue>, IEnumerable<VenueDTO>>(venues);
         }

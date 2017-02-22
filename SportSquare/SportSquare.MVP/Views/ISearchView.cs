@@ -1,4 +1,5 @@
 ﻿using SportSquare.MVP.Models.Search;
+using SportSquare.MVP.Models.VenueDetails;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace SportSquare.MVP.Views
     public interface ISearchView : IView<SearchViewModel>
     {
         event EventHandler<SearchEventArgs> QueryEvent;
+        event EventHandler<SaveVenueArgs> SaveVenueEvent;
+        event EventHandler<UpdateRatingEventArgs> UpdateRating;
+
 
     }
 }

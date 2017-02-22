@@ -13,6 +13,8 @@ using System.Web.UI.WebControls;
 using WebFormsMvp;
 using Microsoft.AspNet.Identity;
 using WebFormsMvp.Web;
+using GoogleMaps.Markers;
+using GoogleMaps;
 
 namespace SportSquare.MVP
 {
@@ -32,18 +34,28 @@ namespace SportSquare.MVP
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            
         }
 
         public VenueDetailedDTO FormViewVenueDetails_GetItem([QueryString] int? id)
         {
             this.OnFormGetItems?.Invoke(this, new GetVenueDetailsEventArgs(id));
-
+            //var marker = new Marker();
+            //marker.Position.Latitude = this.Model.Venue.Latitude;
+            //marker.Position.Longitude = this.Model.Venue.Longitude;
+            //marker.Clickable = true;
+            //marker.Title = this.Model.Venue.Title;
+            ////var map = new GoogleMap();
+            //var map = (GoogleMap)this.FormViewVenueDetails.FindControl("Markers");
+            ////var markers= (Markers)this.FormViewVenueDetails.FindControl("Markers");
+            //map.Markers.Add(marker);
+            ////Markers.Markers.Add(marker);
             return this.Model.Venue;
         }
 
         public void VenueRating_Changed(object sender, RatingEventArgs e)
         {
-            this.UpdateRating?.Invoke(sender, new UpdateRatingEventArgs(this.User.Identity.GetUserId(), 140, e.Value));
+            this.UpdateRating?.Invoke(sender, new UpdateRatingEventArgs(this.User.Identity.GetUserId(), this.Request.QueryString.GetValues("id")[0], e.Value));
         }
 
         protected void Save_Click(object sender, EventArgs e)
@@ -53,8 +65,9 @@ namespace SportSquare.MVP
 
         protected void SaveComment_Click(object sender, EventArgs e)
         {
-                this.AddComment?.Invoke(sender, new AddCommentEventArgs(this.User.Identity.GetUserId(), 140, "Яката дупара"));
-
+            var comment = ((TextBox)this.FormViewVenueDetails.FindControl("VenueComment")).Text;
+                this.AddComment?.Invoke(sender, new AddCommentEventArgs(this.User.Identity.GetUserId(), this.Request.QueryString.GetValues("id")[0], comment));
+            
             this.FormViewVenueDetails.DataBind();
             //this.UpdatePanel.Update();
         }

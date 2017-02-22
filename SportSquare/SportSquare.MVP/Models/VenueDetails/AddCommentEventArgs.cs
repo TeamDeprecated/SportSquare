@@ -7,7 +7,7 @@ namespace SportSquare.MVP.Models.VenueDetails
 {
     public class AddCommentEventArgs: GenericVenueDetailsEventArgs
     {
-        public AddCommentEventArgs(string userId, int venueId, string comment):base(userId, venueId)
+        public AddCommentEventArgs(string userId, string venueId, string comment):base(userId, venueId)
         {
          
             this.Comment = comment;

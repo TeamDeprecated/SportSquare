@@ -46,31 +46,30 @@ namespace SportSquare.Models
 
         public int Age { get; set; }
 
+        //[Required]
+        //[EmailAddress]
         public string Email { get; set; }
 
         public virtual ICollection<Comment> Comments
         {
-            get { return comments; }
-            set { comments = value; }
+            get { return this.comments; }
+            set { this.comments = value; }
         }
 
         public virtual ICollection<Rating> Ratings
         {
-            get { return ratings; }
-            set { ratings = value; }
+            get { return this.ratings; }
+            set { this.ratings = value; }
         }
 
         public virtual ICollection<UserFavoriteVenue> FavoriteVenues
         {
-            get { return favoriteVenues; }
-            set { favoriteVenues = value; }
+            get { return this.favoriteVenues; }
+            set { this.favoriteVenues = value; }
         }
 
-        public virtual ICollection<UserWishVenue> WishVenues
-        {
-            get { return wishVenues; }
-            set { wishVenues = value; }
-        }
+
+        public virtual UserWishVenue UserWishVenue { get; set; }
 
         public bool IsHidden { get; set; }
     }

@@ -6,6 +6,10 @@ using WebFormsMvp;
 using SportSquare.MVP.Models.Search;
 using SportSquare.MVP.Presenters;
 using GoogleMaps.Markers;
+using Microsoft.AspNet.Identity;
+using System.Web.UI.WebControls;
+using SportSquare.MVP.Models.VenueDetails;
+using AjaxControlToolkit;
 
 namespace SportSquare.MVP
 {
@@ -14,6 +18,14 @@ namespace SportSquare.MVP
     {
 
         public event EventHandler<SearchEventArgs> QueryEvent;
+        public event EventHandler<SaveVenueArgs> SaveVenueEvent;
+        public event EventHandler<UpdateRatingEventArgs> UpdateRating;
+
+        public Search()
+        {
+            this.AutoDataBind = false;
+
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +41,8 @@ namespace SportSquare.MVP
             filter = this.Request.QueryString.GetValues("q")[0];
             locationFilter = this.Request.QueryString.GetValues("location")[0];
             this.QueryEvent?.Invoke(sender, new SearchEventArgs(filter, locationFilter));
-            var firstVenue = this.Model.FilteredVenues.First();
+            this.FilteredVenues.DataBind();
+            var firstVenue = this.Model.FilteredVenues.FirstOrDefault(x=>x.RatingAvarage>=0);
 
             if (firstVenue != null)
             {
@@ -45,7 +58,7 @@ namespace SportSquare.MVP
                 marker.Position.Latitude = item.Latitude;
                 marker.Position.Longitude = item.Longitude;
                 marker.Clickable = true;
-                marker.Info = item.Title;
+                marker.Title = item.Title;
                 marker.LabelText = index.ToString();
                 this.GoogleMap1.Markers.Add(marker);
                 this.Markers.Markers.Add(marker);
@@ -54,5 +67,16 @@ namespace SportSquare.MVP
 
         }
 
+        protected void WishListSave_Click(object sender, EventArgs e)
+        {
+            var user=this.User.Identity.GetUserId();
+            var venue = ((Button)sender).CommandArgument;
+            this.SaveVenueEvent?.Invoke(sender, new SaveVenueArgs(user, venue));
+
+        }
+        public void VenueRating_Changed(object sender, RatingEventArgs e)
+        {
+            this.UpdateRating?.Invoke(sender, new UpdateRatingEventArgs(this.User.Identity.GetUserId(), this.Request.QueryString.GetValues("id")[0], e.Value));
+        }
     }
 }

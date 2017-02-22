@@ -3,10 +3,14 @@ using Moq;
 using NUnit.Framework;
 using SportSquare.Data.Contracts;
 using SportSquare.Models;
+using SportSquare.Models.Factories;
 using SportSquare.MVP;
 using SportSquare.MVP.App_Start.AutomapperProfiles;
 using SportSquareDTOs;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace SportSquare.Services.Tests
 {
@@ -33,27 +37,37 @@ namespace SportSquare.Services.Tests
             Assert.AreEqual(message, ex.Message);
         }
 
-        // TODO Fix tests
-        //[Test]
-        //public void FilterVenuesShouldCallVenueRepositoryOnce()
-        //{
-        //    var mapper = new Mock<IMapper>();
-        //    var mockedRepo = new Mock<IVenueRepository>();
-        //    mockedRepo.Setup(x => x.FilterVenues(It.IsAny<string>(), It.IsAny<string>())).Verifiable();
-        //    var service = new VenueService(mockedRepo.Object);
-        //    service.FilterVenues(It.IsAny<string>(), It.IsAny<string>());
-        //    mockedRepo.Verify(x=>x.FilterVenues(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
-        //}
+        [Test]
+        public void FilterVenuesShouldCallVenueRepositoryOnce()
+        {
+            var mapper = new Mock<IMapper>();
+            var mockedRepo = new Mock<IGenericRepository<Venue>>();
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedFactoy = new Mock<IVenueFactory>();
+            mockedRepo.Setup(x => x.GetAll(It.IsAny<Expression<Func<Venue, bool>>>())).Verifiable();
+            var service = new VenueService(mockedRepo.Object, mockedUnitOfWork.Object, mockedFactoy.Object);
+            service.FilterVenues(It.IsAny<string>(), It.IsAny<string>());
+            mockedRepo.Verify(x => x.GetAll(It.IsAny<Expression<Func<Venue, bool>>>()), Times.Once);
+        }
+
+        //TODO do a test for input parameters are same!
         //[Test]
         //public void FilterVenuesShouldCallVenueRepositoryWithSameFilter()
         //{
+        //    var mapper = new Mock<IMapper>();
+        //    var mockedRepo = new Mock<IGenericRepository<Venue>>();
+        //    var mockedUnitOfWork = new Mock<IUnitOfWork>();
+        //    var mockedFactoy = new Mock<IVenueFactory>();
+        //    var location = "Sofia";
         //    var filter = "filter";
-        //    var mockedRepo = new Mock<IVenueRepository>();
-        //    mockedRepo.Setup(x => x.FilterVenues(filter, It.IsAny<string>())).Verifiable();
-        //    var service = new VenueService(mockedRepo.Object);
-        //    service.FilterVenues(filter, filter);
-        //    mockedRepo.Verify(x => x.FilterVenues(It.Is<string>(arg=>arg==filter), It.IsAny<string>()), Times.Once);
+        //    Expression<Func<Venue, bool>> expexted = x => x.City == location && x.VenueTypes.Any(vt => vt.Name.Contains(filter));
+        //    Expression<Func<Venue, bool>> expexted2 = x => x.City == "" && x.VenueTypes.Any(vt => vt.Name.Contains(""));
+        //    mockedRepo.Setup(x => x.GetAll(expexted)).Verifiable();
+        //    var service = new VenueService(mockedRepo.Object, mockedUnitOfWork.Object, mockedFactoy.Object);
+        //    service.FilterVenues(location, filter);
+        //    mockedRepo.Verify(x => x.GetAll(It.Is<Expression<Func<Venue, bool>>>(arg => arg.Compile().Invoke(new List<Venue>()) == expexted2.Compile().Invoke(new Venue()))), Times.Once);
         //}
+
         //[Test]
         //public void FilterVenuesShouldCallVenueRepositoryWithSameLocationFilter()
         //{

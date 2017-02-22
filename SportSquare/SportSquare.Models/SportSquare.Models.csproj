@@ -59,6 +59,7 @@
     <Compile Include="Factories\IRatingFactory.cs" />
     <Compile Include="Factories\IUserFactory.cs" />
     <Compile Include="Factories\IVenueFactory.cs" />
+    <Compile Include="Factories\IWishListFactory.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserFavoriteVenue.cs" />

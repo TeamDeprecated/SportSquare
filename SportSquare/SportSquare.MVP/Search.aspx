@@ -2,11 +2,14 @@
 
 <%--<%@ Register Assembly="Artem.Google" Namespace="Artem.Google.UI" TagPrefix="artem" %>--%>
 <%@ Register Assembly="GoogleMaps" Namespace="GoogleMaps" TagPrefix="artem" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="/content/search.css" type="text/css" />
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 
     <div class="row pageContainer">
         <div class="col-md-6 listViewContainer">
@@ -16,11 +19,12 @@
                         <LayoutTemplate>
                             <span runat="server" id="itemPlaceholder" />
                             <div class="pagerLine">
-                                <asp:DataPager ID="DataPagerCustomers" runat="server" PageSize="5">
+                                <asp:DataPager class="pagination" ID="DataPagerCustomers" runat="server" PageSize="5">
+                                    
                                     <Fields>
-                                        <asp:NextPreviousPagerField ShowFirstPageButton="True"
+                                        <asp:NextPreviousPagerField  ButtonCssClass="" ShowFirstPageButton="True"
                                             ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                        <asp:NumericPagerField />
+                                        <asp:NumericPagerField  NumericButtonCssClass="" CurrentPageLabelCssClass="active"/>
                                         <asp:NextPreviousPagerField ShowLastPageButton="True"
                                             ShowNextPageButton="False" ShowPreviousPageButton="False" />
                                     </Fields>
@@ -41,7 +45,17 @@
                                 </div>
                                 <div class="infoContainer col-md-9 col-sm-3 col-xs-2">
                                     <div class="venueDetails">
-                                        <div class="venueScore btnSpecial pull-right" title="Рейтинг: <%#:string.Format("{0:F1}",Item.RatingAvarage) %>"><%#:string.Format("{0:F1}",Item.RatingAvarage) %>/10 </div>
+                                        <%--<div class="venueScore btnSpecial pull-right" title="Рейтинг: <%#:string.Format("{0:F1}",Item.RatingAvarage) %>"><%#:string.Format("{0:F1}",Item.RatingAvarage) %>/10 </div>--%>
+                                        <div class="venueScore  pull-right ">
+                                            <ajaxToolkit:Rating ID="VenueRating" runat="server"
+                                                CurrentRating="<%#Item.RatingAvarage %>"
+                                                MaxRating="5"
+                                                StarCssClass="ratingStar fa fa-star"
+                                                WaitingStarCssClass="savedRatingStar fa fa-star-half-o"
+                                                FilledStarCssClass="filledRatingStar fa fa-star"
+                                                EmptyStarCssClass="emptyRatingStar  fa fa-star-o "
+                                                OnChanged="VenueRating_Changed" />
+                                        </div>
                                         <div class="venueName">
                                             <h2><span class="venueIndex"></span><%# Container.DataItemIndex+1 %>.
                                         <asp:HyperLink NavigateUrl='<%# string.Format("~/venuedetails.aspx?id={0}", Item.Id) %>' runat="server" Text='<%#:Item.Name %>' /></h2>
@@ -58,14 +72,7 @@
                                         </div>
                                     </div>
                                     <div class="resultFooter">
-
-                                        <asp:LoginView runat="server" ViewStateMode="Disabled">
-                                            <AnonymousTemplate>
-                                            </AnonymousTemplate>
-                                            <LoggedInTemplate>
-                                                <asp:Button Text="Save" CssClass="btn btn-success" runat="server" />
-                                            </LoggedInTemplate>
-                                        </asp:LoginView>
+                                        <asp:Button Visible="<%#User.Identity.IsAuthenticated %>" Text="Save" CommandArgument="<%#:Item.Id %>" ID="WishListSave" OnClick="WishListSave_Click" CssClass="btn btn-success" runat="server" />
                                         <div class="buttons">
                                         </div>
                                     </div>
