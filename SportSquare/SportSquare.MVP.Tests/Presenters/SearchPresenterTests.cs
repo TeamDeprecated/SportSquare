@@ -8,6 +8,7 @@ using SportSquare.MVP.Models.Search;
 using System.Collections.Generic;
 using SportSquareDTOs;
 using SportSquare.MVP.Models.VenueDetails;
+using Ploeh.AutoFixture;
 
 namespace SportSquare.MVP.Tests.Presenters
 {
@@ -188,19 +189,41 @@ namespace SportSquare.MVP.Tests.Presenters
         [Test]
         public void View_SaveVenueEventShouldCallwishListServiceOnce()
         {
+            //Fixture fixture = new Fixture();
+            //string expectedString = fixture.Create<string>();
+            //int expectedInt = fixture.Create<int>();
+            //Guid expectedGuid= fixture.Create<Guid>();
+
+            //var mockedSearchView = new Mock<ISearchView>();
+            //var mockedVenueService = new Mock<IVenueService>();
+            //var mockedRatingService = new Mock<IRatingService>();
+            //var mockedWishListService = new Mock<IWishListService>();
+            //var mockedModel = new Mock<SearchViewModel>();
+            //mockedSearchView.Setup(x => x.Model).Returns(mockedModel.Object);
+            //mockedWishListService.Setup(x => x.UpdateWishList(expectedGuid, expectedInt)).Verifiable();
+
+            //var searchPresenter = new SearchPresenter(mockedSearchView.Object, mockedVenueService.Object, mockedWishListService.Object, mockedRatingService.Object);
+
+            //mockedSearchView.Raise(x => x.SaveVenueEvent += null, new SaveVenueArgs(expectedString, expectedString));
+
+            //mockedWishListService.Verify(x => x.UpdateWishList(expectedGuid, expectedInt), Times.Once);
+
 
             var mockedSearchView = new Mock<ISearchView>();
             var mockedVenueService = new Mock<IVenueService>();
             var mockedRatingService = new Mock<IRatingService>();
             var mockedWishListService = new Mock<IWishListService>();
             var mockedModel = new Mock<SearchViewModel>();
+            var mockedGuid = Guid.Parse("E56F7468-AC9B-454C-A73E-E687DFC925B1");
+            var mockedGuidString = "E56F7468-AC9B-454C-A73E-E687DFC925B1";
+
             mockedSearchView.Setup(x => x.Model).Returns(mockedModel.Object);
-            mockedWishListService.Setup(x => x.UpdateWishList(It.IsAny<Guid>(), It.IsAny<int>()));
+            mockedWishListService.Setup(x => x.UpdateWishList(It.IsAny<Guid>(), It.IsAny<int>())).Verifiable();
 
             var searchPresenter = new SearchPresenter(mockedSearchView.Object, mockedVenueService.Object, mockedWishListService.Object, mockedRatingService.Object);
-            mockedSearchView.Raise(x => x.SaveVenueEvent += null, new SaveVenueArgs(It.IsAny<string>(), It.IsAny<string>()));
+            mockedSearchView.Raise(x => x.SaveVenueEvent += null, new SaveVenueArgs(mockedGuidString, ""));
 
-            mockedWishListService.Verify(x => x.UpdateWishList(It.IsAny<Guid>(), It.IsAny<int>()), Times.Once);
+            mockedWishListService.Verify(x => x.UpdateWishList(mockedGuid, It.IsAny<int>()), Times.Exactly(1));
         }
 
         [Test]
@@ -215,10 +238,10 @@ namespace SportSquare.MVP.Tests.Presenters
             var mockedGuid = Guid.Parse("E56F7468-AC9B-454C-A73E-E687DFC925B1");
             var mockedGuidString = "E56F7468-AC9B-454C-A73E-E687DFC925B1";
             mockedSearchView.Setup(x => x.Model).Returns(mockedModel.Object);
-            mockedWishListService.Setup(x => x.UpdateWishList(It.IsAny<Guid>(), It.IsAny<int>()));
+            mockedWishListService.Setup(x => x.UpdateWishList(It.IsAny<Guid>(),1));
 
             var searchPresenter = new SearchPresenter(mockedSearchView.Object, mockedVenueService.Object, mockedWishListService.Object, mockedRatingService.Object);
-            mockedSearchView.Raise(x => x.SaveVenueEvent += null, new SaveVenueArgs(mockedGuidString, It.IsAny<string>()));
+            mockedSearchView.Raise(x => x.SaveVenueEvent += null, new SaveVenueArgs(mockedGuidString, ""));
 
             mockedWishListService.Verify(x => x.UpdateWishList(It.Is<Guid>(arg => arg == mockedGuid), It.IsAny<int>()), Times.Once);
         }
@@ -230,20 +253,22 @@ namespace SportSquare.MVP.Tests.Presenters
         [TestCase("15", 15)]
         public void View_SaveVenueEventShouldCallwishListServiceWithCorrectVenue(string mockedVenueString, int mockedVenueInt)
         {
-
             var mockedSearchView = new Mock<ISearchView>();
             var mockedVenueService = new Mock<IVenueService>();
             var mockedRatingService = new Mock<IRatingService>();
             var mockedWishListService = new Mock<IWishListService>();
             var mockedModel = new Mock<SearchViewModel>();
 
+            var mockedGuid = Guid.Parse("E56F7468-AC9B-454C-A73E-E687DFC925B1");
+            var mockedGuidString = "E56F7468-AC9B-454C-A73E-E687DFC925B1";
+
             mockedSearchView.Setup(x => x.Model).Returns(mockedModel.Object);
-            mockedWishListService.Setup(x => x.UpdateWishList(It.IsAny<Guid>(), It.IsAny<int>()));
+            mockedWishListService.Setup(x => x.UpdateWishList(mockedGuid, mockedVenueInt));
 
             var searchPresenter = new SearchPresenter(mockedSearchView.Object, mockedVenueService.Object, mockedWishListService.Object, mockedRatingService.Object);
-            mockedSearchView.Raise(x => x.SaveVenueEvent += null, new SaveVenueArgs(It.IsAny<string>(), mockedVenueString));
+            mockedSearchView.Raise(x => x.SaveVenueEvent += null, new SaveVenueArgs(mockedGuidString, mockedVenueString));
 
-            mockedWishListService.Verify(x => x.UpdateWishList(It.IsAny<Guid>(), mockedVenueInt), Times.Once);
+            mockedWishListService.Verify(x => x.UpdateWishList(mockedGuid, mockedVenueInt), Times.Once);
 
         }
 
